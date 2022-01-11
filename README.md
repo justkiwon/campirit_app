@@ -1,6 +1,6 @@
 # campirit_app
 
-####깃 시작하기
+### 깃 시작하기
 1. 폴더 생성
 2. 닉네임과 이메일 등록
 git config --global user.name "닉네임"
