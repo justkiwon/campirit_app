@@ -1,6 +1,6 @@
 # campirit_app
 
-### 깃 시작하기
+## 깃 시작하기
 1. 폴더 생성
 2. 닉네임과 이메일 등록
 git config --global user.name "닉네임"
@@ -33,12 +33,44 @@ git init
 https://backlog.com/git-tutorial/kr/stepup/stepup2_4.html 
 
 
-### 설치할 파일
+## 설치할 라이브러리 사용법
 
-#### Piker library
+### Piker library
 $ npm install @react-native-picker/picker --save
 
 ------- 참고자료-------------
 https://github.com/react-native-picker/picker
 
-### 라이브러리 (모듈) 사용법
+### BarHeight
+$ npm install --save react-native-status-bar-height
+
+------- 참고자료-------------
+https://velog.io/@zlemzlem5656/ReactNative-%EC%97%90%EC%84%9C-StatusBar-%EB%86%92%EC%9D%B4-%EA%B5%AC%ED%95%98%EA%B8%B0
+
+### expo-font
+$ expo install expo-font
+
+------ 참고자료-------------
+https://docs.expo.dev/versions/latest/sdk/font/
+
+
+### Dimensions
+
+import {Dimensions} from 'react-native';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+Dimensions는 모니터 높이 너비를 가져와서 모니터마다 비율이 맞게 하는 모여주는 것임. 
+따라서 스타일에서 숫자만 쓰지 말고 dimension 적용해서 쓰기
+
+ex) marginTop:50 --> marginTop: windowHeight/50 (윈도우높이/50과 그냥 50은 사이즈가 다름 따라서 사이즈 맞춰 면경 요망)
+ex) width:50 --> width: windowWidth/50
+
+### useState
+
+import React, {useState} from 'react';
+
+const [state, setState] = useState("");
+
+useState는 상태 변수로 state값이 기본 값이고 useState를 쓰면 setState로 바뀐다.
