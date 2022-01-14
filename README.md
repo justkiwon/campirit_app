@@ -14,8 +14,8 @@ git init
                              처음 이후는 git push 만 하면 됨
 
 이미 리포지토리가 있다면
-1. 깃 에드 . 
-4,5,7 실행
+1. git add . 
+4,5,7 실행 --> 7번은 한번 하면 git push만 해도 됨
 
 
 
@@ -34,5 +34,11 @@ https://backlog.com/git-tutorial/kr/stepup/stepup2_4.html
 
 
 ### 설치할 파일
+
+#### Piker library
+$ npm install @react-native-picker/picker --save
+
+------- 참고자료-------------
+https://github.com/react-native-picker/picker
 
 ### 라이브러리 (모듈) 사용법
