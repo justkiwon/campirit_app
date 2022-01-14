@@ -50,7 +50,7 @@ https://velog.io/@zlemzlem5656/ReactNative-%EC%97%90%EC%84%9C-StatusBar-%EB%86%9
 ### expo-font
 $ expo install expo-font
 
------- 참고자료-------------
+------ 참고자료-------------\
 https://docs.expo.dev/versions/latest/sdk/font/
 
 
