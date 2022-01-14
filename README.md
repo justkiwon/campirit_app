@@ -38,13 +38,13 @@ https://backlog.com/git-tutorial/kr/stepup/stepup2_4.html
 ### Piker library
 $ npm install @react-native-picker/picker --save
 
-------- 참고자료-------------
+------- 참고자료-------------\
 https://github.com/react-native-picker/picker
 
 ### BarHeight
 $ npm install --save react-native-status-bar-height
 
-------- 참고자료-------------
+------- 참고자료-------------\
 https://velog.io/@zlemzlem5656/ReactNative-%EC%97%90%EC%84%9C-StatusBar-%EB%86%92%EC%9D%B4-%EA%B5%AC%ED%95%98%EA%B8%B0
 
 ### expo-font
