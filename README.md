@@ -34,24 +34,24 @@ https://backlog.com/git-tutorial/kr/stepup/stepup2_4.html
 
 ## MakeKit data structure
 
-Object {
-  "1": Object {
-    "name": "tent1",
-    "price": 1000,
-  },
-  "2": Object {
-    "name": "tent2",
-    "price": 2000,
-  },
-  "3": Object {
-    "name": "tent3",
-    "price": 3000,
-  },
-  "4": Object {
-    "name": "tent4",
-    "price": 4000,
-  },
-}
+Object {                    \n
+  "1": Object {                      \n
+    "name": "tent1",                 \n
+    "price": 1000,           \n
+  },                 \n
+  "2": Object {                \n
+    "name": "tent2",               \n
+    "price": 2000,               \n
+  },                         \n
+  "3": Object {                \n
+    "name": "tent3",       \n
+    "price": 3000,         \n
+  },                        \n
+  "4": Object {           \n
+    "name": "tent4",      \n
+    "price": 4000,               \n
+  },                          \n
+}                              \n
 
 ## 설치할 라이브러리 사용법
 
