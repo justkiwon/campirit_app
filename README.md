@@ -60,7 +60,8 @@ Object {
 $ npm install @react-native-picker/picker --save \
 $ expo install @react-native-picker/picker \
 ------- 참고자료-------------\
-https://github.com/react-native-picker/picker
+https://github.com/react-native-picker/picker  \
+https://taehoon95.tistory.com/117
 
 ### BarHeight
 $ npm install --save react-native-status-bar-height
