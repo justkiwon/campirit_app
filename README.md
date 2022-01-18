@@ -32,6 +32,26 @@ git init
 2. 브랜치 작업
 https://backlog.com/git-tutorial/kr/stepup/stepup2_4.html 
 
+## MakeKit data structure
+
+Object {
+  "1": Object {
+    "name": "tent1",
+    "price": 1000,
+  },
+  "2": Object {
+    "name": "tent2",
+    "price": 2000,
+  },
+  "3": Object {
+    "name": "tent3",
+    "price": 3000,
+  },
+  "4": Object {
+    "name": "tent4",
+    "price": 4000,
+  },
+}
 
 ## 설치할 라이브러리 사용법
 
