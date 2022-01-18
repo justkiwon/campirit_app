@@ -58,7 +58,7 @@ Object {
 
 ### Piker library
 $ npm install @react-native-picker/picker --save
-
+$ expo install @react-native-picker/picker
 ------- 참고자료-------------\
 https://github.com/react-native-picker/picker
 
