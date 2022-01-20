@@ -91,8 +91,26 @@ ex) width:50 --> width: windowWidth/50
 
 ### useState
 
-import React, {useState} from 'react';
+import React, {useState} from 'react'; 
 
 const [state, setState] = useState("");
 
 useState는 상태 변수로 state값이 기본 값이고 useState를 쓰면 setState로 바뀐다.
+
+### 컴포넌트 조건문
+https://itstudy-mary.tistory.com/381
+
+
+### 컴포넌트 숨기기
+
+ex)
+const[hi,setHi]=useState({});
+
+PickerAdd() =>{
+  [key]:{
+        "visible":false,
+};
+<TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option1)}}><Text>{option1}</Text></TouchableOpacity>
+
+
+https://webisfree.com/2019-08-14/react-native-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%88%A8%EA%B8%B0%EA%B8%B0-hide
