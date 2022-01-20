@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import {TouchableOpacity,ScrollView,Text,Image, View, StyleSheet, SafeAreaView, Button, Dimensions,Alert} from 'react-native';
-import {tent, product1, product2, product3} from "./Datasheet";
+
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default function StartPage({ navigation }) { 
+export default function StartPage({ ansList,navigation }) { 
 
 
   const tent = {
@@ -23,7 +23,7 @@ export default function StartPage({ navigation }) {
       info:"텐트와 관련된 설명 간단하게 근데 이해하기는 쉽게 그러면 이거는 언제 어케 쓰냐 진심 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네미쳐돌아 돌아 내가 미챠 버려 홀라라랄",
     },
   };
- 
+
   const product1= {
     1:{
       name: "tent1",
@@ -38,7 +38,7 @@ export default function StartPage({ navigation }) {
       option1: "빨간거",
       option2: "쉬빨간거",
       option3: "핵빨간거",
-    }, 
+    },
     3:{
       name: "tent3",
       price: 3000,
@@ -54,7 +54,7 @@ export default function StartPage({ navigation }) {
       option3: "핵빨간거",
     }
   };
- 
+
   const product2= {
     21:{
       name: "tent2-1",
@@ -85,7 +85,7 @@ export default function StartPage({ navigation }) {
       option3: "핵빨간거",
     }
   };
- 
+
   const product3= {
     31:{
       name: "tent3-1",
@@ -116,7 +116,7 @@ export default function StartPage({ navigation }) {
       option3: "핵빨간거",
     }
   };
- 
+
 
 
   const [hi, setHi] = useState({});
@@ -127,8 +127,7 @@ const PickerAdd =(key,name,price,select_option) =>{
     ...hi,
   [key]:{ "name":name,
           "price":price,
-          "select_option":select_option,
-          "visible":false,
+          "select_option":select_option
         },
 };
 setHi(newPicker);
@@ -142,7 +141,6 @@ const Add = (key,name, price,option1 ,option2, option3) =>{
          "option1":option1,
          "option2":option2,
          "option3":option3,
-         "visible":true,
         },
 };
 setHi(newAdd);
@@ -182,11 +180,10 @@ const Product_info_detail =({name,price}) => {
             <Text style={{marginTop:windowHeight/200,left:-windowWidth/8}}>{money}원</Text>
       </View>
       <View style={{flexDirection:"row", position:"absolute", left:windowWidth/3.8, marginTop:windowHeight/11, width:windowWidth/2.2,height:windowHeight/21}}>
-
-          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option1)}}><Text>{option1}</Text></TouchableOpacity>
-          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option2);}}><Text>{option2}</Text></TouchableOpacity>
-          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option3);}}><Text>{option3}</Text></TouchableOpacity>
-            </View>
+          <TouchableOpacity style={styles.Picker_Button} onPress={()=>{PickerAdd(keyy,tent_name,money,option1); }}><Text>{option1}</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.Picker_Button} onPress={()=>{PickerAdd(keyy,tent_name,money,option2)}}><Text>{option2}</Text></TouchableOpacity>
+          <TouchableOpacity style={styles.Picker_Button} onPress={()=>{PickerAdd(keyy,tent_name,money,option3)} }><Text>{option3}</Text></TouchableOpacity>
+            </View> 
           <TouchableOpacity style={styles.Delete_Button} onPress={() => Delete_product(keyy)}>
             <Image source={require("./assets/images/MakeKit/canel_button.png")}/>
           </TouchableOpacity>
@@ -224,7 +221,7 @@ return (
                 {Object.keys(product1).map((key) =>(
                 <View key={key}>
             <Product_info_detail name={product1[key].name} price={product1[key].price}/>
-            <TouchableOpacity style={styles.check_button} onPress={()=>{ Add(key, product1[key].name, product1[key].price, product1[key].option1, product1[key].option2, product1[key].option3); setVisible(true)}}>
+            <TouchableOpacity style={styles.check_button} onPress={()=>{ Add(key, product1[key].name, product1[key].price, product1[key].option1, product1[key].option2, product1[key].option3)}}>
                 <Text>BUY</Text>
               </TouchableOpacity>
                 </View>
@@ -327,9 +324,9 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     backgroundColor:"#ff8c00",
     position:"absolute",
-    marginTop:windowHeight/8,
+    marginTop:windowHeight/7.2,
     borderRadius:50,
-    left:windowWidth/4.8,
+    left:windowWidth/5.6,
     width:windowWidth/9,
     height:windowHeight/32,
   },
