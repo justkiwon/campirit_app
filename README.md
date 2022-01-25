@@ -97,6 +97,9 @@ const [state, setState] = useState("");
 
 useState는 상태 변수로 state값이 기본 값이고 useState를 쓰면 setState로 바뀐다.
 
+### firebase
+$ npm install --save firebase
+
 ### 컴포넌트 조건문
 https://itstudy-mary.tistory.com/381
 
