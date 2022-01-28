@@ -1,15 +1,29 @@
 # campirit_app
 
+## 핸드폰으로 에뮬레이터 실행하기
+1. 핸드폰 설정
+설정 -> 개발자 옵션 -> USB 디버깅 활성화
+
+2. CMD창에 명령어 입력\
+abd devices\
+위의 명령어를 입력하면 에뮬레이터와 기기번호가 나옴
+
+3. run-android 실행\
+react-native run-android
+
+https://growing-nyang.tistory.com/107
+
+
 ## 깃 시작하기
 1. 폴더 생성
 2. 닉네임과 이메일 등록
 git config --global user.name "닉네임"
 git config --global user.email "이메일"
-3.저장소 생성
-git init
-4. staging Area로 저장   git add .
-5. Local Repository로 이동   git commit -m "파일에 대한 메세지"
-6.(처음 커밋때만 사용) git remote add origin "github URL"
+3.저장소 생성\
+git init\
+4. staging Area로 저장   git add .\
+5. Local Repository로 이동   git commit -m "파일에 대한 메세지"\
+6.(처음 커밋때만 사용) git remote add origin "github URL"\
 7.(처음 커밋때만 사용) git push -u origin master(master자리에는 자신의 브런치 이름 쓰면 됨)
                              처음 이후는 git push 만 하면 됨
 
