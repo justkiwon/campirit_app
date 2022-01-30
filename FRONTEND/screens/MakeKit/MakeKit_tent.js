@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import {TouchableOpacity,ScrollView,Text,Image, View, StyleSheet, SafeAreaView, Button, Dimensions,Alert} from 'react-native';
-
+import {TouchableOpacity,ScrollView,Text,Image, View, StyleSheet, SafeAreaView, Button, Dimensions,Alert, Pressable} from 'react-native';
+import ProductDetail from '../ProductDetail';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default function StartPage({ ansList,navigation }) { 
+export default function StartPage({ navigation }) { 
 
 
   const tent = {
@@ -23,7 +23,7 @@ export default function StartPage({ ansList,navigation }) {
       info:"텐트와 관련된 설명 간단하게 근데 이해하기는 쉽게 그러면 이거는 언제 어케 쓰냐 진심 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네미쳐돌아 돌아 내가 미챠 버려 홀라라랄",
     },
   };
-
+ 
   const product1= {
     1:{
       name: "tent1",
@@ -38,7 +38,7 @@ export default function StartPage({ ansList,navigation }) {
       option1: "빨간거",
       option2: "쉬빨간거",
       option3: "핵빨간거",
-    },
+    }, 
     3:{
       name: "tent3",
       price: 3000,
@@ -54,7 +54,7 @@ export default function StartPage({ ansList,navigation }) {
       option3: "핵빨간거",
     }
   };
-
+ 
   const product2= {
     21:{
       name: "tent2-1",
@@ -85,7 +85,7 @@ export default function StartPage({ ansList,navigation }) {
       option3: "핵빨간거",
     }
   };
-
+ 
   const product3= {
     31:{
       name: "tent3-1",
@@ -110,13 +110,13 @@ export default function StartPage({ ansList,navigation }) {
     },
     34:{
       name: "tent3-4",
-      price: 400000,      
+      price: 400000,
       option1: "빨간거",
       option2: "쉬빨간거",
       option3: "핵빨간거",
     }
   };
-
+ 
 
 
   const [hi, setHi] = useState({});
@@ -127,7 +127,8 @@ const PickerAdd =(key,name,price,select_option) =>{
     ...hi,
   [key]:{ "name":name,
           "price":price,
-          "select_option":select_option
+          "select_option":select_option,
+          "visible":false,
         },
 };
 setHi(newPicker);
@@ -141,6 +142,7 @@ const Add = (key,name, price,option1 ,option2, option3) =>{
          "option1":option1,
          "option2":option2,
          "option3":option3,
+         "visible":true,
         },
 };
 setHi(newAdd);
@@ -160,7 +162,9 @@ const Product_info_detail =({name,price}) => {
   return(
     <View style={styles.products}>
              <View style={{flexDirection: 'column'}}>
-             <Image source={require("./assets/images/MakeKit/retangle.png")}/> 
+               <Pressable onPress={()=> ProductDetail(name,name,price)} >
+             <Image source={require("../../assets/images/MakeKit/retangle.png")}/> 
+               </Pressable>
               <Text>{name}</Text>  
               <Text>{price}</Text> 
             </View>         
@@ -172,7 +176,7 @@ const Product_info_detail =({name,price}) => {
     return(
       <View>
     <View style={styles.select_box}>
-        <Image source={require("./assets/images/MakeKit/retangle.png")} style={styles.footer_selate_img}/>
+        <Image source={require("../../assets/images/MakeKit/retangle.png")} style={styles.footer_selate_img}/>
           <View style={{left:windowWidth/35, width:windowWidth/2.3}}>
             <Text style={{fontSize:11.5}}>{tent_name}</Text>
             <Text style={{fontSize:11.5,marginTop:windowHeight/46}}>선택한 옵션: {hi[keyy].select_option}</Text>  
@@ -180,12 +184,13 @@ const Product_info_detail =({name,price}) => {
             <Text style={{marginTop:windowHeight/200,left:-windowWidth/8}}>{money}원</Text>
       </View>
       <View style={{flexDirection:"row", position:"absolute", left:windowWidth/3.8, marginTop:windowHeight/11, width:windowWidth/2.2,height:windowHeight/21}}>
-          <TouchableOpacity style={styles.Picker_Button} onPress={()=>{PickerAdd(keyy,tent_name,money,option1); }}><Text>{option1}</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.Picker_Button} onPress={()=>{PickerAdd(keyy,tent_name,money,option2)}}><Text>{option2}</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.Picker_Button} onPress={()=>{PickerAdd(keyy,tent_name,money,option3)} }><Text>{option3}</Text></TouchableOpacity>
-            </View> 
+
+          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option1)}}><Text>{option1}</Text></TouchableOpacity>
+          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option2);}}><Text>{option2}</Text></TouchableOpacity>
+          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option3);}}><Text>{option3}</Text></TouchableOpacity>
+            </View>
           <TouchableOpacity style={styles.Delete_Button} onPress={() => Delete_product(keyy)}>
-            <Image source={require("./assets/images/MakeKit/canel_button.png")}/>
+            <Image source={require("../../assets/images/MakeKit/canel_button.png")}/>
           </TouchableOpacity>
         </View>
     )};
@@ -203,11 +208,13 @@ return (
   <SafeAreaView>
 {/*====================================== header ---------------------------------------------------- */}
     <View style={styles.header}>
-      <Image source={require("./assets/images/MakeKit/tent.png")} style={{marginTop:windowHeight/64}}/>
+      <Image source={require("../../assets/images/MakeKit/Main_tent.png")} style={{marginTop:windowHeight/64}}/>
         <Text style={styles.header_title}>텐트</Text>
-      
+        <TouchableOpacity onPress={() => navigation.navigate('MainPage')}>
+        <Image source={require("../../assets/images/MakeKit/reback.png")} style={{marginTop:windowHeight/11.5,left:windowWidth/5.5}}/>
+        </TouchableOpacity>
     </View>
-  <Image source={require("./assets/images/MakeKit/Top_line.png")}/>
+  <Image source={require("../../assets/images/MakeKit/Top_line.png")}/>
 
 {/*---------------------------------------메인 내용1 -------------------------------------------------- */}
   <ScrollView style={styles.Content_list} horizontal = {true}>  
@@ -216,7 +223,7 @@ return (
             <Text style={styles.Content}>{tent[1].info}</Text>
       </View>    
         <View style={{flexDirection: 'row'}} >
-        <Image source={require("./assets/images/MakeKit/slid_button2.png")} style={styles.slid_button}/>
+        <Image source={require("../../assets/images/MakeKit/next_move_button.png")} style={styles.slid_button}/>
           <View style={styles.specific_item}>
                 {Object.keys(product1).map((key) =>(
                 <View key={key}>
@@ -236,7 +243,7 @@ return (
             <Text style={styles.Content}>{tent[2].info}</Text>
       </View>    
         <View style={{flexDirection: 'row'}} >
-        <Image source={require("./assets/images/MakeKit/slid_button2.png")} style={styles.slid_button}/>
+        <Image source={require("../../assets/images/MakeKit/next_move_button.png")} style={styles.slid_button}/>
           <View style={styles.specific_item}>
                 {Object.keys(product2).map((key) =>(
                 <View key={key}>
@@ -256,7 +263,7 @@ return (
             <Text style={styles.Content}>{tent[3].info}</Text>
       </View>    
         <View style={{flexDirection: 'row'}} >
-        <Image source={require("./assets/images/MakeKit/slid_button2.png")} style={styles.slid_button}/>
+        <Image source={require("../../assets/images/MakeKit/next_move_button.png")} style={styles.slid_button}/>
           <View style={styles.specific_item}>
                 {Object.keys(product3).map((key) =>(
                 <View key={key}>
@@ -284,10 +291,10 @@ return (
 
 {/*--------------------------------------- footer 캠핑카 ----------------------------------------------------- */}
 <TouchableOpacity  onPress = {() => navigation.navigate("StartPage")}>
-  <Image source={require("./assets/images/MakeKit/next_move_button.png")} style={{left:windowWidth/1.2}}/>
+  <Image source={require("../../assets/images/MakeKit/next_move_button.png")} style={{left:windowWidth/1.2}}/>
   </TouchableOpacity>
-  <Image source={require("./assets/images/MakeKit/camping_car.png")} style={{position:'absolute',bottom: -windowHeight/44}}/>
-  <Image source={require("./assets/images/MakeKit/footer.png")} style={{justifyContent: 'flex-end',bottom:-windowHeight/39}}/>
+  <Image source={require("../../assets/images/MakeKit/camping_car.png")} style={{position:'absolute',bottom: -windowHeight/44}}/>
+  <Image source={require("../../assets/images/MakeKit/footer.png")} style={{justifyContent: 'flex-end',bottom:-windowHeight/39}}/>
 
    
     <StatusBar/>
@@ -303,7 +310,7 @@ const styles = StyleSheet.create({
   Content_list: {
     marginRight : windowWidth/50,
     marginTop: windowHeight/95,
-    left: windowWidth/23,
+    left: windowWidth/20,
     flexDirection: 'row',
   },
   header_title: {
@@ -324,9 +331,9 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     backgroundColor:"#ff8c00",
     position:"absolute",
-    marginTop:windowHeight/7.2,
+    marginTop:windowHeight/8,
     borderRadius:50,
-    left:windowWidth/5.6,
+    left:windowWidth/4.8,
     width:windowWidth/9,
     height:windowHeight/32,
   },
@@ -347,7 +354,7 @@ const styles = StyleSheet.create({
   slid_button:{
     position:'absolute',
     marginTop:windowHeight/7.2,
-    left:-windowWidth/11.5, 
+    left:-windowWidth/6.5, 
     height:windowHeight/50
   },
   specific_item :{
@@ -385,7 +392,7 @@ const styles = StyleSheet.create({
     borderRadius: 70,
   },
   products:{
-    marginLeft: windowWidth/15,
+    marginLeft: windowWidth/35,
     flexDirection: 'row',
     width:windowWidth/3.5,
     //backgroundColor:"grey",
@@ -436,7 +443,7 @@ const styles = StyleSheet.create({
 
 
 
-
+/*
 //============================================ Product_info1 =========================================================
 const Product_info1 = ({name,info,h}) =>{
   return(
@@ -460,3 +467,5 @@ const Product_info1 = ({name,info,h}) =>{
             </View>
 </ScrollView>
 )};
+
+*/
