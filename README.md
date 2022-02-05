@@ -46,7 +46,7 @@ git init
 2. 브랜치 작업
 https://backlog.com/git-tutorial/kr/stepup/stepup2_4.html 
 
-##깃 가져오기
+## 깃 가져오기
 
 1. 폴더 생성
 2. 닉네임과 이메일 등록  
