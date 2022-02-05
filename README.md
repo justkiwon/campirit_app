@@ -61,9 +61,14 @@ git remote add origin "https://github.com/justkiwon/campirit_app.git"
 git remote -v  \
 6. 깃허브 브랜치, 파일 모든 것 가져오기
 git pull origin <자신이 가져올 브런치 이름>
+7. 브런치 갱신
+git remote update
+8. 원격 브런치를 로컬 브런치로 가져오기
+git checkout -b [생성할 branch 이름] [원격 저장소의 branch 이름]
 
-
-
+------- 참고자료 --------------
+https://sin0824.tistory.com/11
+https://cjh5414.github.io/get-git-remote-branch/
 
 ## MakeKit data structure
 
