@@ -46,6 +46,25 @@ git init
 2. 브랜치 작업
 https://backlog.com/git-tutorial/kr/stepup/stepup2_4.html 
 
+##깃 가져오기
+
+1. 폴더 생성
+2. 닉네임과 이메일 등록  
+git config --global user.name "닉네임" \
+git config --global user.email "이메일" \
+
+3. 깃 저장소 생성
+git init \
+4. 깃 레퍼지토리 연결
+git remote add origin "https://github.com/justkiwon/campirit_app.git"
+5. 잘 연결 됬나 확인
+git remote -v  \
+6. 깃허브 브랜치, 파일 모든 것 가져오기
+git pull
+
+
+
+
 ## MakeKit data structure
 
 Object {
