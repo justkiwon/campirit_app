@@ -60,7 +60,7 @@ git remote add origin "https://github.com/justkiwon/campirit_app.git"
 5. 잘 연결 됬나 확인
 git remote -v  \
 6. 깃허브 브랜치, 파일 모든 것 가져오기
-git pull
+git pull origin <자신이 가져올 브런치 이름>
 
 
 
