@@ -1,3 +1,6 @@
+//------------------------------------------- 현재 이 모달창은 메이킷 텐트에 그냥 때려박음 --------------------------------------
+
+
 import React, { useState } from 'react';
 import { Alert, Modal, StyleSheet, Text, Pressable,Dimensions, View, ScrollView ,Image} from 'react-native';
 

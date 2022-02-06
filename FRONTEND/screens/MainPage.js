@@ -42,6 +42,9 @@ export default function App({navigation}) {
           </TouchableOpacity>
         </View>
     )};
+
+
+
     return(
 
           <View style = {styles.container}>
@@ -250,7 +253,5 @@ const styles = StyleSheet.create({
         height: windowHeight/20,
        
     },
-
-
 
 })

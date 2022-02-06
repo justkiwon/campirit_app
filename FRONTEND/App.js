@@ -17,7 +17,7 @@ import Quiz7 from './screens/QuizPages/Quiz7.js';
 import Quiz8 from './screens/QuizPages/Quiz8.js';
 import Quiz9 from './screens/QuizPages/Quiz9.js';
 import Quizf from './screens/QuizPages/Quizf.js';
-import MakeKit_tent from './screens/MakeKit/MakeKit_tent.js';
+import MakeKit_tent from './screens/MakeKit/MakeKit_Tent.js';
 import StartPage from './screens/StartPage.js';
 
 const Stack = createNativeStackNavigator();

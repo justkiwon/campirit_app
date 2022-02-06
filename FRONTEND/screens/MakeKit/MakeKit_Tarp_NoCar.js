@@ -11,15 +11,11 @@ export default function StartPage({ navigation }) {
 
   const tent = {
     1:{
-      name:"돔텐트",
+      name:"차량용 타프",
       info:"텐트와 관련된 설명 간단하게 근데 이해하기는 쉽게 그러면 이거는 언제 어케 쓰냐 진심 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네미쳐돌아 돌아 내가 미챠 버려 홀라라랄",
     },
     2:{
-      name:"티피텐트",
-      info:"텐트와 관련된 설명 간단하게 근데 이해하기는 쉽게 그러면 이거는 언제 어케 쓰냐 진심 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네미쳐돌아 돌아 내가 미챠 버려 홀라라랄",
-    },
-    3:{
-      name:"헥사텐트",
+      name:"헥사 타프",
       info:"텐트와 관련된 설명 간단하게 근데 이해하기는 쉽게 그러면 이거는 언제 어케 쓰냐 진심 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네미쳐돌아 돌아 내가 미챠 버려 홀라라랄",
     },
   };
@@ -102,53 +98,15 @@ export default function StartPage({ navigation }) {
     }
   };
  
-  const product3= {
-    31:{
-      name: "tent3-1",
-      price: 1000,
-      option1: "쉬파파파파욜로",
-      option2: "뛰빠빠빠빠욜로",
-      option3: "뛰빠뛰빠뒤빠빠",
-      detail: "피면 편안한",
-      jpg: "",
-    },
-    32:{
-      name: "tent3-2",
-      price: 2000,
-      option1: "빨간거",
-      option2: "하하ㅏ하",
-      option3: "안녕하쇼",
-      detail: "엽기적인",
-      jpg: "",
-    },
-    33:{
-      name: "tent3-3",
-      price: 3000,
-      option1: "빨갱이",
-      option2: "쉬빨간거",
-      option3: "핵빨간거",
-      detail: "감성템 1위인",
-      jpg: "",
-    },
-    34:{
-      name: "tent3-4",
-      price: 400000,
-      option1: "빨간거",
-      option2: "쉬빨간거",
-      option3: "핵빨간거",
-      detail: "가성비 좋은",
-      jpg: "",
-    }
-  };
 
   const [hi, setHi] = useState({});
 
 
 //_________________________하단 selete객체 추가__________________
 
-const [modalVisible, setModalVisible] = useState(false);
+const [modalVisible, setModalVisible] = useState(false); // 모달창 visible
 
-const [morden_select, setMorden_select] = useState(["detail","name","price"]);
+const [morden_select, setMorden_select] = useState(["detail","name","price"]);  //product_info_deatil에서 객체 정보 가져와서 그걸 모달창에 출력하기 위해 저장하는 변수
 
 
 const PickerAdd =(key,name,price,select_option) =>{
@@ -394,7 +352,7 @@ const styles = StyleSheet.create({
     elevation: 5
   },
 
-  
+
   header: {
     //marginTop: windowHeight/80,
     flexDirection: 'row',
