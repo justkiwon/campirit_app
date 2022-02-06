@@ -91,22 +91,30 @@ const StatusBarHeight =
               </Text>
             </View>
             <View style={styles.answers}>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#FF9899" : "white"}}> </Text>
+
+            <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen1(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>저기서 요리하고, 먹고, 쉬면 좋겠다</Text>    
-                  </Pressable>
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#FF9899" : "white"}}> </Text>
+                    onPress={()=>{setChosen1(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    저기서 요리하고, 먹고, 쉬면 좋겠다
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen2(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>굳이..?</Text>    
-                  </Pressable>
-              </View>
+                    onPress={()=>{setChosen2(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    굳이..?
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
             </View>
             <Pressable style={styles.btn_Next} onPress={CanNEXT}>
               <Text style={styles.btn_nextText}>NEXT</Text>
@@ -137,7 +145,7 @@ container: {
 },
 ///////////////////////////////<<<< Header : 파란물결 >>>>>//////////////////////////////////////
 header:{
-  flex: 0.55,
+  flex: 0.75,
   marginTop:StatusBarHeight,
   backgroundColor:"white",
 
@@ -146,8 +154,6 @@ header:{
 headerWave:{
   width: windowWidth,
   height: 197,
-  marginTop:-40,
-
   justifyContent: "center",
 },
 headerText:{
@@ -191,23 +197,29 @@ answers:{
   marginHorizontal:windowWidth/10,
   alignSelf:"stretch",
 },
-ans:{
-  backgroundColor:"white",
-  
-  marginBottom: windowHeight/32,
 
+ans:{
+  marginBottom: windowHeight/50,
   flexDirection: "row",
+  alignSelf: "center",
+  justifyContent: "center"
 },
+
 btn_Ans:{
   borderRadius:35,
-  width:20,
-  height:20,
-  borderColor: "#FF9899",
-  borderWidth: 2,
-
-  marginRight:6,
-  marginTop:3,
+  width:windowWidth/1.5,
+  borderRadius: 8,
+  overflow: 'hidden',
+  alignItems:'center',
+  justifyContent:'center',
 },
+
+
+btn_Ans2:{
+  fontSize: 16,
+  marginVertical: 6
+},
+
 btn_ansText:{
   fontWeight:"400",
   fontSize:14,
@@ -217,11 +229,10 @@ btn_Next:{
   backgroundColor:'#FFD300',
   width:windowWidth/1.8,
   height:windowHeight*5/8/12,
-  borderRadius:13,
+  borderRadius:13,  
 
-  marginTop:windowHeight/19,
-  marginBottom:windowHeight/11,
-
+  marginTop:windowHeight/20,
+  marginBottom:-windowHeight/50,
   justifyContent:"center",
   alignItems:"center",
 },

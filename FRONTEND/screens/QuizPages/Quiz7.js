@@ -185,7 +185,6 @@ ans:{
 btn_Ans:{
   borderRadius:35,
   width:windowWidth/1.5,
-  height:windowHeight/15,
   borderRadius: 8,
   overflow: 'hidden',
   alignItems:'center',
@@ -195,7 +194,8 @@ btn_Ans:{
 
 btn_Ans2:{
   fontSize: 16,
-  textAlign:'center'
+  textAlign:'center',
+  marginVertical: 6
 },
 
 btn_ansText:{

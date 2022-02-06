@@ -191,10 +191,8 @@ ans:{
   justifyContent: "center"
 },
 
-btn_Ans:{
-  borderRadius:35,
-  width:windowWidth/1.5,
-  height:windowHeight/30,
+btn_Ans:{  
+  width:windowWidth/1.5,  
   borderRadius: 8,
   overflow: 'hidden',
   alignItems:'center',
@@ -203,8 +201,8 @@ btn_Ans:{
 
 
 btn_Ans2:{
-  fontSize: 16
-
+  fontSize: 16,
+  marginVertical: 6
 },
 
 

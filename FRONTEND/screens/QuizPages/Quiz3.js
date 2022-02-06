@@ -225,7 +225,6 @@ ans:{
 btn_Ans:{
   borderRadius:35,
   width:windowWidth/1.9,
-  height:windowHeight/25,
   borderRadius: 8,
   overflow: 'hidden',
   alignItems:'center',
@@ -234,8 +233,8 @@ btn_Ans:{
 
 
 btn_Ans2:{
-  fontSize: 18
-
+  fontSize: 18,
+  marginVertical: 6
 },
 
 

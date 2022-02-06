@@ -199,14 +199,14 @@ ans:{
 btn_Ans:{
   borderRadius:35,
   width:windowWidth/1.5,
-  height:windowHeight/30,
   borderRadius: 8,
   overflow: 'hidden',
   alignItems:'center',
   justifyContent:'center',
 },
 btn_Ans2:{
-  fontSize: 16
+  fontSize: 16,
+  marginVertical: 6
 },
 
 btn_ansText:{
@@ -222,7 +222,6 @@ btn_Next:{
 
   marginTop:windowHeight/6,
   marginBottom:-windowHeight/20,
-
   justifyContent:"center",
   alignItems:"center",
 },

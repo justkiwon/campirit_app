@@ -246,7 +246,8 @@ const styles = StyleSheet.create({
 
 
     btn_Ans2:{
-      fontSize: 18
+      fontSize: 18,
+      marginVertical: 6
     
     },
 
