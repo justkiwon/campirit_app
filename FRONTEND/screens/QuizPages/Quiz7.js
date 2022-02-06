@@ -76,29 +76,31 @@ const StatusBarHeight =
           <View style={styles.body}>
             <Text style={styles.quizText}>4. 캠핑 장비의 설치/해체 난이도</Text>
             <View style={styles.answers}>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#FF9899" : "white"}}> </Text>
+            <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen1(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>
+                    onPress={()=>{setChosen1(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
                     캠핑은 편하려고 가는 건데?{"\n"}
                     간편한 게 최고지!
-                    </Text> 
-                  </Pressable>
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#FF9899" : "white"}}> </Text>
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen2(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>
+                    onPress={()=>{setChosen2(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
                     진정한 캠퍼라면{"\n"}
                     설치(해체) 관계없이 성능 좋고 기능이 많아야지
-                    </Text> 
-                  </Pressable>
-                     
-              </View>
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
             </View>
             <Pressable style={styles.btn_Next} onPress={CanNEXT}>
               <Text style={styles.btn_nextText}>NEXT</Text>
@@ -174,21 +176,28 @@ answers:{
   alignSelf:"stretch",
 },
 ans:{
-  // backgroundColor:"white",
-  marginBottom: windowHeight/32,
-
+  marginBottom: windowHeight/50,
   flexDirection: "row",
+  alignSelf: "center",
+  justifyContent: "center"
 },
+
 btn_Ans:{
   borderRadius:35,
-  width:20,
-  height:20,
-  borderColor: "#FF9899",
-  borderWidth: 2,
-
-  marginRight:6,
-  marginTop:3,
+  width:windowWidth/1.5,
+  height:windowHeight/15,
+  borderRadius: 8,
+  overflow: 'hidden',
+  alignItems:'center',
+  justifyContent:'center',
 },
+
+
+btn_Ans2:{
+  fontSize: 16,
+  textAlign:'center'
+},
+
 btn_ansText:{
   fontWeight:"400",
   fontSize:14,
@@ -200,8 +209,8 @@ btn_Next:{
   height:windowHeight*5/8/12,
   borderRadius:13,
 
-  marginTop:windowHeight/7,
-  marginBottom:-windowHeight/17,
+  marginTop:windowHeight/6,
+  marginBottom:-windowHeight/20,
 
   justifyContent:"center",
   alignItems:"center",

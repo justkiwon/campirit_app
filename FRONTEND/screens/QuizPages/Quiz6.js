@@ -77,23 +77,32 @@ const StatusBarHeight =
             <Text style={styles.plusText}>차박: [車泊] 여행할 때에 자동차에서 잠을 자고 머무름.</Text>
             <Text style={styles.quizText}>3. 차박을 할 예정이다</Text>
             <View style={styles.answers}>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#FF9899" : "white"}}> </Text>
-                  <Pressable
-                    onPress={()=>{setChosen1(prev => !prev)}}
 
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>차에서 자는 갬성이 있지</Text>    
-                  </Pressable>
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#FF9899" : "white"}}> </Text>
+
+            <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen2(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>차보다는 텐트에서 자고 싶어</Text>    
-                  </Pressable>
-              </View>
+                    onPress={()=>{setChosen1(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    차에서 자는 갬성이 있지
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+                <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen2(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    차보다는 텐트에서 자고 싶어
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+                
+
             </View>
             <Pressable style={styles.btn_Next} onPress={CanNEXT}>
               <Text style={styles.btn_nextText}>NEXT</Text>
@@ -158,8 +167,7 @@ plusText:{
   fontSize:14,
   fontFamily:"Roboto",
 
-  marginRight:-windowWidth/10,
-},  
+  marginRight:-windowWidth/400},  
 quizText:{
   // backgroundColor:"gray",
   fontWeight:"700",
@@ -175,22 +183,32 @@ answers:{
 
   alignSelf:"stretch",
 },
-ans:{
-  // backgroundColor:"white",
-  marginBottom: windowHeight/32,
 
+ans:{
+  marginBottom: windowHeight/50,
   flexDirection: "row",
+  alignSelf: "center",
+  justifyContent: "center"
 },
+
 btn_Ans:{
   borderRadius:35,
-  width:20,
-  height:20,
-  borderColor: "#FF9899",
-  borderWidth: 2,
-
-  marginRight:6,
-  marginTop:3,
+  width:windowWidth/1.5,
+  height:windowHeight/30,
+  borderRadius: 8,
+  overflow: 'hidden',
+  alignItems:'center',
+  justifyContent:'center',
 },
+
+
+btn_Ans2:{
+  fontSize: 16
+
+},
+
+
+
 btn_ansText:{
   fontWeight:"400",
   fontSize:14,

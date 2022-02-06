@@ -76,22 +76,28 @@ const StatusBarHeight =
           <View style={styles.body}>
             <Text style={styles.quizText}>1. 장비는 작은 게 최고다</Text>
             <View style={styles.answers}>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#FF9899" : "white"}}> </Text>
+            <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen1(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>나는 저장 공간이 부족해서...</Text>
-                  </Pressable>    
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#FF9899" : "white"}}> </Text>
+                    onPress={()=>{setChosen1(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    나는 저장 공간이 부족해서...
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen2(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>커도 난 다 감당할 수 있어! 😤 </Text>    
-                  </Pressable>
-              </View>
+                    onPress={()=>{setChosen2(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    커도 난 다 감당할 수 있어! 😤
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
             </View>
             <Pressable style={styles.btn_Next} onPress={CanNEXT}>
               <Text style={styles.btn_nextText}>NEXT</Text>
@@ -131,17 +137,7 @@ header:{
 headerWave:{
   width: windowWidth,
   height: 197,
-
   justifyContent: "center",
-},
-headerText:{
-  color:"white",
-  fontWeight:"400",
-  fontSize:15,
-  fontFamily:'YiSunShin_B',
-
-  marginBottom:windowHeight*9/32/3,
-  marginLeft :windowWidth/40,
 },
 ////////////////////////////<<<< Body : 질문, 선택지, NEXT버튼 >>>>>/////////////////////////////////////////
 body:{
@@ -167,22 +163,45 @@ answers:{
   justifyContent: "space-evenly",
   alignSelf:"stretch",
 },
-ans:{
-  // backgroundColor:"white",
-  marginBottom: windowHeight/32,
 
-  flexDirection: "row",
+
+
+answers:{
+  //backgroundColor:"blue",
+  marginHorizontal:windowWidth/10,
+
+  alignSelf:"stretch",
 },
+
+ansbundle1:{
+  //backgroundColor:"red"
+  flexDirection: "column",
+  alignItems:"center",
+  justifyContent:"space-between",
+},
+
+ans:{
+  marginBottom: windowHeight/50,
+  flexDirection: "row",
+  alignSelf: "center",
+  justifyContent: "center"
+},
+
 btn_Ans:{
   borderRadius:35,
-  width:20,
-  height:20,
-  borderColor: "#FF9899",
-  borderWidth: 2,
-
-  marginRight:6,
-  marginTop:3,
+  width:windowWidth/1.5,
+  height:windowHeight/30,
+  borderRadius: 8,
+  overflow: 'hidden',
+  alignItems:'center',
+  justifyContent:'center',
 },
+
+
+btn_Ans2:{
+  fontSize: 16
+},
+
 btn_ansText:{
   fontWeight:"400",
   fontSize:14,
