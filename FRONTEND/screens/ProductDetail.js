@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from 'react-native';
+import { Alert, Modal, StyleSheet, Text, Pressable,Dimensions, View, ScrollView ,Image} from 'react-native';
 
-export default function ProductDetail () {
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+export const ProductDetail = (product_detail, product_name, price, visible)=> {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.centeredView}>
       <Modal
-        animationType="slide"
+         animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
@@ -15,11 +18,25 @@ export default function ProductDetail () {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
+{/**_____________________________________________________________ Header _______________________________________________________________ */}
+            <View style={{width:windowWidth/1.1,height:windowHeight/10, marginBottom:3,flexDirection:"row"}}>
+              <View style={{width:windowWidth/30,height:windowHeight/10, backgroundColor:"#213063"}} />
+                <View style={{flexDirection:"column", width:windowWidth/1.5,left:windowWidth/50}}>
+                  <Text style={{marginTop:windowHeight/65, fontSize:15}}>{product_detail}</Text>
+                  <Text style={{fontSize:25}}>{product_name}</Text>
+                </View>
+                  <Text style={{marginTop:windowHeight/35, fontSize:17}}>{price}원</Text>
+            </View>
+{/**_______________________________________________________________ main Scroll View __________________________________________________ */}
+              <View style={{height:windowHeight/1.5,width:windowWidth/1.1,backgroundColor:"grey"}}>
+                <ScrollView horizontal={false}>
+                <Text style={styles.modalText}>Hello World!</Text>
+                  <View  style={{width:300,height:5000, backgroundColor:"yellow"}}/>
+                </ScrollView>
+              </View>
+            
+            <Pressable style={[styles.buttonClose]}  onPress={() => setModalVisible(!modalVisible)}>
+            <Image source={require("../assets/images/ProductDetail/Button_close.png")}/>
             </Pressable>
           </View>
         </View>
@@ -33,12 +50,17 @@ export default function ProductDetail () {
 
 const styles = StyleSheet.create({
   centeredView: {
+    width:windowWidth,
+    height:windowHeight/300,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
+    marginTop: windowHeight/22,
   },
   modalView: {
+    marginTop:-windowHeight/110,
+    width:windowWidth/1.05,
+    height:windowHeight/1.1,
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 20,
@@ -62,7 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F194FF',
   },
   buttonClose: {
-    backgroundColor: '#2196F3',
+    marginTop:windowHeight/45,
   },
   textStyle: {
     color: 'white',
@@ -75,4 +97,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default ProductDetail;
