@@ -27,80 +27,81 @@ export default function App({navigation}) {
                         <TouchableOpacity  style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_tent.png")}/> 
+                            source = {require("../assets/images/MainPage/Main_tent.png")}/> 
                             <Text style={styles.menu_text}> 텐트 </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_Tarp.png")}/>
+                            source = {require("../assets/images/MainPage/Main_Tarp.png")}/>
                             <Text style={styles.menu_text}> 타프 </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_mat.png")}/>
+                            source = {require("../assets/images/MainPage/Main_mat.png")}/>
                             <Text style={styles.menu_text}> 매트 </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_Table.png")}/>
+                            source = {require("../assets/images/MainPage/Main_Table.png")}/>
                             <Text style={styles.menu_text}> 테이블 </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_chair.png")}/>
+                            source = {require("../assets/images/MainPage/Main_chair.png")}/>
                             <Text style={styles.menu_text}> 체어 </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_hitter.png")}/>
+                            source = {require("../assets/images/MainPage/Main_hitter.png")}/>
                             <Text style={styles.menu_text}> 난로 </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_cooler.png")}/>
+                            source = {require("../assets/images/MainPage/Main_cooler.png")}/>
                             <Text style={styles.menu_text}> 에어컨 </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_etc.png")}/>
+                            source = {require("../assets/images/MainPage/Main_etc.png")}/>
                             <Text style={styles.menu_text}> 기타용품 </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_kitchen.png")}/>
+                            source = {require("../assets/images/MainPage/Main_kitchen.png")}/>
                             <Text style={styles.menu_text}> 주방용품 </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_mood.png")}/>
+                            source = {require("../assets/images/MainPage/Main_mood.png")}/>
                             <Text style={styles.menu_text}> 감성용품 </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_box.png")}/>
+                            source = {require("../assets/images/MainPage/Main_box.png")}/>
                             <Text style={styles.menu_text}> 폴딩박스 </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.menu_content}>
                             <Image 
                             style = {styles.menu_image}
-                            source = {require("../../assets/images/MainPage/Main_.png")}/>
+                            source = {require("../assets/images/MainPage/Main_.png")}/>
                             <Text style={styles.menu_text}> 미개봉 </Text>
                         </TouchableOpacity>
                   </ScrollView>
 
                   <View>
                       <Image
-                          source = {require("../../assets/images/Mainbackground.png")}/>
+                           style = {{resizeMode: "cover", width: windowWidth}}
+                          source = {require("../assets/images/MainPage/Mainbackground.png")}/>
                   </View>
                   
                   <Text style = {styles.head}>나만의 스타터 키트 구성품</Text>
@@ -118,17 +119,17 @@ export default function App({navigation}) {
               <View style={[{flexDirection: "row"}, {justifyContent: "space-between "}]}>
                     <Image
                         style = {styles.car}
-                        source = {require("../../assets/images/MainPage/camping_car.png")}/>
+                        source = {require("../assets/images/MainPage/camping_car.png")}/>
                     <TouchableOpacity>
                         <Image 
                             style = {styles.nextbutton}
-                            source={require("../../assets/images/MainPage/NEXT.png")}/>
+                            source={require("../assets/images/MainPage/NEXT.png")}/>
                     </TouchableOpacity>
                   </View>
 
                                 <Image
                       style = {styles.bar}
-                      source = {require("../../assets/images/MainPage/Bar.png")}/>
+                      source = {require("../assets/images/MainPage/Bar.png")}/>
                     
 
 
@@ -154,6 +155,7 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         fontSize: 18
     },
+
 
 
 

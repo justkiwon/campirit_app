@@ -82,15 +82,17 @@ const StatusBarHeight =
             <Text style={styles.quizText}>1. 연령대가 어떻게 되시나요?</Text>
             <View style={styles.answers}>
               <View style={styles.ansbundle1}>
+
                 <View style={styles.ans}>
                   <Text style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#FF9899" : "white"}}> </Text>
                   <Pressable
                     onPress={()=>{setChosen1(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
+                    >
                     <Text style={styles.btn_ansText}>10~20대</Text>
                   </Pressable>       
                 </View>
-                <View style={{...styles.ans, marginLeft:-windowWidth/15}}>
+
+                <View style={styles.ans}>
                   <Text style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#FF9899" : "white"}}> </Text>
                   <Pressable
                     onPress={()=>{setChosen2(prev => !prev)}}
@@ -98,36 +100,37 @@ const StatusBarHeight =
                     <Text style={styles.btn_ansText}>30대</Text> 
                   </Pressable> 
                 </View>
+
                 <View style={styles.ans}>
                   <Text style={{...styles.btn_Ans, backgroundColor: chosen3 ? "#FF9899" : "white"}}> </Text>
                   <Pressable
                     onPress={()=>{setChosen3(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
+                    >
                     <Text style={styles.btn_ansText}>40대</Text>    
                   </Pressable> 
                 </View>
-              </View>
-              <View style={styles.ansbundle2}>
+
                 <View style={styles.ans}>
                   <Text style={{...styles.btn_Ans, backgroundColor: chosen4 ? "#FF9899" : "white"}}> </Text>
                   <Pressable
                     onPress={()=>{setChosen4(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
+                   >
                     <Text style={{...styles.btn_ansText, marginRight:windowWidth/5.2}}>50대</Text>    
                   </Pressable>
                 </View>
                 <View style={styles.ans}>
                   <Text style={{...styles.btn_Ans, backgroundColor: chosen5 ? "#FF9899" : "white"}}> </Text>
                   <Pressable
-                    onPress={()=>{setChosen5(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
+                    onPress={()=>{setChosen5(prev => !prev)}}>
                     <Text style={styles.btn_ansText}>60대 이상</Text>   
                   </Pressable>  
                 </View>
               </View>
-              
-              
-            </View>
+
+              </View>
+
+             
+  
             <Pressable style={styles.btn_Next} onPress={CanNEXT} >
               <Text style={styles.btn_nextText}>NEXT</Text>
             </Pressable>
@@ -170,7 +173,7 @@ const styles = StyleSheet.create({
     headerText:{
       color:"white",
       fontWeight:"400",
-      fontSize:15,
+      fontSize:20,
       fontFamily:'YiSunShin_B',
 
       marginBottom:windowHeight*9/32/3,
@@ -185,7 +188,6 @@ const styles = StyleSheet.create({
       justifyContent: "center",
     },
     quizText:{
-      // backgroundColor:"gray",
       fontWeight:"700",
       fontSize:20,
       fontFamily:"Roboto",
@@ -194,26 +196,22 @@ const styles = StyleSheet.create({
       marginLeft :-windowWidth/4,
     },
     answers:{
-      // backgroundColor:"blue",
+      //backgroundColor:"blue",
       marginHorizontal:windowWidth/10,
 
       alignSelf:"stretch",
     },
     ansbundle1:{
-      // backgroundColor:"red",
+      //backgroundColor:"red",
       marginBottom:windowWidth/20,
 
-      flexDirection: "row",
+      flexDirection: "column",
+      //alignContent: "center",
+      alignItems:"center",
       justifyContent:"space-between",
     },
-    ansbundle2:{
-      // backgroundColor:"green",
-
-      flexDirection: "row",
-    },
     ans:{
-      // backgroundColor:"white",
-
+      backgroundColor:"green",
       flexDirection: "row",
     },
     btn_Ans:{
