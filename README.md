@@ -69,7 +69,10 @@ git checkout -b [생성할 branch 이름] [원격 저장소의 branch 이름]
 
 ------- 참고자료 --------------
 https://sin0824.tistory.com/11
+
 https://cjh5414.github.io/get-git-remote-branch/
+
+https://yztech.tistory.com/32#:~:text=git%20checkout%20%2Dt%20%EB%A5%BC%20%EC%82%AC%EC%9A%A9,%EB%B3%80%EA%B2%BD%ED%95%B4%EC%84%9C%20%EA%B0%80%EC%A0%B8%EC%98%AC%20%EC%88%98%20%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4.
 
 ## MakeKit data structure
 ### 불러올   
