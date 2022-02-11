@@ -13,15 +13,19 @@ import {
   Button} from 'react-native';
 
 
-
+  import { getStatusBarHeight } from 'react-native-status-bar-height';
 const windowWidth = Dimensions.get('window').width; 
 const windowHeight = Dimensions.get('window').height;
+const StatusBarHeight =
+    Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
 
 export default function App({navigation}) {
     return(
 
           <View style = {styles.container}>
+
+
               <ScrollView bounces='false' > 
                   <ScrollView  horizontal bounces='false' pagingEnabled='false' style={styles.menu_bar}>
                         <TouchableOpacity  style={styles.menu_content}>

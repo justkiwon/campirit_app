@@ -93,7 +93,7 @@ const StatusBarHeight =
                     onPress={()=>{setChosen1(prev => !prev)}}>                   
                     <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
                     <Text style={styles.btn_Ans2}>
-                      여성
+                    여성
                     </Text>
                   </View>
                   </Pressable> 
@@ -232,14 +232,10 @@ const styles = StyleSheet.create({
 
 
   btn_Ans2:{
-    fontSize: 1,
+    fontSize: 18,
     marginVertical: 6
   
   },
-
-
-
-
   btn_ansText:{
     fontWeight:"400",
     fontSize:14,

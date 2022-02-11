@@ -206,20 +206,20 @@ btn_Ans:{
 },
 btn_Ans2:{
   fontSize: 16,
-  marginVertical: 6
+  marginVertical: 6,
+  textAlign: 'center',
 },
 
 btn_ansText:{
   fontWeight:"400",
-  fontSize:14,
-  fontFamily:"Roboto",
+  fontSize:14,  fontFamily:"Roboto",
 },
 btn_Next:{
   backgroundColor:'#FFD300',
   width:windowWidth/1.8,
   height:windowHeight*5/8/12,
   borderRadius:13,
-
+  textAlign: 'center',
   marginTop:windowHeight/6,
   marginBottom:-windowHeight/20,
   justifyContent:"center",
