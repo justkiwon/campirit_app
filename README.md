@@ -131,24 +131,36 @@ https://yztech.tistory.com/32#:~:text=git%20checkout%20%2Dt%20%EB%A5%BC%20%EC%82
   };
   
   
-## 최종 선택된 데이터
+## 최종 선택된 데이터  (객체 이름: hi)
 Object {
   
   "1": Object {  
     "name": "tent1",                 
-    "price": 1000,           
+    "price": 1000,\
+    "select_option": "쉬파파파파욜로",\
+    "visible": false,\
+    jpg:"",\
   },                 
   "2": Object {                
     "name": "tent2",               
-    "price": 2000,               
+    "price": 2000,
+    "select_option": "핵빨간거",\
+    "visible": true,\
+    jpg:"",\
   },                         
   "3": Object {                
     "name": "tent3",       
     "price": 3000,         
+    "select_option": "빨간거",\
+    "visible": true,\
+    jpg:"",\
   },                       
   "4": Object {           
     "name": "tent4",     
-    "price": 4000,               
+    "price": 4000,         
+    "select_option": "쉬파파파파욜로",\
+    "visible": false,\
+    jpg:"",\
   },                         
 }                            
 
