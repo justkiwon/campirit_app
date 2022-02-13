@@ -81,56 +81,82 @@ const StatusBarHeight =
           <View style={styles.body}>
             <Text style={styles.quizText}>1. 연령대가 어떻게 되시나요?</Text>
             <View style={styles.answers}>
+
               <View style={styles.ansbundle1}>
                 <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#FF9899" : "white"}}> </Text>
                   <Pressable
-                    onPress={()=>{setChosen1(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>10~20대</Text>
-                  </Pressable>       
-                </View>
-                <View style={{...styles.ans, marginLeft:-windowWidth/15}}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#FF9899" : "white"}}> </Text>
-                  <Pressable
-                    onPress={()=>{setChosen2(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>30대</Text> 
+                    onPress={()=>{setChosen1(prev => !prev)}}>
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                      <Text style={styles.btn_Ans2}>
+                        10 ~ 20대
+                      </Text>
+                    </View>
+
                   </Pressable> 
                 </View>
+
                 <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen3 ? "#FF9899" : "white"}}> </Text>
                   <Pressable
-                    onPress={()=>{setChosen3(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>40대</Text>    
+                    onPress={()=>{setChosen2(prev => !prev)}}>
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                      <Text style={styles.btn_Ans2}>
+                        30 대
+                      </Text>
+                    </View>
+                    
                   </Pressable> 
                 </View>
-              </View>
-              <View style={styles.ansbundle2}>
+
+                
                 <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen4 ? "#FF9899" : "white"}}> </Text>
                   <Pressable
-                    onPress={()=>{setChosen4(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={{...styles.btn_ansText, marginRight:windowWidth/5.2}}>50대</Text>    
-                  </Pressable>
+                    onPress={()=>{setChosen3(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen3 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                      40대
+                    </Text>
+                  </View>
+                  </Pressable> 
                 </View>
+
+
+
                 <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen5 ? "#FF9899" : "white"}}> </Text>
                   <Pressable
-                    onPress={()=>{setChosen5(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>60대 이상</Text>   
-                  </Pressable>  
+                    onPress={()=>{setChosen4(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen4 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                      50대
+                    </Text>
+                  </View>
+                  </Pressable> 
                 </View>
+
+                <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen5(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen5 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                      60대
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+   
               </View>
-              
-              
-            </View>
+
+              </View>
+
+            
             <Pressable style={styles.btn_Next} onPress={CanNEXT} >
               <Text style={styles.btn_nextText}>NEXT</Text>
             </Pressable>
+{/**__________________________________  이것은 pass 나중에 지우기 _____________ */}
+
+<Pressable style={styles.btn_Next} onPress={()=>navigation.navigate("MakeKit_Tent")} >
+              <Text style={styles.btn_nextText}>NEXT1</Text>
+            </Pressable>
+
           </View>
  {/* //////////////////////////<<<< Footer : 자동차 >>>>>/////////////////////////////////////////// */}
           <View style = {styles.footer}>
@@ -170,7 +196,7 @@ const styles = StyleSheet.create({
     headerText:{
       color:"white",
       fontWeight:"400",
-      fontSize:15,
+      fontSize:20,
       fontFamily:'YiSunShin_B',
 
       marginBottom:windowHeight*9/32/3,
@@ -185,7 +211,6 @@ const styles = StyleSheet.create({
       justifyContent: "center",
     },
     quizText:{
-      // backgroundColor:"gray",
       fontWeight:"700",
       fontSize:20,
       fontFamily:"Roboto",
@@ -193,56 +218,61 @@ const styles = StyleSheet.create({
       marginBottom: windowHeight*5/8/17,
       marginLeft :-windowWidth/4,
     },
+    
     answers:{
-      // backgroundColor:"blue",
+      //backgroundColor:"blue",
       marginHorizontal:windowWidth/10,
 
       alignSelf:"stretch",
     },
-    ansbundle1:{
-      // backgroundColor:"red",
-      marginBottom:windowWidth/20,
 
-      flexDirection: "row",
+    ansbundle1:{
+      //backgroundColor:"red"
+      flexDirection: "column",
+      alignItems:"center",
       justifyContent:"space-between",
     },
-    ansbundle2:{
-      // backgroundColor:"green",
 
-      flexDirection: "row",
-    },
     ans:{
-      // backgroundColor:"white",
-
+      marginBottom: windowHeight/50,
       flexDirection: "row",
+      alignSelf: "center",
+      justifyContent: "center"
     },
+
     btn_Ans:{
       borderRadius:35,
-      width:20,
-      height:20,
-      borderColor: "#FF9899",
-      borderWidth: 2,
-
-      marginRight:6,
-      marginTop:3,
+      width:windowWidth/1.9,
+      height:windowHeight/25,
+      borderRadius: 8,
+      overflow: 'hidden',
+      alignItems:'center',
+      justifyContent:'center',
     },
+
+
+    btn_Ans2:{
+      fontSize: 18,
+      marginVertical: 6
+    
+    },
+
     btn_ansText:{
       fontWeight:"400",
       fontSize:14,
       fontFamily:"Roboto",
     },
+    
     btn_Next:{
       width:windowWidth/1.8,
       height:windowHeight*5/8/12,
       borderRadius:13,
       backgroundColor: "#FFD300",
-
-      marginTop:windowHeight*5/8/3,
-      marginBottom:-windowHeight/20,
-
       justifyContent:"center",
+      marginTop: windowHeight/15,
       alignItems:"center",
     },
+
     btn_nextText:{
       color:"white",
       fontWeight:"400",

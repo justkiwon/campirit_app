@@ -194,7 +194,7 @@ const Product_info_detail =({detail,name,price}) => {
                <Pressable onPress={()=>{setModalVisible(true) ,setMorden_select([detail,name,price])}}>
              <Image
                 style = {styles.product_image} 
-                source={require("../../assets/images/MakeKit/retangle.png")}/> 
+                source={require("../../assets/images/MakeKit/rectangle.png")}/> 
                </Pressable>
               <Text style ={{marginLeft: windowWidth/50, marginTop: windowHeight/300, fontSize:18, color:'#213063',fontWeight:'bold' }}>{name}</Text>  
               <Text style ={{marginLeft: windowWidth/50}}>{price}</Text> 
@@ -207,7 +207,7 @@ const Product_info_detail =({detail,name,price}) => {
     return(
       <View>
     <View style={styles.select_box}>
-        <Image source={require("../../assets/images/MakeKit/retangle.png")} style={styles.footer_selate_img}/>
+        <Image source={require("../../assets/images/MakeKit/rectangle.png")} style={styles.footer_selate_img}/>
           <View style={{left:windowWidth/35, width:windowWidth/2.3}}>
             <Text style={{fontSize:18, fontWeight: 'bold', marginTop: windowWidth/80, color: '#213063'}}>{tent_name}</Text>
             <Text style={{fontSize:14,marginTop:windowHeight/200, fontWeight: 'bold'}}>선택한 옵션: {hi[keyy].select_option}</Text>  
@@ -276,7 +276,7 @@ return (
 
 {/*====================================== Modal finish, header ---------------------------------------------------- */}
 <View style={styles.header}>
-      <ImageBackground source={require("../../assets/images/MakeKit/tent.png")} style={styles.header_image}>
+      <ImageBackground source={require("../../assets/images/MakeKit/mat.png")} style={styles.header_image}>
         <TouchableOpacity onPress={() => navigation.navigate('MainPage')}>
           <Image source={require("../../assets/images/MakeKit/reback.png")} style={styles.reback_button}/>
         </TouchableOpacity>

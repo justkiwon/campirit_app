@@ -86,31 +86,44 @@ const StatusBarHeight =
             <Text style={styles.ansState}>{ansList.A1}{"\n"}</Text>
             <Text style={styles.quizText}>2. 당신의 성별은 무엇인가요?</Text>
             <View style={styles.answers}>
+
+
               <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#FF9899" : "white"}}> </Text>
                   <Pressable
-                    onPress={()=>{setChosen1(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>여성</Text>
-                  </Pressable>
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#FF9899" : "white"}}> </Text>
+                    onPress={()=>{setChosen1(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    여성
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen2(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>남성</Text> 
-                  </Pressable>
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen3 ? "#FF9899" : "white"}}> </Text>
+                    onPress={()=>{setChosen2(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                      남성
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen3(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>해당 없음</Text> 
-                  </Pressable>
-              </View>
-            </View>
+                    onPress={()=>{setChosen3(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen3 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                      해당 없음
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+           </View>
             <Pressable style={styles.btn_Next} onPress={CanNEXT}>
               <Text style={styles.btn_nextText}>NEXT</Text>
             </Pressable>
@@ -156,7 +169,7 @@ const styles = StyleSheet.create({
   headerText:{
     color:"white",
     fontWeight:"400",
-    fontSize:15,
+    fontSize:20,
     fontFamily:'YiSunShin_B',
 
     marginBottom:windowHeight*9/32/3,
@@ -191,25 +204,37 @@ const styles = StyleSheet.create({
   answers:{
     // backgroundColor:"blue",
 
-    flexDirection: "row",
+    flexDirection: "column",
     flexWrap:"wrap",
     justifyContent: "space-evenly",
-    alignSelf:"stretch",
+    alignSelf:"center",
   },
-  ans:{
-    // backgroundColor:"white",
 
+
+
+
+  ans:{
+    marginBottom: windowHeight/50,
     flexDirection: "row",
+    alignSelf: "center",
+    justifyContent: "center"
   },
+
   btn_Ans:{
     borderRadius:35,
-    width:20,
-    height:20,
-    borderColor: "#FF9899",
-    borderWidth: 2,
+    width:windowWidth/1.9,
+    height:windowHeight/25,
+    borderRadius: 8,
+    overflow: 'hidden',
+    alignItems:'center',
+    justifyContent:'center',
+  },
 
-    marginRight:6,
-    marginTop:3,
+
+  btn_Ans2:{
+    fontSize: 18,
+    marginVertical: 6
+  
   },
   btn_ansText:{
     fontWeight:"400",
@@ -221,10 +246,7 @@ const styles = StyleSheet.create({
     width:windowWidth/1.8,
     height:windowHeight*5/8/12,
     borderRadius:13,
-
-    marginTop:windowHeight/3.7,
-    marginBottom:-windowHeight/25,
-
+    marginTop:windowHeight/15,
     justifyContent:"center",
     alignItems:"center",
   },

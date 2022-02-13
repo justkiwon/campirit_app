@@ -89,32 +89,46 @@ const StatusBarHeight =
               <Text style={styles.quizText}>당신은 몇 명이서{"\n"}
               캠핑을 떠날 예정인가요?</Text>
             </View>
+            
             <View style={styles.answers}>
               <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#FF9899" : "white"}}> </Text>
                   <Pressable
-                    onPress={()=>{setChosen1(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                     <Text style={styles.btn_ansText}>1~2명 ✌️‍‍👫</Text>
-                  </Pressable>   
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#FF9899" : "white"}}></Text>
+                    onPress={()=>{setChosen1(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    1~2명 ✌️‍‍👫
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen2(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>3~4명 👨‍👩‍‍👧‍👦</Text>
-                  </Pressable>
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen3 ? "#FF9899" : "white"}}> </Text>
+                    onPress={()=>{setChosen2(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    3~4명 👨‍👩‍‍👧‍👦
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen3(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>5명 이상 🤚‍</Text>
-                  </Pressable>
-              </View>
-            </View>
+                    onPress={()=>{setChosen3(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen3 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    5명 이상 🤚
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+
+                   </View>
             <Pressable style={styles.btn_Next} onPress={CanNEXT}>
               <Text style={styles.btn_nextText}>NEXT</Text>
             </Pressable>
@@ -159,7 +173,7 @@ headerWave:{
 headerText:{
   color:"white",
   fontWeight:"400",
-  fontSize:15,
+  fontSize:20,
   fontFamily:'YiSunShin_B',
 
   marginBottom:windowHeight*9/32/3,
@@ -197,26 +211,34 @@ quizText:{
 answers:{
   // backgroundColor:"blue",
   marginHorizontal:windowWidth/10,
-
-  justifyContent: "space-evenly",
-  alignSelf:"stretch",
+  justifyContent: "center",
+  alignSelf:"center",
 },
+
 ans:{
-  // backgroundColor:"white",
-  marginBottom: windowHeight/32,
-
+  marginBottom: windowHeight/50,
   flexDirection: "row",
+  alignSelf: "center",
+  justifyContent: "center"
 },
+
 btn_Ans:{
   borderRadius:35,
-  width:20,
-  height:20,
-  borderColor: "#FF9899",
-  borderWidth: 2,
-
-  marginRight:6,
-  marginTop:3,
+  width:windowWidth/1.9,
+  borderRadius: 8,
+  overflow: 'hidden',
+  alignItems:'center',
+  justifyContent:'center',
 },
+
+
+btn_Ans2:{
+  fontSize: 18,
+  marginVertical: 6
+},
+
+
+
 btn_ansText:{
   fontWeight:"400",
   fontSize:14,

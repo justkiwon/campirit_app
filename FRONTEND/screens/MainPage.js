@@ -12,42 +12,19 @@ import {
   TouchableOpacity,
   Button} from 'react-native';
 
-
-
+  import { getStatusBarHeight } from 'react-native-status-bar-height';
 const windowWidth = Dimensions.get('window').width; 
 const windowHeight = Dimensions.get('window').height;
+const StatusBarHeight =
+    Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
 
-export default function App({navigation}) {
-
-  const Selete_box = ({tent_name,keyy,money,option1,option2,option3}) =>{
-    return(
-      <View>
-    <View style={styles.select_box}>
-        <Image source={require("../assets/images/MakeKit/retangle.png")} style={styles.footer_selate_img}/>
-          <View style={{left:windowWidth/35, width:windowWidth/2.3}}>
-            <Text style={{fontSize:18, fontWeight: 'bold', marginTop: windowWidth/80, color: '#213063'}}>{tent_name}</Text>
-            <Text style={{fontSize:14,marginTop:windowHeight/200, fontWeight: 'bold'}}>선택한 옵션: {hi[keyy].select_option}</Text>  
-          </View>
-            <Text style={{marginTop:windowHeight/50,left:-windowWidth/20, fontSize: 16}}>{money} 원</Text>
-      </View>
-{/*      <View style={{flexDirection:"row", position:"absolute", left:windowWidth/3.8, marginTop:windowHeight/11, width:windowWidth/1.78, height:windowHeight/21}}>
-          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option1)}}><Text>{option1}</Text></TouchableOpacity>
-          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option2);}}><Text>{option2}</Text></TouchableOpacity>
-          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option3);}}><Text>{option3}</Text></TouchableOpacity>
-            </View>
-    */}
-          <TouchableOpacity onPress={() => Delete_product(keyy)}>
-            <Image source={require("../assets/images/MakeKit/canel_button.png")} style={styles.Delete_Button}/>
-          </TouchableOpacity>
-        </View>
-    )};
-
-
-
+export default function MainPage({navigation}) {
     return(
 
           <View style = {styles.container}>
+
+
               <ScrollView bounces='false' > 
                   <ScrollView  horizontal bounces='false' pagingEnabled='false' style={styles.menu_bar}>
                         <TouchableOpacity  style={styles.menu_content}>
@@ -126,16 +103,18 @@ export default function App({navigation}) {
 
                   <View>
                       <Image
+                           style = {{resizeMode: "cover", width: windowWidth}}
                           source = {require("../assets/images/MainPage/Mainbackground.png")}/>
                   </View>
                   
                   <Text style = {styles.head}>나만의 스타터 키트 구성품</Text>
 
                   <View>
-                      <Text style = {styles.test1}>   이야야ㅑ 행복하다 조소연 내일와? </Text>
+
+{/**  ______________________________ 여기에 option 넣기_____________________________*/}
                   </View>
 
-                  
+
 
               </ScrollView>
 
@@ -180,6 +159,7 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         fontSize: 18
     },
+
 
 
 
@@ -253,5 +233,7 @@ const styles = StyleSheet.create({
         height: windowHeight/20,
        
     },
+
+
 
 })
