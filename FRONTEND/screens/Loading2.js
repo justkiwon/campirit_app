@@ -17,7 +17,7 @@ const windowHeight = Dimensions.get('window').height;
   
 
 
-export default function App() {
+export default function Loading2() {
     
 
     const Fadein1 = new Animated.Value(0);
@@ -49,6 +49,11 @@ export default function App() {
       },[where,Fadein2,Fadein1]);
     
 
+
+      setTimeout(() => {
+         navigation.navigate('Quiz1');
+       }, 30000);
+   
 
 
     return (

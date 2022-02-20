@@ -11,15 +11,15 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-{/*const StatusBarHeight =
-Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;*/}
 const StatusBarHeight =
-  Platform.OS === 'ios' ? 0 : StatusBar.currentHeight;
+  Platform.OS === 'ios' ? 0 : StatusBar.currentHeight + 10;
+{/*const StatusBarHeight =
+  Platform.OS === 'ios' ?: 0  windowHeight / 100;*/}
 
 const fontsize =
   Platform.OS === 'ios' ? 1 : 1.3;
 
-export default function StartPage({ navigation }) {
+export default function MakeKit_Tent({ navigation }) {
   const tent = {
     1: {
       name: "돔텐트",
@@ -44,6 +44,7 @@ export default function StartPage({ navigation }) {
       option3: "뛰빠뛰빠뒤빠빠",
       detail: "세상에서 가장 큰",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     },
     2: {
       name: "tent2",
@@ -53,6 +54,7 @@ export default function StartPage({ navigation }) {
       option3: "핵빨간거",
       detail: "제일 이상한",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     },
     3: {
       name: "tent3",
@@ -62,6 +64,7 @@ export default function StartPage({ navigation }) {
       option3: "핵빨간거",
       detail: "거대한",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     },
     4: {
       name: "tent4",
@@ -71,6 +74,7 @@ export default function StartPage({ navigation }) {
       option3: "핵빨간거",
       detail: "완전 아싸",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     }
   };
 
@@ -83,6 +87,7 @@ export default function StartPage({ navigation }) {
       option3: "뛰빠뛰빠뒤빠빠",
       detail: "국내에서 제일 잘 팔리는",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     },
     22: {
       name: "tent2-2",
@@ -92,6 +97,7 @@ export default function StartPage({ navigation }) {
       option3: "핵빨간거",
       detail: "완전 인싸템",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     },
     23: {
       name: "tent2-3",
@@ -101,6 +107,7 @@ export default function StartPage({ navigation }) {
       option3: "핵빨간거",
       detail: "정말 커다란",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     },
     24: {
       name: "tent2-4",
@@ -110,6 +117,7 @@ export default function StartPage({ navigation }) {
       option3: "핵빨간거",
       detail: "획기적인",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     }
   };
 
@@ -122,6 +130,7 @@ export default function StartPage({ navigation }) {
       option3: "뛰빠뛰빠뒤빠빠",
       detail: "피면 편안한",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     },
     32: {
       name: "tent3-2",
@@ -131,6 +140,7 @@ export default function StartPage({ navigation }) {
       option3: "안녕하쇼",
       detail: "엽기적인",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     },
     33: {
       name: "tent3-3",
@@ -140,6 +150,7 @@ export default function StartPage({ navigation }) {
       option3: "핵빨간거",
       detail: "감성템 1위인",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     },
     34: {
       name: "tent3-4",
@@ -149,6 +160,7 @@ export default function StartPage({ navigation }) {
       option3: "핵빨간거",
       detail: "가성비 좋은",
       jpg: "",
+      detail_url: "../../assets/images/Product/T_MAX-01.png",
     }
   };
 
@@ -159,7 +171,7 @@ export default function StartPage({ navigation }) {
 
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [morden_select, setMorden_select] = useState(["detail", "name", "price"]);
+  const [morden_select, setMorden_select] = useState(["detail", "name", "price", '../../assets/images/Product/T_MAX-01.png']);
 
 
   const PickerAdd = (key, name, price, select_option) => {
@@ -200,11 +212,11 @@ export default function StartPage({ navigation }) {
 
 
   //========================================== Product_info_detail (side)function =====================================
-  const Product_info_detail = ({ detail, name, price }) => {
+  const Product_info_detail = ({ detail, name, price, detail_url }) => {
     return (
       <View style={styles.products}>
         <View style={{ flexDirection: 'column' }}>
-          <Pressable onPress={() => { setModalVisible(true), setMorden_select([detail, name, price]) }}>
+          <Pressable onPress={() => { setModalVisible(true), setMorden_select([detail, name, price, detail_url]) }}>
             <Image
               style={styles.product_image}
               source={require("../../assets/images/MakeKit/rectangle.png")} />
@@ -251,7 +263,7 @@ export default function StartPage({ navigation }) {
   };
 
   console.log(hi);
-  console.log(morden_select);
+  //console.log(morden_select);
 
   {/*_______________________________________________________________REAL MAIN_______________________________________________________________________________________- */ }
 
@@ -318,7 +330,7 @@ export default function StartPage({ navigation }) {
               <View style={styles.specific_item}>
                 {Object.keys(product1).map((key) => (
                   <View key={key} >
-                    <Product_info_detail detail={product1[key].detail} name={product1[key].name} price={product1[key].price} />
+                    <Product_info_detail detail={product1[key].detail} name={product1[key].name} price={product1[key].price} detail_url={product1[key].detail_url} />
                     <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product1[key].name, product1[key].price, product1[key].option1, product1[key].option2, product1[key].option3) }}>
                       <Text style={styles.buy_button}>BUY</Text>
                     </TouchableOpacity>
@@ -337,7 +349,7 @@ export default function StartPage({ navigation }) {
               <View style={styles.specific_item}>
                 {Object.keys(product2).map((key) => (
                   <View key={key}>
-                    <Product_info_detail detail={product2[key].detail} name={product2[key].name} price={product2[key].price} />
+                    <Product_info_detail detail={product2[key].detail} name={product2[key].name} price={product2[key].price} detail_url={product2[key].detail_url} />
                     <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product2[key].name, product2[key].price, product2[key].option1, product2[key].option2, product2[key].option3) }}>
                       <Text style={styles.buy_button}>BUY</Text>
                     </TouchableOpacity>
@@ -347,7 +359,7 @@ export default function StartPage({ navigation }) {
             </View>
           </ScrollView>
           {/*---------------------------------------메인 내용3 -------------------------------------------------- */}
-          <ScrollView style={styles.Content_list} horizontal={true} showsHorizontalScrollIndicator={false} bounces={false}>
+          <ScrollView style={styles.Content_list} horizontal={true} showsHorizontalScrollIndicator={false} bounces={false} >
             <View style={styles.Content_explain}>
               <Text style={styles.Content_title}>{tent[3].name}</Text>
               <Text style={styles.Content}>{tent[3].info}</Text>
@@ -356,7 +368,7 @@ export default function StartPage({ navigation }) {
               <View style={styles.specific_item}>
                 {Object.keys(product3).map((key) => (
                   <View key={key}>
-                    <Product_info_detail detail={product3[key].detail} name={product3[key].name} price={product3[key].price} />
+                    <Product_info_detail detail={product3[key].detail} name={product3[key].name} price={product3[key].price} detail_url={product3[key].detail_url} />
                     <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product3[key].name, product3[key].price, product3[key].option1, product3[key].option2, product3[key].option3) }}>
                       <Text style={styles.buy_button}>BUY</Text>
                     </TouchableOpacity>
@@ -368,7 +380,8 @@ export default function StartPage({ navigation }) {
         </View>
         {/*--------------------------------------- 하단에 셀렉트 창 -------------------------------------------------- */}
         <View style={styles.footer_selate}>
-          <Text style={{ left: windowWidth / 30, zIndex: -1, fontWeight: 'bold', fontSize: 18 / fontsize, textDecorationLine: 'underline' }}>내가 선택한 물품</Text>
+          <Text style={{ left: windowWidth / 30, zIndex: -1, fontWeight: 'bold', fontSize: 18 / fontsize, textDecorationLine: 'underline' }}>
+            내가 선택한 물품</Text>
           <ScrollView horizontal={true} style={{ marginTop: windowHeight / 200 }}>
             {Object.keys(hi).map((key) => (
               <View key={key}>
@@ -379,7 +392,7 @@ export default function StartPage({ navigation }) {
         </View>
 
         {/*--------------------------------------- footer 캠핑카 ----------------------------------------------------- */}
-        <View style={{ justifyContent: 'flex-end' }}>
+        <View style={{ justifyContent: 'flex-end', marginBottom: windowHeight / 2 }}>
           <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
             <Image source={require("../../assets/images/MakeKit/camping_car.png")} />
             <TouchableOpacity onPress={() => navigation.navigate("MainPage")}>
@@ -447,11 +460,13 @@ const styles = StyleSheet.create({
 
   Content_list: {
     marginRight: windowWidth / 50,
-    marginBottom: windowHeight / 100,
+    marginTop: windowHeight / 100,
     marginRight: windowWidth / 50,
     marginLeft: windowWidth / 50,
     flexDirection: 'row',
     height: windowHeight / 5,
+    //backgroundColor: 'blue'
+
   },
 
   header_title: {
@@ -500,12 +515,15 @@ const styles = StyleSheet.create({
   },
 
 
+
+
   Content_explain: {
     alignItems: 'flex-start',
     height: windowHeight / 6,
     width: windowWidth / 1.8,
-    flexDirection: 'column'
-    //backgroundColor:'yellow',    
+    flexDirection: 'column',
+
+
   },
 
 
@@ -527,18 +545,22 @@ const styles = StyleSheet.create({
     marginTop: windowHeight / 500,
     fontSize: 20 / fontsize,
     color: '#213063',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
+
 
   content_price: {
     marginLeft: windowWidth / 50,
-    fontSize: 16 / fontsize
+    fontSize: 16 / fontsize,
+
 
   },
+
 
 
   picker_content: {
     fontSize: 15 / fontsize,
+
   },
 
   specific_item: {
@@ -558,6 +580,7 @@ const styles = StyleSheet.create({
   footer_selate: {
     height: windowHeight / 6,
     justifyContent: 'flex-start',
+    //backgroundColor: 'pink'
   },
 
   select_box: {
@@ -587,7 +610,8 @@ const styles = StyleSheet.create({
 
   buy_button: {
     fontWeight: 'bold',
-    fontSize: 14 / fontsize
+    fontSize: 14 / fontsize,
+
   },
 
   Picker_Button: {
