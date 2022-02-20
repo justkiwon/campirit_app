@@ -15,7 +15,7 @@ import {
 
 const windowWidth = Dimensions.get('window').width; 
 const windowHeight = Dimensions.get('window').height;
-export default function Loading1() {
+export default function Loading1({navigation, ansList}) {
 
 
     const Fadein1 = new Animated.Value(0);
@@ -47,8 +47,19 @@ export default function Loading1() {
 
 
     setTimeout(() => {
-      navigation.navigate('Quiz1');
-    }, 30000);
+      navigation.navigate('MakeKit_Tent');
+    }, 3000);
+
+  const Navi =() => {
+    if(ansList.A4==1){
+
+    }else if (a==2){
+
+    }
+
+  };
+
+
 
   return (   
    
@@ -56,33 +67,23 @@ export default function Loading1() {
         <View>
           <View style = {styles.for_test} >
             <Animated.Text 
-              style={[
-                styles.explain,
-                {
-                  opacity: Fadein1
-                }
-            ]}>혼자 떠나는 당신</Animated.Text>
+              style={[styles.explain, {opacity: Fadein1}]}>
+                {ansList.A4 ==1 ? <Text>미니멀 리스트인 당신</Text>: <Text>공간이 여유로운 당신</Text>}
+                </Animated.Text>
+
             <Animated.Text 
-              style={[
-                styles.explain,
-                {
-                  opacity: Fadein1
-                }
-            ]}>차에서 자는 당신</Animated.Text>
-                        <Animated.Text 
-              style={[
-                styles.explain,
-                {
-                  opacity: Fadein1
-                }
-            ]}>감성을 추구하는 당신</Animated.Text>
-            <Animated.Text 
-              style={[
-                styles.explain,
-                {
-                  opacity: Fadein1
-                }
-            ]}>요리를 하고 싶은</Animated.Text>
+              style={[styles.explain,{opacity: Fadein1 }]}>
+                {ansList.A6 ==1 ? <Text>차박을 즐기는 당신</Text>: <Text>텐트에서 자는 당신</Text>}
+                </Animated.Text>
+            
+            <Animated.Text style={[styles.explain,{opacity: Fadein1}]}>
+                {ansList.A5 ==1 ? <Text>감성을 추구하는 당신</Text>:<Text>가성비를 추구하는 당신</Text>}
+                </Animated.Text>
+            
+            <Animated.Text style={[styles.explain,{opacity: Fadein1}]}>
+                {ansList.A1 ==9 ? <Text>전기를 사용하는 당신</Text>: <Text>진정한 캠퍼인 당신</Text>}
+                </Animated.Text>
+            
             <Animated.Text 
               style={[
                 styles.explain2,
@@ -110,12 +111,12 @@ export default function Loading1() {
                   style={styles.backgroundimage,{
                     transform: [{translateX: where}]
                   }} 
-                  source={require ("./assets/background3.png")}>
+                  source={require ("../assets/images/loading/background3.png")}>
           </Animated.Image>
 
           <Image 
               style= {styles.percentagebar}
-              source={require("./assets/PercentageBar.png")}/>  
+              source={require("../assets/images/loading/PercentageBar.png")}/>  
       </View>
     </View>
 

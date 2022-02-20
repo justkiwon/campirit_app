@@ -89,6 +89,10 @@ export default function App() {
         <Stack.Screen name="Quizf" options={{ headerShown: false }}children={
           ({navigation}) => <Quizf navigation={navigation} ansList={ansList} setansList={setansList}/>
           }/>
+        
+        <Stack.Screen name="StartPage" component={StartPage} options={{ headerShown: false }} />
+        <Stack.Screen name="MainPage" component={MainPage} options={{ headerShown: false }}/>
+        
           <Stack.Screen name="MakeKit_Tent" options={{ headerShown: false }}children={
           ({navigation}) => <MakeKit_Tent navigation={navigation} ansList={ansList} />
           }/>
@@ -106,8 +110,7 @@ export default function App() {
         <Stack.Screen name="MakeKit_Setiment" component={MakeKit_Setiment} options={{ headerShown: false }} />
         <Stack.Screen name="MakeKit_Box" component={MakeKit_Box} options={{ headerShown: false }} />
 
-        <Stack.Screen name="StartPage" component={StartPage} options={{ headerShown: false }} />
-        <Stack.Screen name="MainPage" component={MainPage} options={{ headerShown: false }}/>
+
         </Stack.Navigator>
         <StatusBar></StatusBar>
       </NavigationContainer>
