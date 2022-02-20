@@ -8,9 +8,12 @@ import {
     ScrollView,
     TouchableOpacity,
     Image
-
-
 } from 'react-native';
+
+
+
+
+
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -25,132 +28,132 @@ export default function App({ navigation }) {
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_tent.png")} />
+                            source={require("../assets/images/MainPage/Main_tent.png")} />
                         <Text style={styles.menu_text}> 텐트 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_Tarp.png")} />
+                            source={require("../assets/images/MainPage/Main_Tarp.png")} />
                         <Text style={styles.menu_text}> 타프 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_mat.png")} />
+                            source={require("../assets/images/MainPage/Main_mat.png")} />
                         <Text style={styles.menu_text}> 매트 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_Table.png")} />
+                            source={require("../assets/images/MainPage/Main_Table.png")} />
                         <Text style={styles.menu_text}> 테이블 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_chair.png")} />
+                            source={require("../assets/images/MainPage/Main_chair.png")} />
                         <Text style={styles.menu_text}> 체어 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_hitter.png")} />
+                            source={require("../assets/images/MainPage/Main_hitter.png")} />
                         <Text style={styles.menu_text}> 난로 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_cooler.png")} />
+                            source={require("../assets/images/MainPage/Main_cooler.png")} />
                         <Text style={styles.menu_text}> 에어컨 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_etc.png")} />
+                            source={require("../assets/images/MainPage/Main_etc.png")} />
                         <Text style={styles.menu_text}> 기타용품 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_kitchen.png")} />
+                            source={require("../assets/images/MainPage/Main_kitchen.png")} />
                         <Text style={styles.menu_text}> 주방용품 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_mood.png")} />
+                            source={require("../assets/images/MainPage/Main_mood.png")} />
                         <Text style={styles.menu_text}> 감성용품 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_box.png")} />
+                            source={require("../assets/images/MainPage/Main_box.png")} />
                         <Text style={styles.menu_text}> 폴딩박스 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
                             style={styles.menu_image}
-                            source={require("./assets/images/MainPage/Main_.png")} />
+                            source={require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 미개봉 </Text>
                     </TouchableOpacity>
                 </ScrollView>
 
                 <View style={styles.background}>
-                    <Image source={require("./assets/images/MainPage/Mainbackground.png")}
+                    <Image source={require("../assets/images/MainPage/Mainbackground.png")}
                         style={styles.background} />
 
                     <Image
                         style={styles.tent}
-                        source={require("./assets/images/MainPage/tent.png")}
+                        source={require("../assets/images/MainPage/tent.png")}
                     />
                     <Image
                         style={styles.tarp}
-                        source={require("./assets/images/MainPage/tarp.png")}
+                        source={require("../assets/images/MainPage/tarp.png")}
                     />
                     <Image
                         style={styles.tarp2}
-                        source={require("./assets/images/MainPage/tarp2.png")}
+                        source={require("../assets/images/MainPage/tarp2.png")}
                     />
                     <Image
                         style={styles.mat}
-                        source={require("./assets/images/MainPage/mat.png")}
+                        source={require("../assets/images/MainPage/mat.png")}
                     />
                     <Image
                         style={styles.table}
-                        source={require("./assets/images/MainPage/Main_Table.png")}
+                        source={require("../assets/images/MainPage/Main_Table.png")}
                     />
                     <Image
                         style={styles.chair}
-                        source={require("./assets/images/MainPage/chair.png")}
+                        source={require("../assets/images/MainPage/chair.png")}
                     />
                     <Image
                         style={styles.hitter}
-                        source={require("./assets/images/MainPage/hitter.png")}
+                        source={require("../assets/images/MainPage/hitter.png")}
                     />
                     <Image
                         style={styles.hitter2}
-                        source={require("./assets/images/MainPage/hitter2.png")}
+                        source={require("../assets/images/MainPage/hitter2.png")}
                     />
                     <Image
                         style={styles.cooler}
-                        source={require("./assets/images/MainPage/Main_cooler.png")}
+                        source={require("../assets/images/MainPage/Main_cooler.png")}
                     />
                     <Image
                         style={styles.etc}
-                        source={require("./assets/images/MainPage/etc.png")}
+                        source={require("../assets/images/MainPage/etc.png")}
                     />
                     <Image
                         style={styles.kitchen}
-                        source={require("./assets/images/MainPage/kitchen.png")}
+                        source={require("../assets/images/MainPage/kitchen.png")}
                     />
                     <Image
                         style={styles.mood}
-                        source={require("./assets/images/MainPage/Main_mood.png")}
+                        source={require("../assets/images/MainPage/Main_mood.png")}
                     />
                     <Image
                         style={styles.box}
-                        source={require("./assets/images/MainPage/Main_box.png")}
+                        source={require("../assets/images/MainPage/Main_box.png")}
                     />
 
                 </View>
@@ -171,17 +174,17 @@ export default function App({ navigation }) {
                 <View style={{ flexDirection: "row" }} >
                     <Image
                         style={styles.car}
-                        source={require("./assets/images/MainPage/camping_car.png")} />
+                        source={require("../assets/images/MainPage/camping_car.png")} />
                     <TouchableOpacity>
                         <Image
                             style={styles.nextbutton}
-                            source={require("./assets/images/MainPage/NEXT.png")} />
+                            source={require("../assets/images/MainPage/NEXT.png")} />
                     </TouchableOpacity>
                 </View>
 
                 <Image
                     style={styles.bar}
-                    source={require("./assets/images/MainPage/Bar.png")} />
+                    source={require("../assets/images/MainPage/Bar.png")} />
             </View>
 
 

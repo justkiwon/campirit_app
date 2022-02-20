@@ -14,7 +14,7 @@ const windowHeight = Dimensions.get('window').height;
 {/*const StatusBarHeight =
 Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;*/}
 const StatusBarHeight =
-  Platform.OS === 'ios' ? 0 : windowHeight / 100;
+  Platform.OS === 'ios' ? 0 : StatusBar.currentHeight;
 
 const fontsize =
   Platform.OS === 'ios' ? 1 : 1.3;
@@ -382,7 +382,7 @@ export default function StartPage({ navigation }) {
         <View style={{ justifyContent: 'flex-end' }}>
           <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
             <Image source={require("../../assets/images/MakeKit/camping_car.png")} />
-            <TouchableOpacity onPress={() => navigation.navigate("StartPage")}>
+            <TouchableOpacity onPress={() => navigation.navigate("MainPage")}>
               <Image source={require("../../assets/images/MakeKit/next_move_button.png")} style={styles.nextbutton} />
             </TouchableOpacity>
           </View>
