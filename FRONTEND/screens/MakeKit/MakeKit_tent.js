@@ -12,22 +12,14 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 const StatusBarHeight =
-<<<<<<< HEAD
   Platform.OS === 'ios' ? 0 : StatusBar.currentHeight + 10;
-=======
-Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight+10;
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 {/*const StatusBarHeight =
   Platform.OS === 'ios' ?: 0  windowHeight / 100;*/}
 
 const fontsize =
   Platform.OS === 'ios' ? 1 : 1.3;
 
-<<<<<<< HEAD
 export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_select, Setfinal_select }) {
-=======
-export default function MakeKit_Tent({ navigation }) {
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
   const tent = {
     1: {
       name: "돔텐트",
@@ -52,11 +44,7 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "뛰빠뛰빠뒤빠빠",
       detail: "세상에서 가장 큰",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     },
     2: {
       name: "tent2",
@@ -66,11 +54,7 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "핵빨간거",
       detail: "제일 이상한",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     },
     3: {
       name: "tent3",
@@ -80,11 +64,7 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "핵빨간거",
       detail: "거대한",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     },
     4: {
       name: "tent4",
@@ -94,19 +74,11 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "핵빨간거",
       detail: "완전 아싸",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
     }
   };
 
   const product2 = {
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
-    }
-  };
-
-  const product2 = {   
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     21: {
       name: "tent2-1",
       price: 1000,
@@ -115,11 +87,7 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "뛰빠뛰빠뒤빠빠",
       detail: "국내에서 제일 잘 팔리는",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     },
     22: {
       name: "tent2-2",
@@ -129,11 +97,7 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "핵빨간거",
       detail: "완전 인싸템",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     },
     23: {
       name: "tent2-3",
@@ -143,11 +107,7 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "핵빨간거",
       detail: "정말 커다란",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     },
     24: {
       name: "tent2-4",
@@ -157,11 +117,7 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "핵빨간거",
       detail: "획기적인",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     }
   };
 
@@ -174,11 +130,7 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "뛰빠뛰빠뒤빠빠",
       detail: "피면 편안한",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     },
     32: {
       name: "tent3-2",
@@ -188,11 +140,7 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "안녕하쇼",
       detail: "엽기적인",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     },
     33: {
       name: "tent3-3",
@@ -202,11 +150,7 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "핵빨간거",
       detail: "감성템 1위인",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     },
     34: {
       name: "tent3-4",
@@ -216,11 +160,7 @@ export default function MakeKit_Tent({ navigation }) {
       option3: "핵빨간거",
       detail: "가성비 좋은",
       jpg: "",
-<<<<<<< HEAD
       detail_url: "../../assets/images/Product/T_MAX-01.png",
-=======
-      detail_url:"../../assets/images/Product/T_MAX-01.png",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     }
   };
 
@@ -233,7 +173,6 @@ export default function MakeKit_Tent({ navigation }) {
   const [morden_select, setMorden_select] = useState(["detail", "name", "price", '../../assets/images/Product/T_MAX-01.png']);
 
 
-<<<<<<< HEAD
   const PickerAdd = (key, name, price, select_option) => {
     const newPicker = {
       ...hi,
@@ -245,52 +184,7 @@ export default function MakeKit_Tent({ navigation }) {
       },
     };
     setHi(newPicker);
-  };
-
-  const Add = (key, name, price, option1, option2, option3) => {
-    const newAdd = {
-      ...hi,
-      [key]: {
-        "name": name,
-        "price": price,
-        "option1": option1,
-        "option2": option2,
-        "option3": option3,
-        "visible": true,
-      },
-    };
-    setHi(newAdd);
-    setFinalhi(newAdd);
-  };
-
-  //________________________하단 selete 객체 삭제___________________-
-
-  const Delete_product = (key) => {
-    const newProduct = { ...hi }; // toDos 객체를 ...으로 불러와서 다시 만들어 새 객체를 만듬
-    delete newProduct[key]; //이 오브젝트에서 key를 삭제함
-    setHi(newProduct);
-  };
-
-
-=======
-  //_________________________하단 selete객체 추가__________________
-
-  const [modalVisible, setModalVisible] = useState(false);
-
-  const [morden_select, setMorden_select] = useState(["detail", "name", "price",'../../assets/images/Product/T_MAX-01.png']);
-
-
-  const PickerAdd = (key, name, price, select_option) => {
-    const newPicker = {
-      ...hi,
-      [key]: {
-        "name": name,
-        "price": price,
-        "select_option": select_option,
-        "visible": false,
-      },
-    };
-    setHi(newPicker);
+    setFinalhi(newPicker);
   };
 
   const Add = (key, name, price, option1, option2, option3) => {
@@ -314,10 +208,13 @@ export default function MakeKit_Tent({ navigation }) {
     const newProduct = { ...hi }; // toDos 객체를 ...으로 불러와서 다시 만들어 새 객체를 만듬
     delete newProduct[key]; //이 오브젝트에서 key를 삭제함
     setHi(newProduct);
+
+    const hihi = {...finalhi};
+    delete hihi[key];
+    setFinalhi(hihi);
   };
 
 
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
   //========================================== Product_info_detail (side)function =====================================
   const Product_info_detail = ({ detail, name, price, detail_url }) => {
     return (
@@ -369,13 +266,8 @@ export default function MakeKit_Tent({ navigation }) {
     )
   };
 
-<<<<<<< HEAD
  // console.log(finalhi);
  // console.log(morden_select);
-=======
-  console.log(hi);
-  //console.log(morden_select);
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 
   {/*_______________________________________________________________REAL MAIN_______________________________________________________________________________________- */ }
 
@@ -405,15 +297,9 @@ export default function MakeKit_Tent({ navigation }) {
               </View>
               {/**_______________________________________________________________ main Scroll View __________________________________________________ */}
               <View style={{ height: windowHeight / 1.5, width: windowWidth / 1.1, backgroundColor: "grey" }}>
-<<<<<<< HEAD
                 <ScrollView horizontal={false}>
                   <Text style={styles.modalText}>Hello World!</Text>
                   <View style={{ width: 300, height: 5000, backgroundColor: "yellow" }} />
-=======
-                <ScrollView horizontal={false} style={{alignContent:'flex-start'}}>
-                  <Text style={styles.modalText}>Hello World!</Text>
-                  <Image style={{ width: windowWidth/1.15, alignSelf:'flex-start', resizeMode:'contain',alignSelf: 'center', backgroundColor: "yellow" }} source={require('../../assets/images/Product/T_MAX-01.png')} />
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
                 </ScrollView>
               </View>
 
@@ -427,11 +313,7 @@ export default function MakeKit_Tent({ navigation }) {
 
       {/*====================================== Modal finish, header ---------------------------------------------------- */}
 
-<<<<<<< HEAD
       <View style={{ justifyContent: 'flex-start', height: windowHeight }}>
-=======
-      <View style={{ justifyContent: 'space-between', height: windowHeight }}>
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
         <View style={styles.header}>
           <ImageBackground source={require("../../assets/images/MakeKit/tent.png")} style={styles.header_image}>
             <TouchableOpacity onPress={() => navigation.navigate('MainPage')}>
@@ -471,11 +353,7 @@ export default function MakeKit_Tent({ navigation }) {
               <View style={styles.specific_item}>
                 {Object.keys(product2).map((key) => (
                   <View key={key}>
-<<<<<<< HEAD
                     <Product_info_detail detail={product2[key].detail} name={product2[key].name} price={product2[key].price} detail_url={product2[key].detail_url} />
-=======
-                    <Product_info_detail detail={product2[key].detail} name={product2[key].name} price={product2[key].price}  detail_url={product2[key].detail_url} />
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
                     <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product2[key].name, product2[key].price, product2[key].option1, product2[key].option2, product2[key].option3) }}>
                       <Text style={styles.buy_button}>BUY</Text>
                     </TouchableOpacity>
@@ -485,11 +363,7 @@ export default function MakeKit_Tent({ navigation }) {
             </View>
           </ScrollView>
           {/*---------------------------------------메인 내용3 -------------------------------------------------- */}
-<<<<<<< HEAD
           <ScrollView style={styles.Content_list} horizontal={true} showsHorizontalScrollIndicator={false} bounces={false} >
-=======
-          <ScrollView style={styles.Content_list} horizontal={true} showsHorizontalScrollIndicator={false} bounces={false}>
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
             <View style={styles.Content_explain}>
               <Text style={styles.Content_title}>{tent[3].name}</Text>
               <Text style={styles.Content}>{tent[3].info}</Text>
@@ -498,11 +372,7 @@ export default function MakeKit_Tent({ navigation }) {
               <View style={styles.specific_item}>
                 {Object.keys(product3).map((key) => (
                   <View key={key}>
-<<<<<<< HEAD
                     <Product_info_detail detail={product3[key].detail} name={product3[key].name} price={product3[key].price} detail_url={product3[key].detail_url} />
-=======
-                    <Product_info_detail detail={product3[key].detail} name={product3[key].name} price={product3[key].price}  detail_url={product3[key].detail_url} />
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
                     <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product3[key].name, product3[key].price, product3[key].option1, product3[key].option2, product3[key].option3) }}>
                       <Text style={styles.buy_button}>BUY</Text>
                     </TouchableOpacity>
@@ -514,12 +384,8 @@ export default function MakeKit_Tent({ navigation }) {
         </View>
         {/*--------------------------------------- 하단에 셀렉트 창 -------------------------------------------------- */}
         <View style={styles.footer_selate}>
-<<<<<<< HEAD
           <Text style={{ left: windowWidth / 30, zIndex: -1, fontWeight: 'bold', fontSize: 18 / fontsize, textDecorationLine: 'underline' }}>
             내가 선택한 물품</Text>
-=======
-          <Text style={{ left: windowWidth / 30, zIndex: -1, fontWeight: 'bold', fontSize: 18 / fontsize, textDecorationLine: 'underline' }}>내가 선택한 물품</Text>
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
           <ScrollView horizontal={true} style={{ marginTop: windowHeight / 200 }}>
             {Object.keys(hi).map((key) => (
               <View key={key}>
@@ -530,17 +396,10 @@ export default function MakeKit_Tent({ navigation }) {
         </View>
 
         {/*--------------------------------------- footer 캠핑카 ----------------------------------------------------- */}
-<<<<<<< HEAD
         <View style={{ justifyContent: 'flex-end', marginBottom: windowHeight / 2 }}>
           <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
             <Image source={require("../../assets/images/MakeKit/camping_car.png")} />
             <TouchableOpacity onPress={() => navigation.navigate("MainPage")}>
-=======
-        <View style={{ justifyContent: 'flex-end' }}>
-          <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-            <Image source={require("../../assets/images/MakeKit/camping_car.png")} />
-            <TouchableOpacity onPress={() => navigation.navigate("MakeKit_Tarp_NoCar")}>
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
               <Image source={require("../../assets/images/MakeKit/next_move_button.png")} style={styles.nextbutton} />
             </TouchableOpacity>
           </View>
@@ -598,31 +457,20 @@ const styles = StyleSheet.create({
   },
 
   maincontain: {
-<<<<<<< HEAD
     height: windowHeight / 1.6,
-=======
-    height: windowHeight / 1.5,
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     marginTop: windowHeight / 60,
 
   },
 
   Content_list: {
     marginRight: windowWidth / 50,
-<<<<<<< HEAD
     marginTop: windowHeight / 100,
-=======
-    marginBottom: windowHeight / 100,
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     marginRight: windowWidth / 50,
     marginLeft: windowWidth / 50,
     flexDirection: 'row',
     height: windowHeight / 5,
-<<<<<<< HEAD
     //backgroundColor: 'blue'
 
-=======
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
   },
 
   header_title: {
@@ -662,11 +510,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
-<<<<<<< HEAD
     marginTop: windowHeight / 6.5,
-=======
-    marginTop: windowHeight / 6,
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
     borderRadius: 2,
     marginLeft: windowWidth / 4,
     width: windowWidth / 9,
@@ -674,24 +518,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3AE58'
   },
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 
   Content_explain: {
     alignItems: 'flex-start',
     height: windowHeight / 6,
     width: windowWidth / 1.8,
-<<<<<<< HEAD
     flexDirection: 'column',
 
 
-=======
-    flexDirection: 'column'
-    //backgroundColor:'yellow',    
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
   },
 
 
@@ -713,7 +549,6 @@ const styles = StyleSheet.create({
     marginTop: windowHeight / 500,
     fontSize: 20 / fontsize,
     color: '#213063',
-<<<<<<< HEAD
     fontWeight: 'bold',
   },
 
@@ -722,27 +557,14 @@ const styles = StyleSheet.create({
     marginLeft: windowWidth / 50,
     fontSize: 16 / fontsize,
 
-=======
-    fontWeight: 'bold'
-  },
-
-  content_price: {
-    marginLeft: windowWidth / 50,
-    fontSize: 16 / fontsize
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 
   },
 
 
-<<<<<<< HEAD
 
   picker_content: {
     fontSize: 15 / fontsize,
 
-=======
-  picker_content: {
-    fontSize: 15 / fontsize,
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
   },
 
   specific_item: {
@@ -762,10 +584,7 @@ const styles = StyleSheet.create({
   footer_selate: {
     height: windowHeight / 6,
     justifyContent: 'flex-start',
-<<<<<<< HEAD
     //backgroundColor: 'pink'
-=======
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
   },
 
   select_box: {
@@ -795,12 +614,8 @@ const styles = StyleSheet.create({
 
   buy_button: {
     fontWeight: 'bold',
-<<<<<<< HEAD
     fontSize: 14 / fontsize,
 
-=======
-    fontSize: 14 / fontsize
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
   },
 
   Picker_Button: {
@@ -816,11 +631,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     justifyContent: "center",
     width: windowWidth / 20,
-<<<<<<< HEAD
   },
-=======
-  }
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 });
 
 

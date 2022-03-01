@@ -34,13 +34,8 @@ export default function Quizf({ navigation, ansList, setansList }) {
     ).start();
   }, [Bus])
 
-<<<<<<< HEAD
   const CanNEXT = () => {
     let num = 0;
-=======
-    const NEXT =()=>{
-      navigation.navigate('Loading1')
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 
     chosen1 == true ? (num += 1) : null;
     chosen2 == true ? (num += 1) : null;
@@ -56,7 +51,6 @@ export default function Quizf({ navigation, ansList, setansList }) {
     )
   }
 
-<<<<<<< HEAD
   const NEXT = () => {
     navigation.navigate('Loading1')
 
@@ -108,59 +102,6 @@ export default function Quizf({ navigation, ansList, setansList }) {
                   저기서 요리하고, 먹고, 쉬면 좋겠다
                 </Text>
               </View>
-=======
-    return (
-        <View style={styles.container}>
-{/* ///////////////////////////////<<<< Header : 파란물결 >>>>>////////////////////////////////////// */}
-          <View style={styles.header}>
-            <Image 
-              style={styles.headerWave}
-              source={require("../../assets/images/Quiz/headerWave.png")}/>
-          </View>
-{/* ////////////////////////////<<<< Body : 질문, 선택지, NEXT버튼 >>>>>///////////////////////////////////////// */}
-          <View style={styles.body}>
-            <Image
-              source={require("../../assets/images/Quiz/TentSpace.png")}
-              style={styles.TentSpace}/>
-            <Image
-              source={require("../../assets/images/Quiz/FocusLine.png")}
-              style={styles.FocusLine}/>
-            <View style={styles.quiz}>
-              <Text style={styles.quizText}> 7. </Text>
-              <Text style={styles.quizText}>
-                사진에서 보여지는{"\n"}
-                공간이 필요하다고 생각하시나요?
-              </Text>
-            </View>
-            <View style={styles.answers}>
-
-            <View style={styles.ans}>
-                  <Pressable
-                    onPress={()=>{setChosen1(prev => !prev)}}>                   
-                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
-                    <Text style={styles.btn_Ans2}>
-                    저기서 요리하고, 먹고, 쉬면 좋겠다
-                    </Text>
-                  </View>
-                  </Pressable> 
-                </View>
-
-                <View style={styles.ans}>
-                  <Pressable
-                    onPress={()=>{setChosen2(prev => !prev)}}>                   
-                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
-                    <Text style={styles.btn_Ans2}>
-                    굳이..?
-                    </Text>
-                  </View>
-                  </Pressable> 
-                </View>
-
-
-            </View>
-            <Pressable style={styles.btn_Next} onPress={CanNEXT}>
-              <Text style={styles.btn_nextText}>NEXT</Text>
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
             </Pressable>
           </View>
 
@@ -201,7 +142,6 @@ export default function Quizf({ navigation, ansList, setansList }) {
 
 const styles = StyleSheet.create({
   ///////////////////////////////<<<< Container : 최상위 박스 >>>>>//////////////////////////////////////  
-<<<<<<< HEAD
   container: {
     flex: 1,
   },
@@ -231,29 +171,6 @@ const styles = StyleSheet.create({
   body: {
     flex: 2,
     backgroundColor: "white",
-=======
-container: {
-  flex: 1,
-},
-///////////////////////////////<<<< Header : 파란물결 >>>>>//////////////////////////////////////
-header:{
-  flex: 0.75,
-  marginTop:StatusBarHeight,
-  backgroundColor:"white",
-
-  alignItems: "center",
-},
-headerWave:{
-  width: windowWidth,
-  height: 197,
-  justifyContent: "center",
-},
-headerText:{
-  color:"white",
-  fontWeight:"400",
-  fontSize:15,
-  fontFamily:'YiSunShin_B',
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 
     alignItems: 'center',
     justifyContent: "center",
@@ -283,7 +200,6 @@ headerText:{
     alignSelf: "stretch",
   },
 
-<<<<<<< HEAD
   ans: {
     marginBottom: windowHeight / 50,
     flexDirection: "row",
@@ -316,73 +232,6 @@ headerText:{
     width: windowWidth / 1.8,
     height: windowHeight * 5 / 8 / 12,
     borderRadius: 13,
-=======
-  flexDirection:"row",
-},
-quizText:{
-  // backgroundColor:"gray",
-  fontWeight:"700",
-  fontSize:20,
-  fontFamily:"Roboto",
-},
-answers:{
-  // backgroundColor:"blue",
-  marginHorizontal:windowWidth/10,
-  alignSelf:"stretch",
-},
-
-ans:{
-  marginBottom: windowHeight/50,
-  flexDirection: "row",
-  alignSelf: "center",
-  justifyContent: "center"
-},
-
-btn_Ans:{
-  borderRadius:35,
-  width:windowWidth/1.5,
-  borderRadius: 8,
-  overflow: 'hidden',
-  alignItems:'center',
-  justifyContent:'center',
-},
-
-
-btn_Ans2:{
-  fontSize: 16,
-  marginVertical: 6
-},
-
-btn_ansText:{
-  fontWeight:"400",
-  fontSize:14,
-  fontFamily:"Roboto",
-},
-btn_Next:{
-  backgroundColor:'#FFD300',
-  width:windowWidth/1.8,
-  height:windowHeight*5/8/12,
-  borderRadius:13,  
-
-  marginTop:windowHeight/20,
-  marginBottom:-windowHeight/50,
-  justifyContent:"center",
-  alignItems:"center",
-},
-btn_nextText:{
-  color:"white",
-  fontWeight:"400",
-  fontSize:12,
-  fontFamily:'YiSunShin_B',
-},
-//////////////////////////<<<< Footer : 자동차 >>>>>///////////////////////////////////////////
-footer:{
-  flex: 0.18,
-  backgroundColor:"white",
-},
-process:{
-  // backgroundColor:"blue",
->>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 
     marginTop: windowHeight / 20,
     marginBottom: -windowHeight / 50,
