@@ -57,6 +57,7 @@ export default function Quiz1({ navigation, ansList, setansList }) {
     chosen5 ? setansList({ ...ansList, A1: "60대 이상" }) : null
   }
 
+<<<<<<< HEAD
   const [loaded] = useFonts({
     YiSunShin_B: require('../../assets/fonts/이순신돋움체B.ttf'),
     Roboto: require('../../assets/fonts/Roboto.ttf'),
@@ -106,6 +107,109 @@ export default function Quiz1({ navigation, ansList, setansList }) {
                 </View>
 
               </Pressable>
+=======
+    return (
+        <View style={styles.container}>
+{/* /////////////////////////////////<<<< Header : 파란물결 >>>>>////////////////////////////////////// */}
+          <View style={styles.header}>
+            <ImageBackground  
+              style={styles.headerWave}
+              source={require("../../assets/images/Quiz/headerWave.png")} 
+              resizeMode="cover">
+            <Text style={styles.headerText}>
+              당신에 관한 간단한 질문에 응답해주세요.
+            </Text>
+            </ImageBackground>
+          </View>
+{/* ////////////////////////////<<<< Body : 질문, 선택지, NEXT버튼 >>>>>///////////////////////////////////////// */}
+          <View style={styles.body}>
+            <Text style={styles.quizText}>1. 연령대가 어떻게 되시나요?</Text>
+            <View style={styles.answers}>
+
+              <View style={styles.ansbundle1}>
+                <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen1(prev => !prev)}}>
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                      <Text style={styles.btn_Ans2}>
+                        10 ~ 20대
+                      </Text>
+                    </View>
+
+                  </Pressable> 
+                </View>
+
+                <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen2(prev => !prev)}}>
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                      <Text style={styles.btn_Ans2}>
+                        30 대
+                      </Text>
+                    </View>
+                    
+                  </Pressable> 
+                </View>
+
+                
+                <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen3(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen3 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                      40대
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+
+                <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen4(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen4 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                      50대
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+                <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen5(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen5 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                      60대
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+   
+              </View>
+
+              </View>
+
+            
+            <Pressable style={styles.btn_Next} onPress={CanNEXT} >
+              <Text style={styles.btn_nextText}>NEXT</Text>
+            </Pressable>
+{/**__________________________________  이것은 pass 나중에 지우기 _____________ */}
+
+<Pressable style={styles.btn_Next} onPress={()=>navigation.navigate("MakeKit_Tent")} >
+              <Text style={styles.btn_nextText}>NEXT1</Text>
+            </Pressable>
+
+          </View>
+ {/* //////////////////////////<<<< Footer : 자동차 >>>>>/////////////////////////////////////////// */}
+          <View style = {styles.footer}>
+            <View style = {styles.process}>
+            <Animated.Image
+                source={require("../../assets/images/Quiz/movingCar.png")}
+                style={styles.movingCar}/>
+              <Text style = {styles.processText}>0%</Text>
+>>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
             </View>
 
 
@@ -186,6 +290,7 @@ const styles = StyleSheet.create({
     width: windowWidth,
     height: 197,
 
+<<<<<<< HEAD
     justifyContent: "center",
   },
   headerText: {
@@ -193,6 +298,15 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontSize: 20,
     fontFamily: 'YiSunShin_B',
+=======
+      justifyContent: "center",
+    },
+    headerText:{
+      color:"white",
+      fontWeight:"400",
+      fontSize:20,
+      fontFamily:'YiSunShin_B',
+>>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 
     marginBottom: windowHeight * 9 / 32 / 3,
     marginLeft: windowWidth / 40,
@@ -202,6 +316,7 @@ const styles = StyleSheet.create({
     flex: 2,
     backgroundColor: "white",
 
+<<<<<<< HEAD
     alignItems: 'center',
     justifyContent: "center",
   },
@@ -249,6 +364,87 @@ const styles = StyleSheet.create({
   btn_Ans2: {
     fontSize: 16,
     marginVertical: 5
+=======
+      alignItems:'center',
+      justifyContent: "center",
+    },
+    quizText:{
+      fontWeight:"700",
+      fontSize:20,
+      fontFamily:"Roboto",
+
+      marginBottom: windowHeight*5/8/17,
+      marginLeft :-windowWidth/4,
+    },
+    
+    answers:{
+      //backgroundColor:"blue",
+      marginHorizontal:windowWidth/10,
+
+      alignSelf:"stretch",
+    },
+
+    ansbundle1:{
+      //backgroundColor:"red"
+      flexDirection: "column",
+      alignItems:"center",
+      justifyContent:"space-between",
+    },
+
+    ans:{
+      marginBottom: windowHeight/50,
+      flexDirection: "row",
+      alignSelf: "center",
+      justifyContent: "center"
+    },
+
+    btn_Ans:{
+      borderRadius:35,
+      width:windowWidth/1.9,
+      height:windowHeight/25,
+      borderRadius: 8,
+      overflow: 'hidden',
+      alignItems:'center',
+      justifyContent:'center',
+    },
+
+
+    btn_Ans2:{
+      fontSize: 18,
+      marginVertical: 6
+    
+    },
+
+    btn_ansText:{
+      fontWeight:"400",
+      fontSize:14,
+      fontFamily:"Roboto",
+    },
+    
+    btn_Next:{
+      width:windowWidth/1.8,
+      height:windowHeight*5/8/12,
+      borderRadius:13,
+      backgroundColor: "#FFD300",
+      justifyContent:"center",
+      marginTop: windowHeight/15,
+      alignItems:"center",
+    },
+
+    btn_nextText:{
+      color:"white",
+      fontWeight:"400",
+      fontSize:12,
+      fontFamily:'YiSunShin_B',
+    },
+    //////////////////////////<<<< Footer : 자동차 >>>>>///////////////////////////////////////////
+    footer:{
+      flex: 0.18,
+      backgroundColor:"white",
+    },
+    process:{
+      // backgroundColor:"blue",
+>>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 
   },
 

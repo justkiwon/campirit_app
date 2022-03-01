@@ -40,6 +40,7 @@ export default function Quiz7({ navigation, ansList, setansList }) {
     chosen1 == true ? (num += 1) : null;
     chosen2 == true ? (num += 1) : null;
 
+<<<<<<< HEAD
     num == 1 ? NEXT() : OnemoreTime();
   }
 
@@ -87,6 +88,56 @@ export default function Quiz7({ navigation, ansList, setansList }) {
                   간편한 게 최고지!
                 </Text>
               </View>
+=======
+    const [loaded] = useFonts({
+      YiSunShin_B: require('../../assets/fonts/이순신돋움체B.ttf'),
+      Roboto:require('../../assets/fonts/Roboto.ttf'),
+    });
+    if (!loaded) {
+      return null;
+    }
+    
+    return (
+        <View style={styles.container}>
+{/* /////////////////////////////////<<<< Header : 파란물결 >>>>>////////////////////////////////////// */}
+          <View style={styles.header}>
+            <Image 
+              style={styles.headerWave}
+              source={require("../../assets/images/Quiz/headerWave.png")}/>
+          </View>
+{/* ////////////////////////////<<<< Body : 질문, 선택지, NEXT버튼 >>>>>///////////////////////////////////////// */}
+          <View style={styles.body}>
+            <Text style={styles.quizText}>4. 캠핑 장비의 설치/해체 난이도</Text>
+            <View style={styles.answers}>
+            <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen1(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    캠핑은 편하려고 가는 건데?{"\n"}
+                    간편한 게 최고지!
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+                <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen2(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    진정한 캠퍼라면{"\n"}
+                    설치(해체) 관계없이 성능 좋고 기능이 많아야지
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+            </View>
+            <Pressable style={styles.btn_Next} onPress={CanNEXT}>
+              <Text style={styles.btn_nextText}>NEXT</Text>
+>>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
             </Pressable>
           </View>
 
@@ -175,6 +226,7 @@ const styles = StyleSheet.create({
     // backgroundColor:"blue",
     marginHorizontal: windowWidth / 10,
 
+<<<<<<< HEAD
     alignSelf: "stretch",
   },
   ans: {
@@ -194,6 +246,46 @@ const styles = StyleSheet.create({
 
   },
 
+=======
+  alignSelf:"stretch",
+},
+ans:{
+  marginBottom: windowHeight/50,
+  flexDirection: "row",
+  alignSelf: "center",
+  justifyContent: "center"
+},
+
+btn_Ans:{
+  borderRadius:35,
+  width:windowWidth/1.5,
+  borderRadius: 8,
+  overflow: 'hidden',
+  alignItems:'center',
+  justifyContent:'center',
+},
+
+
+btn_Ans2:{
+  fontSize: 16,
+  textAlign:'center',
+  marginVertical: 6
+},
+
+btn_ansText:{
+  fontWeight:"400",
+  fontSize:14,
+  fontFamily:"Roboto",
+},
+btn_Next:{
+  backgroundColor:'#FFD300',
+  width:windowWidth/1.8,
+  height:windowHeight*5/8/12,
+  borderRadius:13,
+
+  marginTop:windowHeight/6,
+  marginBottom:-windowHeight/20,
+>>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 
   btn_Ans2: {
     fontSize: 16,

@@ -46,6 +46,7 @@ export default function Quiz3({ navigation, ansList, setansList }) {
     num == 1 ? NEXT() : OnemoreTime();
   }
 
+<<<<<<< HEAD
   const OnemoreTime = () => {
     Alert.alert(
       '',
@@ -101,6 +102,71 @@ export default function Quiz3({ navigation, ansList, setansList }) {
                   1~2명 ✌️‍‍👫
                 </Text>
               </View>
+=======
+    return (
+        <View style={styles.container}>
+{/* /////////////////////////////////<<<< Header : 파란물결 >>>>>////////////////////////////////////// */}
+          <View style={styles.header}>
+            <ImageBackground  
+              style={styles.headerWave}
+              source={require("../../assets/images/Quiz/headerWave.png")} 
+              resizeMode="cover">
+            <Text style={styles.headerText}>
+              당신에 관해 간단한 질문에 응답해주세요.
+            </Text>
+            </ImageBackground>
+          </View>
+{/* ////////////////////////////<<<< Body : 질문, 선택지, NEXT버튼 >>>>>///////////////////////////////////////// */}
+          <View style={styles.body}>  
+            <Text style={styles.ansState}>{ansList.A1} {ansList.A2}인{"\n"}</Text>
+            <View style={styles.quiz}>
+              <Text style={styles.quizText}> 3. </Text>
+              <Text style={styles.quizText}>당신은 몇 명이서{"\n"}
+              캠핑을 떠날 예정인가요?</Text>
+            </View>
+            
+            <View style={styles.answers}>
+              <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen1(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    1~2명 ✌️‍‍👫
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+                <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen2(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    3~4명 👨‍👩‍‍👧‍👦
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+                <View style={styles.ans}>
+                  <Pressable
+                    onPress={()=>{setChosen3(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen3 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    5명 이상 🤚
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+
+                   </View>
+            <Pressable style={styles.btn_Next} onPress={CanNEXT}>
+              <Text style={styles.btn_nextText}>NEXT</Text>
+>>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
             </Pressable>
           </View>
 
@@ -170,6 +236,7 @@ const styles = StyleSheet.create({
     width: windowWidth,
     height: 197,
 
+<<<<<<< HEAD
     justifyContent: "center",
   },
   headerText: {
@@ -177,6 +244,15 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontSize: 20,
     fontFamily: 'YiSunShin_B',
+=======
+  justifyContent: "center",
+},
+headerText:{
+  color:"white",
+  fontWeight:"400",
+  fontSize:20,
+  fontFamily:'YiSunShin_B',
+>>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 
     marginBottom: windowHeight * 9 / 32 / 3,
     marginLeft: windowWidth / 40,
@@ -202,6 +278,7 @@ const styles = StyleSheet.create({
     marginBottom: windowHeight * 5 / 8 / 17,
     marginLeft: -windowWidth / 4,
 
+<<<<<<< HEAD
     flexDirection: "row",
   },
   quizText: {
@@ -233,6 +310,57 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+=======
+  flexDirection:"row",
+},
+quizText:{
+  // backgroundColor:"gray",
+  fontWeight:"700",
+  fontSize:20,
+  fontFamily:"Roboto",
+},
+answers:{
+  // backgroundColor:"blue",
+  marginHorizontal:windowWidth/10,
+  justifyContent: "center",
+  alignSelf:"center",
+},
+
+ans:{
+  marginBottom: windowHeight/50,
+  flexDirection: "row",
+  alignSelf: "center",
+  justifyContent: "center"
+},
+
+btn_Ans:{
+  borderRadius:35,
+  width:windowWidth/1.9,
+  borderRadius: 8,
+  overflow: 'hidden',
+  alignItems:'center',
+  justifyContent:'center',
+},
+
+
+btn_Ans2:{
+  fontSize: 18,
+  marginVertical: 6
+},
+
+
+
+btn_ansText:{
+  fontWeight:"400",
+  fontSize:14,
+  fontFamily:"Roboto",
+},
+btn_Next:{
+  backgroundColor:'#FFD300',
+  width:windowWidth/1.8,
+  height:windowHeight*5/8/12,
+  borderRadius:13,
+>>>>>>> c444a0569d7a17e1a7c5202c515e78ca991f34c6
 
   btn_Ans2: {
     fontSize: 16,
