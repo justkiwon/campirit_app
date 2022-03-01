@@ -76,22 +76,29 @@ const StatusBarHeight =
           <View style={styles.body}>
             <Text style={styles.quizText}>2. 나의 캠핑은 감성이 중요하다</Text>
             <View style={styles.answers}>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#FF9899" : "white"}}> </Text>
+            <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen1(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>캠핑은 눈이 즐거워야 해 ✨ </Text>
+                    onPress={()=>{setChosen1(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    캠핑은 눈이 즐거워야 해 ✨ 
+                    </Text>
+                  </View>
                   </Pressable> 
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#FF9899" : "white"}}> </Text>
+                </View>
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen2(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>꼭 그럴 필요는 없다. 감성보다는 가성비지</Text> 
-                  </Pressable>
-              </View>
+                    onPress={()=>{setChosen2(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    꼭 그럴 필요는 없다. 감성보다는 가성비지
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
             </View>
             <Pressable style={styles.btn_Next} onPress={CanNEXT}>
               <Text style={styles.btn_nextText}>NEXT</Text>
@@ -167,21 +174,27 @@ answers:{
   alignSelf:"stretch",
 },
 ans:{
-  // backgroundColor:"white",
-  marginBottom: windowHeight/32,
-
+  marginBottom: windowHeight/50,
   flexDirection: "row",
+  alignSelf: "center",
+  justifyContent: "center"
 },
+
 btn_Ans:{
   borderRadius:35,
-  width:20,
-  height:20,
-  borderColor: "#FF9899",
-  borderWidth: 2,
-
-  marginRight:6,
-  marginTop:3,
+  width:windowWidth/1.5,
+  borderRadius: 8,
+  overflow: 'hidden',
+  alignItems:'center',
+  justifyContent:'center',
 },
+
+
+btn_Ans2:{
+  fontSize: 16,
+  marginVertical: 6
+},
+
 btn_ansText:{
   fontWeight:"400",
   fontSize:14,

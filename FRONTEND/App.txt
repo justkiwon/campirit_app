@@ -17,7 +17,7 @@ import Quiz7 from './screens/QuizPages/Quiz7.js';
 import Quiz8 from './screens/QuizPages/Quiz8.js';
 import Quiz9 from './screens/QuizPages/Quiz9.js';
 import Quizf from './screens/QuizPages/Quizf.js';
-import MakeKit_tent from './screens/MakeKit/MakeKit_Tent.js';
+import MakeKit from './screens/MakeKit.js';
 import StartPage from './screens/StartPage.js';
 
 const Stack = createNativeStackNavigator();
@@ -75,8 +75,8 @@ export default function App() {
         <Stack.Screen name="Quizf" options={{ headerShown: false }}children={
           ({navigation}) => <Quizf navigation={navigation} ansList={ansList} setansList={setansList}/>
           }/>
-          <Stack.Screen name="MakeKit_Tent" options={{ headerShown: false }}children={
-          ({navigation}) => <MakeKit_tent navigation={navigation} ansList={ansList} />
+          <Stack.Screen name="MakeKit" options={{ headerShown: false }}children={
+          ({navigation}) => <MakeKit navigation={navigation} ansList={ansList} />
           }/>
         <Stack.Screen name="StartPage" component={StartPage} options={{ headerShown: false }} />
         <Stack.Screen name="MainPage" component={MainPage} options={{ headerShown: false }}/>

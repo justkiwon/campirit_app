@@ -86,46 +86,69 @@ const StatusBarHeight =
           <View style={styles.body}>
             <Text style={styles.quizText}>5. 이 계절만큼은 캠핑을 못 가겠다</Text>
             <View style={styles.answers}>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#FF9899" : "white"}}> </Text>
+            <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen1(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>봄 : 나는 꽃가루 알레르기가 있어</Text>
-                  </Pressable>   
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#FF9899" : "white"}}> </Text>
+                    onPress={()=>{setChosen1(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen1 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    봄 : 나는 꽃가루 알레르기가 있어
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen2(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>여름 : 덥고 땀나;;싫어</Text>    
-                  </Pressable>
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen3 ? "#FF9899" : "white"}}> </Text>
+                    onPress={()=>{setChosen2(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen2 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    여름 : 덥고 땀나;;싫어
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen3(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>가을 : 쌀쌀한 게 마음에 안들어</Text>    
-                  </Pressable>
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen4 ? "#FF9899" : "white"}}> </Text>
+                    onPress={()=>{setChosen3(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen3 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    가을 : 쌀쌀한 게 마음에 안들어
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen4(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>겨울 : 너무 추워, 집이 최고야!</Text>    
-                  </Pressable>
-              </View>
-              <View style={styles.ans}>
-                  <Text style={{...styles.btn_Ans, backgroundColor: chosen5 ? "#FF9899" : "white"}}> </Text>
+                    onPress={()=>{setChosen4(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen4 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    겨울 : 너무 추워, 집이 최고야!
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+
+                <View style={styles.ans}>
                   <Pressable
-                    onPress={()=>{setChosen5(prev => !prev)}}
-                    hitSlop={{top: 5, bottom:50,}}>
-                    <Text style={styles.btn_ansText}>난 모든 계절에 캠핑을 즐길 거야~</Text>    
-                  </Pressable>
-              </View>
+                    onPress={()=>{setChosen5(prev => !prev)}}>                   
+                    <View style={{...styles.btn_Ans, backgroundColor: chosen5 ? "#F3AE58" : "#D9D9D9"}}>
+                    <Text style={styles.btn_Ans2}>
+                    난 모든 계절에 캠핑을 즐길 거야~
+                    </Text>
+                  </View>
+                  </Pressable> 
+                </View>
+
+
+
+
+
             </View>
             <Pressable style={styles.btn_Next} onPress={CanNEXT}>
               <Text style={styles.btn_nextText}>NEXT</Text>
@@ -201,21 +224,27 @@ answers:{
  alignSelf:"stretch",
 },
 ans:{
-  // backgroundColor:"white",
-  marginBottom: windowHeight/32,
-
+  marginBottom: windowHeight/50,
   flexDirection: "row",
+  alignSelf: "center",
+  justifyContent: "center"
 },
+
 btn_Ans:{
   borderRadius:35,
-  width:20,
-  height:20,
-  borderColor: "#FF9899",
-  borderWidth: 2,
-
-  marginRight:6,
-  marginTop:3,
+  width:windowWidth/1.5,
+  borderRadius: 8,
+  overflow: 'hidden',
+  alignItems:'center',
+  justifyContent:'center',
 },
+
+
+btn_Ans2:{
+  fontSize: 16,
+  marginVertical: 6
+},
+
 btn_ansText:{
   fontWeight:"400",
   fontSize:14,
@@ -227,9 +256,7 @@ btn_Next:{
   height:windowHeight*5/8/12,
   borderRadius:13,
 
-  marginTop:windowHeight/20,
-  marginBottom:-windowHeight/30,
-
+  marginTop:windowHeight/6,
   justifyContent:"center",
   alignItems:"center",
 },

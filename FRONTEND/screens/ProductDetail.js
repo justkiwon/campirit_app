@@ -1,18 +1,15 @@
-//------------------------------------------- 현재 이 모달창은 메이킷 텐트에 그냥 때려박음 --------------------------------------
-
-
 import React, { useState } from 'react';
 import { Alert, Modal, StyleSheet, Text, Pressable,Dimensions, View, ScrollView ,Image} from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export const ProductDetail = (product_detail, product_name, price, visible)=> {
+export const ProductDetail = (product_detail, product_name, price)=> {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.centeredView}>
       <Modal
-         animationType="slide"
+        animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
