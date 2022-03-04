@@ -273,7 +273,7 @@ export default function App({ navigation }) {
 
                 <Text style={styles.head}>나만의 스타터 키트 구성품</Text>
                 <View>
-                    <Text style={styles.test1}> 화난다고</Text>
+                    <Text style={styles.test1}>* 키트의구성품을 지우기 위해서는, 해당 메뉴로 이동해주세요. /Text>
                 </View>
 
 
