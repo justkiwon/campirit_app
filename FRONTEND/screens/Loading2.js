@@ -1,4 +1,3 @@
-
 import React, { Component, useEffect, useRef } from 'react';
 import { 
   Dimensions, 
@@ -159,7 +158,6 @@ const styles =StyleSheet.create({
         marginTop: windowHeight/100,
         marginBottom: windowHeight/7
     }
-
 
 
 

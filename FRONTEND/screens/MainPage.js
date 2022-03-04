@@ -7,14 +7,20 @@ import {
     Dimensions,
     ScrollView,
     TouchableOpacity,
-    Image
+    Image,
 } from 'react-native';
+
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 const windowWidth = Dimensions.get('window').width;
 
 const windowHeight = Dimensions.get('window').height;
 const StatusBarHeight =
     Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
+
+    
+const fontsize =
+Platform.OS === 'ios' ? 1 : 1.3;
 
 export default function App({ navigation, finalhi, setFinalhi, final_select, Setfinal_select }) {
 
@@ -31,9 +37,7 @@ return (
             <View style={{ width: windowWidth / 1.5, flexDirection: 'row', justifyContent: 'space-between' }}>
             <Text style={{ fontSize: 18 / fontsize, fontWeight: 'bold', color: '#213063', marginTop: windowWidth / 80, }}>{tent_name}</Text>
             <Text style={{ fontSize: 16 / fontsize, marginTop: windowWidth / 80 }}>{money} 원</Text>
-            <TouchableOpacity onPress={() => Delete_product(keyy)}>
-                <Image source={require("../assets/images/MakeKit/canel_button.png")} style={styles.Delete_Button} />
-            </TouchableOpacity>
+            
             </View>
 
             <Text style={{ fontSize: 14 / fontsize, marginTop: windowHeight / 500, fontWeight: 'bold' }}>선택한 옵션: {finalhi[keyy].select_option}</Text>
@@ -188,7 +192,7 @@ console.log(finalhi);
 
 
                 <Text style={styles.head}>나만의 스타터 키트 구성품</Text>
-{/**_______________________________  Select_Kit ___________________________________ 
+
                 <View>
                 <ScrollView horizontal={false} style={{ marginTop: windowHeight / 200 }}>
             {Object.keys(finalhi).map((key) => (
@@ -198,7 +202,6 @@ console.log(finalhi);
             ))}
           </ScrollView>
                 </View>
-______________________________  Select_Kit_final ___________________________________ */}
 
             </ScrollView>
 

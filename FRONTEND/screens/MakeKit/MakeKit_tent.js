@@ -184,7 +184,16 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       },
     };
     setHi(newPicker);
-    setFinalhi(newPicker);
+    const newPicker2 = {
+      ...finalhi,
+      [key]: {
+        "name": name,
+        "price": price,
+        "select_option": select_option,
+        "visible": false,
+      },
+    };
+    setFinalhi(newPicker2);
   };
 
   const Add = (key, name, price, option1, option2, option3) => {
@@ -238,6 +247,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       <View>
         <View style={styles.select_box}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            
             <Image source={require("../../assets/images/MakeKit/rectangle.png")} style={styles.footer_selate_img} />
 
             <View style={{ flexDirection: 'column' }}>
@@ -266,7 +276,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
     )
   };
 
- // console.log(finalhi);
+  console.log(finalhi);
  // console.log(morden_select);
 
   {/*_______________________________________________________________REAL MAIN_______________________________________________________________________________________- */ }
