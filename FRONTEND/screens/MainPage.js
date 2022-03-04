@@ -13,6 +13,37 @@ import {
 
 
 
+const hi = {
+    11: {
+        "name": "tent1",
+        "price": 1000,
+        "select_option": "쉬파파파파욜로",
+        "visible": false,
+        jpg: "",
+    },
+    12: {
+        "name": "tent2",
+        "price": 2000, "select_option": "핵빨간거",
+        "visible": true,
+        jpg: "",
+    },
+    19: {
+        "name": "tent3",
+        "price": 3000,
+        "select_option": "빨간거",
+        "visible": true,
+        jpg: "",
+    },
+    430: {
+        "name": "tent4",
+        "price": 4000,
+        "select_option": "쉬파파파파욜로",
+        "visible": false,
+        jpg: "",
+    },
+
+}
+
 
 
 
@@ -20,10 +51,142 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default function App({ navigation }) {
+    var i = 0;
+    const Check = ({ }) => {
+        var count;
+        count = Object.keys(hi).length;
+        const keys = Object.keys(hi)
+        for (var i = 0;i < count;i++) {
+            if (keys[i] % 10 == 1) {
+                return (
+                    <View>
+                        <Image style={styles.tent}
+                            source={require("../assets/images/MainPage/tent.png")}
+                        />
+                        <Check i={i} />
+                        <Text>
+                            {keys[0]}
+                        </Text>
+                    </View>
+
+                )
+            }
+            else if (keys[i] % 10 == 2) {
+                return (
+                    <View>
+                        < Image
+                            style={styles.tarp}
+                            source={require("../assets/images/MainPage/tarp.png")}
+                        />
+                        <Image
+                            style={styles.tarp}
+                            source={require("../assets/images/MainPage/tarp2.png")}
+                        />
+                        <Text>
+                            {keys[i]}
+                        </Text>
+                    </View>
+                )
+            }
+            else if (keys[i] % 10 == 2) {
+                return (
+                    <View>
+                        <Image
+                            style={styles.tarp}
+                            source={require("../assets/images/MainPage/tarp2.png")}
+                        />
+                        <Text>
+                            {keys[i]}
+                        </Text>
+                    </View>)
+            }
+            else if (keys[i] % 10 == 3) {
+                return (
+                    <Image
+                        style={styles.mat}
+                        source={require("../assets/images/MainPage/mat.png")}
+                    />)
+
+            }
+            else if (keys[i] % 10 == 4) {
+                return (
+                    <Image
+                        style={styles.table}
+                        source={require("../assets/images/MainPage/Main_Table.png")}
+                    />)
+            }
+            else if (keys[i] % 10 == 5) {
+                return (
+                    <Image
+                        style={styles.chair}
+                        source={require("../assets/images/MainPage/chair.png")}
+                    />)
+            }
+            else if (keys[i] % 10 == 6) {
+                return (
+                    <Image
+                        style={styles.hitter}
+                        source={require("../assets/images/MainPage/hitter.png")}
+                    />)
+            }
+            else if (keys[i] % 10 == 7) {
+                return (
+                    <Image
+                        style={styles.hitter2}
+                        source={require("../assets/images/MainPage/hitter2.png")}
+                    />)
+            }
+            else if (keys[i] % 10 == 8) {
+                return (
+                    <Image
+                        style={styles.cooler}
+                        source={require("../assets/images/MainPage/Main_cooler.png")}
+                    />)
+            }
+            else if (keys[i] % 10 == 9) {
+                return (
+                    <Image
+                        style={styles.etc}
+                        source={require("../assets/images/MainPage/etc.png")}
+                    />)
+            }
+            else if (keys[i] % 10 == 10) {
+                return (
+                    <Image
+                        style={styles.kitchen}
+                        source={require("../assets/images/MainPage/kitchen.png")}
+                    />)
+            }
+            else if (keys[i] % 10 == 11) {
+                return (
+                    <Image
+                        style={styles.mood}
+                        source={require("../assets/images/MainPage/Main_mood.png")}
+                    />)
+            }
+            else if (keys[i] % 10 == 12) {
+                return (
+                    <Image
+                        style={styles.box}
+                        source={require("../assets/images/MainPage/Main_box.png")}
+                    />)
+            }
+            else {
+                return (
+                    <Text style={styles.menu_text}>
+                        {keys[i]}
+                    </Text>
+                )
+            }
+        }
+    }
+
 
     return (
         < View style={styles.container} >
             <ScrollView bounces='false' >
+                {/*_______________________________________________________________MENU BAR_______________________________________________________________________________________- */}
+
                 <ScrollView horizontal bounces='false' pagingEnabled='false' style={styles.menu_bar}>
                     <TouchableOpacity style={styles.menu_content}>
                         <Image
@@ -99,70 +262,18 @@ export default function App({ navigation }) {
                     </TouchableOpacity>
                 </ScrollView>
 
+                {/*_______________________________________________________________물건 바_______________________________________________________________________________________- */}
+
                 <View style={styles.background}>
+
                     <Image source={require("../assets/images/MainPage/Mainbackground.png")}
                         style={styles.background} />
-
-                    <Image
-                        style={styles.tent}
-                        source={require("../assets/images/MainPage/tent.png")}
-                    />
-                    <Image
-                        style={styles.tarp}
-                        source={require("../assets/images/MainPage/tarp.png")}
-                    />
-                    <Image
-                        style={styles.tarp2}
-                        source={require("../assets/images/MainPage/tarp2.png")}
-                    />
-                    <Image
-                        style={styles.mat}
-                        source={require("../assets/images/MainPage/mat.png")}
-                    />
-                    <Image
-                        style={styles.table}
-                        source={require("../assets/images/MainPage/Main_Table.png")}
-                    />
-                    <Image
-                        style={styles.chair}
-                        source={require("../assets/images/MainPage/chair.png")}
-                    />
-                    <Image
-                        style={styles.hitter}
-                        source={require("../assets/images/MainPage/hitter.png")}
-                    />
-                    <Image
-                        style={styles.hitter2}
-                        source={require("../assets/images/MainPage/hitter2.png")}
-                    />
-                    <Image
-                        style={styles.cooler}
-                        source={require("../assets/images/MainPage/Main_cooler.png")}
-                    />
-                    <Image
-                        style={styles.etc}
-                        source={require("../assets/images/MainPage/etc.png")}
-                    />
-                    <Image
-                        style={styles.kitchen}
-                        source={require("../assets/images/MainPage/kitchen.png")}
-                    />
-                    <Image
-                        style={styles.mood}
-                        source={require("../assets/images/MainPage/Main_mood.png")}
-                    />
-                    <Image
-                        style={styles.box}
-                        source={require("../assets/images/MainPage/Main_box.png")}
-                    />
-
+                    <Check />
                 </View>
 
-
                 <Text style={styles.head}>나만의 스타터 키트 구성품</Text>
-
                 <View>
-                    <Text style={styles.test1}> 여기</Text>
+                    <Text style={styles.test1}> 화난다고</Text>
                 </View>
 
 
@@ -186,11 +297,9 @@ export default function App({ navigation }) {
                     style={styles.bar}
                     source={require("../assets/images/MainPage/Bar.png")} />
             </View>
-
-
         </View >
-    );
-};
+    )
+}
 
 
 
@@ -211,17 +320,6 @@ const styles = StyleSheet.create({
         zIndex: 0,
 
 
-    },
-
-    tent: {
-        position: 'absolute',
-        zIndex: 2,
-        opacity: 1,
-        alignSelf: 'center',
-        resizeMode: 'contain',
-        width: windowWidth / 1.8,
-        height: windowWidth / 1.5,
-        marginTop: windowWidth / 2.8
     },
 
     tent: {
@@ -419,10 +517,6 @@ const styles = StyleSheet.create({
 
     },
 
-    footer:
-    {
-
-    },
 
     nextbutton: {
         resizeMode: 'contain',
