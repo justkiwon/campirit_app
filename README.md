@@ -227,13 +227,13 @@ PickerAdd() =>{
 
 
 https://webisfree.com/2019-08-14/react-native-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%88%A8%EA%B8%B0%EA%B8%B0-hide
-# 배열 삭제
+### 배열 삭제
 const Navi=[1,2,3]
 
 delete Navi[2]  --> Navi=[1,2,undefined] 따라서 그 자리는 남아있고 안에 값만 삭제됨
 
 Navi.splice(1); --> Navi=[1,3] 그 자리 까지 사라짐
 
-# 객체
+### 객체
 1. 객체는 순서가 없다.
 2. 딕셔너리 처럼 키 value값이 있지만 value값을 부르면 키 값이 출력된다.
