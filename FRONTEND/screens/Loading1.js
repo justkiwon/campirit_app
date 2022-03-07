@@ -12,10 +12,11 @@ import {
   ImageBackground,
   Easing,
   requireNativeComponent} from 'react-native';
+import { InputAccessoryView } from 'react-native-web';
 
 const windowWidth = Dimensions.get('window').width; 
 const windowHeight = Dimensions.get('window').height;
-export default function Loading1({navigation, ansList}) {
+export default function Loading1({navigation, ansList, Navi}) {
 
 
     const Fadein1 = new Animated.Value(0);
@@ -47,23 +48,62 @@ export default function Loading1({navigation, ansList}) {
 
 
     setTimeout(() => {
-      navigation.navigate('MakeKit_Tent');
+      const a=0;
+      console.log(a);
+
+      const Navi2=[...Navi];
+      for(var i=0 ;i<Navi.length;i++){
+        if(ansList.A8 == 2 ){ // 캠핑 안가는 계절=  여름 && 전기 사용X
+          if(Navi[i][1]== "MakeKit_Cooler_NoEnergy"){
+            Navi.splice(i);
+            a=2;
+          }
+          if(Navi[i][1]== "MakeKit_Heater_NoEnergy"){
+            Navi.splice(i);
+          }  
+      }
+      if(ansList.A8 == 4 ){ // 캠핑 안가는 계절 -- 겨울 && 전기 사용 X
+        if(Navi[i][1]=="MakeKit_Heater_Energy"){
+            Navi.splice(i);
+        }
+        if(Navi[i][1] == "MakeKit_Cooler_NoEnergy"){
+            Navi.splice(i);
+            a=3;
+        }
+      }
+      if(ansList.A9 ==2){
+        if(Navi[i][1] == "MakeKit_Cooler_NoEnergy"){
+          Navi.splice(i);
+      }
+      if(Navi[i][1]== "MakeKit_Heater_NoEnergy"){
+        Navi.splice(i);
+        a=5;
+      }  
+  
+      }
+      if(ansList.A5 == 2){ //감성 여부
+            if(Navi[i][1]== "MakeKit_Sentiment"){
+            Navi.push(Navi[i]);
+            Navi.splice(i);
+            a=7;
+            }
+      }
+      if(ansList.A6 == 2){
+        if(Navi[i][1] == "MakeKit_Tarp_NoCar"){
+          Navi.splice(i);
+          a=8;
+        }
+      }
+    }
+     
+      navigation.navigate(Navi[0][1]);
     }, 3000);
 
-  const Navi =() => {
-    if(ansList.A4==1){
-
-    }else if (a==2){
-
-    }
-
-  };
-
-
-
+console.log("Navi:", Navi);
+//console.log("Navi2:", Navi2);
   return (   
-   
     <View style = {styles.container}>
+        
         <View>
           <View style = {styles.for_test} >
             <Animated.Text 

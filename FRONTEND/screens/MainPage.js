@@ -22,7 +22,7 @@ const StatusBarHeight =
 const fontsize =
 Platform.OS === 'ios' ? 1 : 1.3;
 
-export default function App({ navigation, finalhi, setFinalhi, final_select, Setfinal_select }) {
+export default function App({ navigation, finalhi, setFinalhi, final_select, Setfinal_select,Navi }) {
 
 
 //========================================= Selete box function ========================================
@@ -60,7 +60,10 @@ console.log(finalhi);
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Tent")}>
                         <Image
                             style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_tent.png")} />
+                            
+                            source={ Navi[1][1] ==2 ?
+                                require("../assets/images/MainPage/Main_.png"):
+                                require("../assets/images/MainPage/Main_tent.png")} />
                         <Text style={styles.menu_text}> 텐트 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Tarp")}>

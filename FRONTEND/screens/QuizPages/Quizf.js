@@ -19,7 +19,7 @@ const windowHeight = Dimensions.get('window').height;
 const StatusBarHeight =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
-export default function Quizf({ navigation, ansList, setansList }) {
+export default function Quizf({ navigation, ansList, setansList,Navi}) {
   const [chosen1, setChosen1] = useState(false);
   const [chosen2, setChosen2] = useState(false);
 
@@ -68,7 +68,9 @@ export default function Quizf({ navigation, ansList, setansList }) {
   }
 
   console.log(ansList);
+  console.log("quiz_Navi: ",Navi);
 
+ 
   return (
     <View style={styles.container}>
       {/* ///////////////////////////////<<<< Header : 파란물결 >>>>>////////////////////////////////////// */}

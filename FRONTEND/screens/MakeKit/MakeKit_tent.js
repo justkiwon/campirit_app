@@ -19,7 +19,7 @@ const StatusBarHeight =
 const fontsize =
   Platform.OS === 'ios' ? 1 : 1.3;
 
-export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_select, Setfinal_select }) {
+export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_select, Setfinal_select,Navi,setNavi }) {
   const tent = {
     1: {
       name: "돔텐트",
@@ -278,7 +278,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
 
   console.log(finalhi);
  // console.log(morden_select);
-
+  console.log("MakeKit_Tent_Navi: ",Navi)
   {/*_______________________________________________________________REAL MAIN_______________________________________________________________________________________- */ }
 
   return (
@@ -409,7 +409,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
         <View style={{ justifyContent: 'flex-end', marginBottom: windowHeight / 2 }}>
           <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
             <Image source={require("../../assets/images/MakeKit/camping_car.png")} />
-            <TouchableOpacity onPress={() => navigation.navigate("MainPage")}>
+            <TouchableOpacity onPress={() => {navigation.navigate("MainPage") , Navi[0][0]=2}}>
               <Image source={require("../../assets/images/MakeKit/next_move_button.png")} style={styles.nextbutton} />
             </TouchableOpacity>
           </View>

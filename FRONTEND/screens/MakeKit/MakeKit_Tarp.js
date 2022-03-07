@@ -36,7 +36,8 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
   };
 
   const product1 = {
-    100: {
+    "100": {
+      tag: "tent",
       name: "tent1",
       price: 1000,
       option1: "쉬파파파파욜로",
@@ -46,7 +47,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       jpg: "",
       detail_url: "../../assets/images/Product/T_MAX-01.png",
     },
-    200: {
+    "200": {
       name: "tent2",
       price: 2000,
       option1: "빨간거",
@@ -56,7 +57,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       jpg: "",
       detail_url: "../../assets/images/Product/T_MAX-01.png",
     },
-    300: {
+    "300": {
       name: "tent3",
       price: 3000,
       option1: "빨간거",

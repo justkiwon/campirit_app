@@ -52,6 +52,23 @@ export default function App() {
       Af: 0,
     });
   
+    var [Navi,setNavi]=useState([
+    [1,"MakeKit_Tent"],
+    [1,"MakeKit_Tarp"],
+    [1,"MakeKit_Tarp_NoCar"],
+    [1,"MakeKit_Mat"],
+    [1,"MakeKit_Table"],
+    [1,"MakeKit_Chair"],
+    [1,"MakeKit_Heater_Energy"],
+    [1,"MakeKit_Heater_NoEnergy"],
+    [1,"MakeKit_Cooler_Energy"],
+    [1,"MakeKit_Cooler_NoEnergy"],
+    [1,"MakeKit_Etc"],
+    [1,"MakeKit_Kitc"],
+    [1,"MakeKit_Setiment"],
+    [1,"MakeKit_Box"],
+    ]);
+
   const [finalhi, setFinalhi] = useState({});  
 
   const [final_select, Setfinal_select] = useState({});
@@ -93,10 +110,10 @@ export default function App() {
           ({ navigation }) => <Quiz9 navigation={navigation} ansList={ansList} setansList={setansList} />
         } />
         <Stack.Screen name="Quizf" options={{ headerShown: false }} children={
-          ({ navigation }) => <Quizf navigation={navigation} ansList={ansList} setansList={setansList} />
+          ({ navigation }) => <Quizf navigation={navigation} ansList={ansList} setansList={setansList} Navi={Navi}/>
         } />
         <Stack.Screen name="Loading1" options={{ headerShown: false }} children={
-          ({ navigation }) => <Loading1 navigation={navigation} ansList={ansList} />
+          ({ navigation }) => <Loading1 navigation={navigation} ansList={ansList}  Navi={Navi} setNavi={setNavi} />
         } />
 
         <Stack.Screen name="MainPage" options={{ headerShown: false }} children={
@@ -104,46 +121,46 @@ export default function App() {
         } />
 
         <Stack.Screen name="MakeKit_Tent" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Tent navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Tent navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Tarp" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Tarp navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Tarp navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Tarp_NoCar" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Tarp_NoCar navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Tarp_NoCar navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Mat" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Mat navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Mat navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Table" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Table navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Table navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Chair" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Chair navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Chair navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Heater_Energy" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Heater_Energy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Heater_Energy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Heater_NoEnergy" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Heater_NoEnergy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Heater_NoEnergy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Cooler_Energy" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Cooler_Energy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Cooler_Energy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Cooler_NoEnergy" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Cooler_NoEnergy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Cooler_NoEnergy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Etc" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Etc navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Etc navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Kitc" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Kitc navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Kitc navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Setiment" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Setiment navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Setiment navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Box" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Box navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MakeKit_Box navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
 
       </Stack.Navigator>
