@@ -170,7 +170,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
 
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [morden_select, setMorden_select] = useState(["detail", "name", "price", '../../assets/images/Product/T_MAX-01.png']);
+  const [morden_select, setMorden_select] = useState(["detail", "name", "price", "product_url"]);
 
 
   const PickerAdd = (key, name, price, select_option) => {
@@ -309,7 +309,9 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
               <View style={{ height: windowHeight / 1.5, width: windowWidth / 1.1, backgroundColor: "grey" }}>
                 <ScrollView horizontal={false}>
                   <Text style={styles.modalText}>Hello World!</Text>
-                  <View style={{ width: 300, height: 5000, backgroundColor: "yellow" }} />
+                  <View style={{ width: 300, height: 5000, backgroundColor: "yellow" }}>
+                    <Image source={require(morden_select[3])} />  
+                   </View>
                 </ScrollView>
               </View>
 
