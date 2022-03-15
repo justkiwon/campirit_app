@@ -170,7 +170,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
 
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [morden_select, setMorden_select] = useState(["detail", "name", "price", "product_url"]);
+  const [morden_select, setMorden_select] = useState(["detail", "name", "price", '../../assets/images/Product/T_MAX-01.png']);
 
 
   const PickerAdd = (key, name, price, select_option) => {
@@ -309,9 +309,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
               <View style={{ height: windowHeight / 1.5, width: windowWidth / 1.1, backgroundColor: "grey" }}>
                 <ScrollView horizontal={false}>
                   <Text style={styles.modalText}>Hello World!</Text>
-                  <View style={{ width: 300, height: 5000, backgroundColor: "yellow" }}>
-                    <Image source={require(morden_select[3])} />  
-                   </View>
+                  <View style={{ width: 300, height: 5000, backgroundColor: "yellow" }} />
                 </ScrollView>
               </View>
 
@@ -411,7 +409,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
         <View style={{ justifyContent: 'flex-end', marginBottom: windowHeight / 2 }}>
           <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
             <Image source={require("../../assets/images/MakeKit/camping_car.png")} />
-            <TouchableOpacity onPress={() => {navigation.navigate("MainPage") , Navi[0][0]=2}}>
+            <TouchableOpacity onPress={() => {navigation.navigate("MainPage") }}>
               <Image source={require("../../assets/images/MakeKit/next_move_button.png")} style={styles.nextbutton} />
             </TouchableOpacity>
           </View>
