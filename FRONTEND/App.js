@@ -52,21 +52,21 @@ export default function App() {
       Af: 0,
     });
   
-    var [Navi,setNavi]=useState([
-    [1,"MakeKit_Tent"],
-    [1,"MakeKit_Tarp"],
-    [1,"MakeKit_Tarp_NoCar"],
-    [1,"MakeKit_Mat"],
-    [1,"MakeKit_Table"],
-    [1,"MakeKit_Chair"],
-    [1,"MakeKit_Heater_Energy"],
-    [1,"MakeKit_Heater_NoEnergy"],
-    [1,"MakeKit_Cooler_Energy"],
-    [1,"MakeKit_Cooler_NoEnergy"],
-    [1,"MakeKit_Etc"],
-    [1,"MakeKit_Kitc"],
-    [1,"MakeKit_Setiment"],
-    [1,"MakeKit_Box"],
+    const [Navi,setNavi]=useState([
+    [false,"MakeKit_Tent"],
+    [false,"MakeKit_Tarp"],
+    [false,"MakeKit_Tarp_NoCar"],
+    [false,"MakeKit_Mat"],
+    [false,"MakeKit_Table"],
+    [false,"MakeKit_Chair"],
+    [false,"MakeKit_Heater_Energy"],
+    [false,"MakeKit_Heater_NoEnergy"],
+    [false,"MakeKit_Cooler_Energy"],
+    [false,"MakeKit_Cooler_NoEnergy"],
+    [false,"MakeKit_Etc"],
+    [false,"MakeKit_Kitc"],
+    [false,"MakeKit_Setiment"],
+    [false,"MakeKit_Box"],
     ]);
 
   const [finalhi, setFinalhi] = useState({});  
@@ -117,7 +117,7 @@ export default function App() {
         } />
 
         <Stack.Screen name="MainPage" options={{ headerShown: false }} children={
-          ({ navigation }) => <MainPage navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} />
+          ({ navigation }) => <MainPage navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} Navi={Navi} setNavi={setNavi}/>
         } />
 
         <Stack.Screen name="MakeKit_Tent" options={{ headerShown: false }} children={
