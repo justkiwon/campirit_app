@@ -409,7 +409,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
         <View style={{ justifyContent: 'flex-end', marginBottom: windowHeight / 2 }}>
           <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
             <Image source={require("../../assets/images/MakeKit/camping_car.png")} />
-            <TouchableOpacity onPress={() => {navigation.navigate("MainPage") , Navi[0][0]=2}}>
+            <TouchableOpacity onPress={() => {navigation.navigate("MainPage") }}>
               <Image source={require("../../assets/images/MakeKit/next_move_button.png")} style={styles.nextbutton} />
             </TouchableOpacity>
           </View>

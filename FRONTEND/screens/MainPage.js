@@ -60,70 +60,89 @@ console.log(finalhi);
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Tent")}>
                         <Image
                             style={styles.menu_image}
-                            
-                            source={ Navi[1][1] ==2 ?
-                                require("../assets/images/MainPage/Main_.png"):
-                                require("../assets/images/MainPage/Main_tent.png")} />
+                            source={ Navi[0][0] ?
+                                require("../assets/images/MainPage/Main_tent.png") :
+                                require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 텐트 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Tarp")}>
                         <Image
                             style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_Tarp.png")} />
+                            source={ Navi[1][0]  ?
+                                require("../assets/images/MainPage/Main_Tarp.png"):
+                                require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 타프 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Mat")}>
                         <Image
                             style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_mat.png")} />
+                            source={ Navi[2][0]  ?
+                                require("../assets/images/MainPage/Main_mat.png"):
+                                require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 매트 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Table")}>
                         <Image
                             style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_Table.png")} />
+                            source={ Navi[3][0]  ?
+                                require("../assets/images/MainPage/Main_Table.png"):
+                                require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 테이블 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Chair")}>
                         <Image
                             style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_chair.png")} />
+                            source={ Navi[4][0]  ?
+                                require("../assets/images/MainPage/Main_chair.png"):
+                                require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 체어 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Heater_Energy")}>
                         <Image
                             style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_hitter.png")} />
+                            source={ Navi[5][0]  ?
+                                require("../assets/images/MainPage/Main_hitter.png"):
+                                require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 난로 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Cooler_Energy")}>
                         <Image
                             style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_cooler.png")} />
+                            source={ Navi[6][0] ?
+                                require("../assets/images/MainPage/Main_cooler.png"):
+                                require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 에어컨 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Etc")}>
                         <Image
                             style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_etc.png")} />
+                            source={ Navi[7][0]  ?
+                                require("../assets/images/MainPage/Main_etc.png"):
+                                require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 기타용품 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Kitc")}>
                         <Image
                             style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_kitchen.png")} />
+                            source={ Navi[8][0]  ?
+                                require("../assets/images/MainPage/Main_kitchen.png"):
+                                require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 주방용품 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Sentiment")}>
                         <Image
                             style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_mood.png")} />
+                            source={ Navi[9][0]  ?
+                                require("../assets/images/MainPage/Main_mood.png"):
+                                require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 감성용품 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Box")}>
                         <Image
                             style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_box.png")} />
+                            source={ Navi[10][0] ?
+                                require("../assets/images/MainPage/Main_box.png"):
+                                require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 폴딩박스 </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.menu_content}>
