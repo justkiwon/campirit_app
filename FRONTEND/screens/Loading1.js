@@ -48,55 +48,81 @@ export default function Loading1({navigation, ansList, Navi}) {
 
 
     setTimeout(() => {
-      const a=0;
-      console.log(a);
-
-      const Navi2=[...Navi];
       for(var i=0 ;i<Navi.length;i++){
-        if(ansList.A8 == 2 ){ // 캠핑 안가는 계절=  여름 && 전기 사용X
-          if(Navi[i][1]== "MakeKit_Cooler_NoEnergy"){
-            Navi.splice(i);
-            a=2;
+        if(ansList.A8 = 0 ){ // 캠핑 안가는 계절=  여름 && 전기 사용X
+            if(Navi[i][1]== "MakeKit_Cooler_NoEnergy"){
+            Navi.splice(i,1);
+          //  console.log("Navi_Ans8:",Navi)
           }
           if(Navi[i][1]== "MakeKit_Heater_NoEnergy"){
-            Navi.splice(i);
+            Navi.splice(i,1);
+          //  console.log("Navi_2:",Navi)
           }  
-      }
-      if(ansList.A8 == 4 ){ // 캠핑 안가는 계절 -- 겨울 && 전기 사용 X
-        if(Navi[i][1]=="MakeKit_Heater_Energy"){
-            Navi.splice(i);
         }
-        if(Navi[i][1] == "MakeKit_Cooler_NoEnergy"){
-            Navi.splice(i);
-            a=3;
+        if(ansList.A8 == 4 ){ // 캠핑 안가는 계절 -- 겨울 && 전기 사용 X
+          if(Navi[i].name=="MakeKit_Heater_Energy"){
+              Navi.splice(i,1);
+          //  console.log("Navi_3:",Navi)
+          }
+          if(Navi[i][1] == "MakeKit_Cooler_NoEnergy"){
+              Navi.splice(i,1);
+          //  console.log("Navi_4:",Navi)
+          }
         }
-      }
-      if(ansList.A9 ==2){
-        if(Navi[i][1] == "MakeKit_Cooler_NoEnergy"){
-          Navi.splice(i);
-      }
-      if(Navi[i][1]== "MakeKit_Heater_NoEnergy"){
-        Navi.splice(i);
-        a=5;
-      }  
-  
-      }
-      if(ansList.A5 == 2){ //감성 여부
-            if(Navi[i][1]== "MakeKit_Sentiment"){
+        if(ansList.A9 ==2){  // 전기 사용 안한다면
+          if(Navi[i][1] == "MakeKit_Cooler_Energy"){
+            Navi.splice(i,1);
+          //  console.log("Navi_Ans9:",Navi)
+          }
+          if(Navi[i][1]== "MakeKit_Heater_Energy"){
+            Navi.splice(i,1);
+          //  console.log("Navi_Ans9-1:",Navi)
+          }  
+        }
+        if(ansList.A9 == 1){
+          if(Navi[i][1] == "MakeKit_Cooler_NoEnergy"){
+            Navi.splice(i,1);
+          //  console.log("Navi_Ans9:",Navi)
+          }
+          if(Navi[i][1]== "MakeKit_Heater_NoEnergy"){
+            Navi.splice(i,1);
+          //  console.log("Navi_Ans9-1:",Navi)
+          }
+        }
+        if(ansList.A5 == 2){ //감성 여부
+          if(Navi[i][1]== "MakeKit_Sentiment"){
             Navi.push(Navi[i]);
-            Navi.splice(i);
-            a=7;
-            }
-      }
-      if(ansList.A6 == 2){
-        if(Navi[i][1] == "MakeKit_Tarp_NoCar"){
-          Navi.splice(i);
-          a=8;
+            Navi.splice(i,1);
+          //  console.log("Navi_Ans5:",Navi)
+          }
+        }
+        if(ansList.A6 == 2){ //차박을 안한다면
+          if(Navi[i][1] == "MakeKit_Tarp_NoCar"){
+            Navi.splice(i,1);
+          //  console.log("Navi_Tarp:",Navi)
+          }
+        }
+        if(ansList.A8 == 4 ){ // 캠핑 안가는 계절 -- 겨울 && 전기 사용 X
+          if(Navi[i][1]=="MakeKit_Heater_Energy"){
+            Navi.splice(i,1);
+          //  console.log("Navi_Ans8-1:",Navi)
+          }
+        }
+        if(ansList.Af == 2){
+          if(Navi[i][1]=="MakeKit_Tarp"){
+            Navi.splice(i,1);
+          //  console.log("Navi_Ansf:",Navi)
+          }
+          if(Navi[i][1]=="MakeKit_Tarp_NoCar"){
+            Navi.splice(i,1);
+          //  console.log("Navi_Ansf-1:",Navi)
+          }
         }
       }
-    }
+    
+    console.log("Navi:", Navi);
      
-      navigation.navigate(Navi[0][1]);
+     navigation.navigate(Navi[0][1]);
     }, 3000);
 
 console.log("Navi:", Navi);
