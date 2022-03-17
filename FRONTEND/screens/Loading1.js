@@ -121,7 +121,7 @@ export default function Loading1({navigation, ansList, Navi}) {
       }
     
     console.log("Navi:", Navi);
-     
+     Navi[0][0] = true;
      navigation.navigate(Navi[0][1]);
     }, 3000);
 
@@ -174,7 +174,7 @@ console.log("Navi:", Navi);
 
           </View>
           <Animated.Image
-                  style={styles.backgroundimage,{
+                  style={styles.backgroundimage, {
                     transform: [{translateX: where}]
                   }} 
                   source={require ("../assets/images/loading/background3.png")}>

@@ -57,7 +57,7 @@ console.log(finalhi);
         < View style={styles.container} >
             <ScrollView bounces='false' >
                 <ScrollView horizontal bounces='false' pagingEnabled='false' style={styles.menu_bar}>
-                    <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Tent")}>
+                    <TouchableOpacity style={styles.menu_content} onPress={ Navi[0][0] ? null: (() => navigation.navigate("MakeKit_Tent"))}>
                         <Image
                             style={styles.menu_image}
                             source={ Navi[0][0] ?
@@ -65,7 +65,7 @@ console.log(finalhi);
                                 require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 텐트 </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Tarp")}>
+                    <TouchableOpacity style={styles.menu_content} onPress={ Navi[1][0] ? null: (() => navigation.navigate("MakeKit_Tarp"))}>
                         <Image
                             style={styles.menu_image}
                             source={ Navi[1][0]  ?
@@ -73,7 +73,7 @@ console.log(finalhi);
                                 require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 타프 </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Mat")}>
+                    <TouchableOpacity style={styles.menu_content} onPress={ Navi[2][0] ? null : (() => navigation.navigate("MakeKit_Mat"))}>
                         <Image
                             style={styles.menu_image}
                             source={ Navi[2][0]  ?
@@ -81,7 +81,7 @@ console.log(finalhi);
                                 require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 매트 </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Table")}>
+                    <TouchableOpacity style={styles.menu_content} onPress={ Navi[3][0] ? null : (() => navigation.navigate("MakeKit_Table"))}>
                         <Image
                             style={styles.menu_image}
                             source={ Navi[3][0]  ?
@@ -89,7 +89,7 @@ console.log(finalhi);
                                 require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 테이블 </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Chair")}>
+                    <TouchableOpacity style={styles.menu_content} onPress={ Navi[4][0] ? null : (() => navigation.navigate("MakeKit_Chair"))}>
                         <Image
                             style={styles.menu_image}
                             source={ Navi[4][0]  ?
@@ -97,7 +97,7 @@ console.log(finalhi);
                                 require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 체어 </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Heater_Energy")}>
+                    <TouchableOpacity style={styles.menu_content} onPress={ Navi[5][0] ? null : (() => navigation.navigate("MakeKit_Heater_Energy"))}>
                         <Image
                             style={styles.menu_image}
                             source={ Navi[5][0]  ?
@@ -105,7 +105,7 @@ console.log(finalhi);
                                 require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 난로 </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Cooler_Energy")}>
+                    <TouchableOpacity style={styles.menu_content} onPress={ Navi[6][0] ? null : (() => navigation.navigate("MakeKit_Cooler_Energy"))}>
                         <Image
                             style={styles.menu_image}
                             source={ Navi[6][0] ?
@@ -113,7 +113,7 @@ console.log(finalhi);
                                 require("../assets/images/MainPage/Main_.png")} />
                         <Text style={styles.menu_text}> 에어컨 </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content} onPress={() => navigation.navigate("MakeKit_Etc")}>
+                    <TouchableOpacity style={styles.menu_content} onPress={ Navi[7][0] ? null : (() => navigation.navigate("MakeKit_Etc"))}>
                         <Image
                             style={styles.menu_image}
                             source={ Navi[7][0]  ?
