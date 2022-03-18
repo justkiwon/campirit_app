@@ -67,7 +67,13 @@ git remote update
 8. 원격 브런치를 로컬 브런치로 가져오기
 git checkout -b [생성할 branch 이름] [원격 저장소의 branch 이름]
 
-------- 참고자료 --------------
+## 오류들
+### expo 스크립트를 실행할 수 없을때
+https://seopark.tistory.com/6
+\
+\
+\
+------- 참고자료 -------------- \
 https://sin0824.tistory.com/11
 
 https://cjh5414.github.io/get-git-remote-branch/
