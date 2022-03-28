@@ -191,6 +191,9 @@ $ expo install expo-font
 ------ 참고자료-------------\
 https://docs.expo.dev/versions/latest/sdk/font/
 
+### async local storage
+expo install @react-native-async-storage/async-storage
+
 
 ### Dimensions
 
