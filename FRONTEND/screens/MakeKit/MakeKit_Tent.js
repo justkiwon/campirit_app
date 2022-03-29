@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import React, { useState,useEffect } from 'react';
 import {
   TouchableOpacity,
   ScrollView, Text, Image,
@@ -7,7 +8,12 @@ import {
   StyleSheet, SafeAreaView, Button, Dimensions, Alert, Pressable, Modal, ImageBackground
 } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
-//import ProductDetail from './screens/ProductDetail';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorageLib from '@react-native-async-storage/async-storage';
+
+const STORAGE_KEY="@toDos"
+
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -44,7 +50,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "뛰빠뛰빠뒤빠빠",
       detail: "세상에서 가장 큰",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     },
     2: {
       name: "tent2",
@@ -54,7 +60,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "핵빨간거",
       detail: "제일 이상한",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     },
     3: {
       name: "tent3",
@@ -64,7 +70,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "핵빨간거",
       detail: "거대한",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     },
     4: {
       name: "tent4",
@@ -74,7 +80,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "핵빨간거",
       detail: "완전 아싸",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     }
   };
 
@@ -87,7 +93,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "뛰빠뛰빠뒤빠빠",
       detail: "국내에서 제일 잘 팔리는",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     },
     22: {
       name: "tent2-2",
@@ -97,7 +103,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "핵빨간거",
       detail: "완전 인싸템",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     },
     23: {
       name: "tent2-3",
@@ -107,7 +113,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "핵빨간거",
       detail: "정말 커다란",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     },
     24: {
       name: "tent2-4",
@@ -117,7 +123,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "핵빨간거",
       detail: "획기적인",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     }
   };
 
@@ -130,7 +136,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "뛰빠뛰빠뒤빠빠",
       detail: "피면 편안한",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     },
     32: {
       name: "tent3-2",
@@ -140,7 +146,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "안녕하쇼",
       detail: "엽기적인",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     },
     33: {
       name: "tent3-3",
@@ -150,7 +156,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "핵빨간거",
       detail: "감성템 1위인",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     },
     34: {
       name: "tent3-4",
@@ -160,20 +166,38 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       option3: "핵빨간거",
       detail: "가성비 좋은",
       jpg: "",
-      detail_url: "../../assets/images/Product/T_MAX-01.png",
+      img:require("../../assets/images/Product/T_MAX-01.png"),
     }
   };
+// -----------------------------------/ store local storage /--------------------------
+  const saveToDos = async(toSave) => {
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+ };
+ const loadToDos = async() => {
+   if (hi != null){
+     try{
+    const s = await AsyncStorage.getItem(STORAGE_KEY);
+    // parse는 string을 javascript object로 만들어 주는 것
+    if(s) setHi(JSON.parse(s));     
+     }
+     catch(err) {alert(err)}}
+   
+};
 
+useEffect(()=>{
+  loadToDos();
+}, []);
+//  ------------------------------------------------------------------------------------
 
   const [hi,setHi] = useState({});
   //_________________________하단 selete객체 추가__________________
 
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [morden_select, setMorden_select] = useState(["detail", "name", "price", '../../assets/images/Product/T_MAX-01.png']);
+  const [morden_select, setMorden_select] = useState(["detail", "name", "price",{}]);
 
 
-  const PickerAdd = (key, name, price, select_option) => {
+  const PickerAdd = async (key, name, price, select_option) => {
     const newPicker = {
       ...hi,
       [key]: {
@@ -184,6 +208,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
       },
     };
     setHi(newPicker);
+    saveToDos(newPicker);
     const newPicker2 = {
       ...finalhi,
       [key]: {
@@ -221,15 +246,18 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
     const hihi = {...finalhi};
     delete hihi[key];
     setFinalhi(hihi);
+
+
+
   };
 
 
   //========================================== Product_info_detail (side)function =====================================
-  const Product_info_detail = ({ detail, name, price, detail_url }) => {
+  const Product_info_detail = ({ detail, name, price, imgs }) => {
     return (
       <View style={styles.products}>
         <View style={{ flexDirection: 'column' }}>
-          <Pressable onPress={() => { setModalVisible(true), setMorden_select([detail, name, price, detail_url]) }}>
+          <Pressable onPress={() => { setModalVisible(true), setMorden_select([detail, name, price,{img: imgs}]) }}>
             <Image
               style={styles.product_image}
               source={require("../../assets/images/MakeKit/rectangle.png")} />
@@ -276,9 +304,24 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
     )
   };
 
+ //============================================= Navigation=====================================
+
+ const NEXT = () => {
+  for(var f=0;f<Navi.length;f++){
+      if(Navi[f][1] == "MakeKit_Tent"){
+          Navi[f][0]=true;
+          navigation.navigate("MainPage");
+          break;
+      }
+  }
+
+}
+
+
+
   console.log(finalhi);
  // console.log(morden_select);
-  console.log("MakeKit_Tent_Navi: ",Navi)
+  console.log("MMakeKit_Tent_Navi: ",Navi)
   {/*_______________________________________________________________REAL MAIN_______________________________________________________________________________________- */ }
 
   return (
@@ -309,7 +352,8 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
               <View style={{ height: windowHeight / 1.5, width: windowWidth / 1.1, backgroundColor: "grey" }}>
                 <ScrollView horizontal={false}>
                   <Text style={styles.modalText}>Hello World!</Text>
-                  <View style={{ width: 300, height: 5000, backgroundColor: "yellow" }} />
+                  <Image source={morden_select[3].img} />
+                  
                 </ScrollView>
               </View>
 
@@ -344,7 +388,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
               <View style={styles.specific_item}>
                 {Object.keys(product1).map((key) => (
                   <View key={key} >
-                    <Product_info_detail detail={product1[key].detail} name={product1[key].name} price={product1[key].price} detail_url={product1[key].detail_url} />
+                    <Product_info_detail detail={product1[key].detail} name={product1[key].name} price={product1[key].price} imgs={product1[key].img} />
                     <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product1[key].name, product1[key].price, product1[key].option1, product1[key].option2, product1[key].option3) }}>
                       <Text style={styles.buy_button}>BUY</Text>
                     </TouchableOpacity>
@@ -363,7 +407,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
               <View style={styles.specific_item}>
                 {Object.keys(product2).map((key) => (
                   <View key={key}>
-                    <Product_info_detail detail={product2[key].detail} name={product2[key].name} price={product2[key].price} detail_url={product2[key].detail_url} />
+                    <Product_info_detail detail={product2[key].detail} name={product2[key].name} price={product2[key].price} imgs={product2[key].img} />
                     <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product2[key].name, product2[key].price, product2[key].option1, product2[key].option2, product2[key].option3) }}>
                       <Text style={styles.buy_button}>BUY</Text>
                     </TouchableOpacity>
@@ -382,7 +426,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
               <View style={styles.specific_item}>
                 {Object.keys(product3).map((key) => (
                   <View key={key}>
-                    <Product_info_detail detail={product3[key].detail} name={product3[key].name} price={product3[key].price} detail_url={product3[key].detail_url} />
+                    <Product_info_detail detail={product3[key].detail} name={product3[key].name} price={product3[key].price} imgs={product3[key].img} />
                     <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product3[key].name, product3[key].price, product3[key].option1, product3[key].option2, product3[key].option3) }}>
                       <Text style={styles.buy_button}>BUY</Text>
                     </TouchableOpacity>
@@ -409,7 +453,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_sel
         <View style={{ justifyContent: 'flex-end', marginBottom: windowHeight / 2 }}>
           <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
             <Image source={require("../../assets/images/MakeKit/camping_car.png")} />
-            <TouchableOpacity onPress={() => {navigation.navigate("MainPage") }}>
+            <TouchableOpacity onPress={NEXT}>
               <Image source={require("../../assets/images/MakeKit/next_move_button.png")} style={styles.nextbutton} />
             </TouchableOpacity>
           </View>
