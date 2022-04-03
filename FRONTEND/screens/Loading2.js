@@ -50,10 +50,12 @@ export default function Loading2() {
     
 
 
-      setTimeout(() => {
-         navigation.navigate('Quiz1');
-       }, 30000);
-   
+       useEffect( ()=>{  
+        let timer = setTimeout(() => {
+          navigation.navigate('FinalKit');
+        }, 3000);
+        return ()=> clearTimeout(timer)
+      },[]) 
 
 
     return (
@@ -105,7 +107,7 @@ export default function Loading2() {
                 style={styles.backgroundimage,{
                 transform: [{translateX: where}]
                 }} 
-                source={require("./assets/background.png")}>
+                source={require("../assets/images/loading/background.png")}>
             </Animated.Image>
 
 

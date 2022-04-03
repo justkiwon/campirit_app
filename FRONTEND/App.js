@@ -19,6 +19,7 @@ import Quiz8 from './screens/QuizPages/Quiz8.js';
 import Quiz9 from './screens/QuizPages/Quiz9.js';
 import Quizf from './screens/QuizPages/Quizf.js';
 import Loading1 from './screens/Loading1.js';
+import Loading2 from './screens/Loading2.js';
 import MakeKit_Tent from './screens/MakeKit/MakeKit_Tent.js';
 import MakeKit_Tarp from './screens/MakeKit/MakeKit_Tarp.js';
 import MakeKit_Tarp_NoCar from './screens/MakeKit/MakeKit_Tarp_NoCar.js';
@@ -51,22 +52,23 @@ export default function App() {
       A9: 0,
       Af: 0,
     });
-  
+
     const [Navi,setNavi]=useState([
-    [false,"MakeKit_Tent"],
-    [false,"MakeKit_Tarp"],
-    [false,"MakeKit_Tarp_NoCar"],
-    [false,"MakeKit_Mat"],
-    [false,"MakeKit_Table"],
-    [false,"MakeKit_Chair"],
-    [false,"MakeKit_Heater_Energy"],
-    [false,"MakeKit_Heater_NoEnergy"],
-    [false,"MakeKit_Cooler_Energy"],
-    [false,"MakeKit_Cooler_NoEnergy"],
-    [false,"MakeKit_Etc"],
-    [false,"MakeKit_Kitc"],
-    [false,"MakeKit_Setiment"],
-    [false,"MakeKit_Box"],
+    [false,"MakeKit_Tent","텐트",{img:require("./assets/images/MainPage/Main_tent.png")}],
+    [false,"MakeKit_Tarp","타프",{img:require("./assets/images/MainPage/Main_Tarp.png")}],
+    [false,"MakeKit_Tarp_NoCar","타프",{img:require("./assets/images/MainPage/Main_Tarp.png")}],
+    [false,"MakeKit_Mat","매트",{img:require("./assets/images/MainPage/Main_mat.png")}],
+    [false,"MakeKit_Table","테이블",{img:require("./assets/images/MainPage/Main_Table.png")}],
+    [false,"MakeKit_Chair","의자",{img:require("./assets/images/MainPage/Main_chair.png")}],
+    [false,"MakeKit_Heater_Energy","난로",{img:require("./assets/images/MainPage/Main_hitter.png")}],
+    [false,"MakeKit_Heater_NoEnergy","난로",{img:require("./assets/images/MainPage/Main_hitter.png")}],
+    [false,"MakeKit_Cooler_Energy","에어컨",{img:require("./assets/images/MainPage/Main_cooler.png")}],
+    [false,"MakeKit_Cooler_NoEnergy","에어컨",{img:require("./assets/images/MainPage/Main_cooler.png")}],
+    [false,"MakeKit_Etc","기타용품",{img:require("./assets/images/MainPage/Main_etc.png")}],
+    [false,"MakeKit_Kitc","주방용품",{img:require("./assets/images/MainPage/Main_kitchen.png")}],
+    [false,"MakeKit_Setiment","감성용품",{img:require("./assets/images/MainPage/Main_mood.png")}],
+    [false,"MakeKit_Box","폴딩박스",{img:require("./assets/images/MainPage/Main_box.png")}],
+    -1
     ]);
 
   const [finalhi, setFinalhi] = useState({});  
@@ -115,7 +117,9 @@ export default function App() {
         <Stack.Screen name="Loading1" options={{ headerShown: false }} children={
           ({ navigation }) => <Loading1 navigation={navigation} ansList={ansList}  Navi={Navi} setNavi={setNavi} />
         } />
-
+          <Stack.Screen name="Loading2" options={{ headerShown: false }} children={
+          ({ navigation }) => <Loading1 navigation={navigation} ansList={ansList}  Navi={Navi} setNavi={setNavi} />
+        } />
         <Stack.Screen name="MainPage" options={{ headerShown: false }} children={
           ({ navigation }) => <MainPage navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} Navi={Navi} setNavi={setNavi}/>
         } />

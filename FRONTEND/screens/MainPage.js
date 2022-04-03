@@ -15,6 +15,8 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AsyncStorageLib from '@react-native-async-storage/async-storage';
 
+import { useIsFocused } from '@react-navigation/native';
+
 const STORAGE_KEY="@toDos"
 
 const windowWidth = Dimensions.get('window').width;
@@ -28,6 +30,7 @@ const fontsize =
 Platform.OS === 'ios' ? 1 : 1.3;
 
 export default function App({ navigation, finalhi, setFinalhi, final_select, Setfinal_select,Navi }) {
+const isFocused = useIsFocused();
 
 // -----------------------------------/ store local storage /--------------------------
 const saveToDos = async(toSave) => {
@@ -46,7 +49,7 @@ const saveToDos = async(toSave) => {
 
 useEffect(()=>{
   loadToDos();
-}, []);
+}, [isFocused]);
 //  ------------------------------------------------------------------------------------
 
 //========================================= Selete box function ========================================
@@ -79,11 +82,13 @@ const Selete_box = ({ tent_name, keyy, money, option1, option2, option3 }) => {
 };
 
 //======================================== Next Navigation =========================================
+
 const NEXT = () => {
     for(var fff=0;fff<Navi.length;fff++){
         if(Navi[fff][0] == false){
+            Navi[fff][0]= true;
             navigation.navigate(Navi[fff][1]);
-            console.log("Navi_num:",Navi[fff][1])
+            console.log("Navi_num:",Navi[fff][0])
             break;
         }
         if(Navi[fff] == -1){
@@ -91,6 +96,7 @@ const NEXT = () => {
             break;
         }
     }
+   console.log("next");
   };
 
 

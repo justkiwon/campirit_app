@@ -315,9 +315,9 @@ loadToDos();
 
 
 
-  console.log(finalhi);
+ // console.log(finalhi);
  // console.log(morden_select);
-  console.log("MMakeKit_Tent_Navi: ",Navi)
+ // console.log("MMakeKit_Tent_Navi: ",Navi)
   {/*_______________________________________________________________REAL MAIN_______________________________________________________________________________________- */ }
 
   return (

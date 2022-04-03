@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { CommonActions, NavigationContainer } from '@react-navigation/native';
 import React, { useState,useEffect } from 'react';
 import {
   TouchableOpacity,
@@ -319,9 +319,9 @@ loadToDos();
 
 
 
-  console.log(finalhi);
+  //console.log(finalhi);
  // console.log(morden_select);
-  console.log("MMakeKit_Tent_Navi: ",Navi)
+  //console.log("MMakeKit_Tent_Navi: ",Navi)
   {/*_______________________________________________________________REAL MAIN_______________________________________________________________________________________- */ }
 
   return (
