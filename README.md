@@ -246,3 +246,18 @@ Navi.splice(1); --> Navi=[1,3] 그 자리 까지 사라짐
 ### 객체
 1. 객체는 순서가 없다.
 2. 딕셔너리 처럼 키 value값이 있지만 value값을 부르면 키 값이 출력된다.
+
+### Page Refreash 하는 방법 (navigation이 이동하면)
+
+useIsFocused는 A페이지에서 B 페이지로 전환됐을 때(포커스가 변경되었을 때)를 감지하여, 자동으로 useEffect 함수를 실행하게 된다.
+
+import { useIsFocused } from '@react-navigation/native';
+const isFocused = useIsFocused(); // isFoucesd Define
+
+useEffect(() => {
+return () => {
+selectTest();
+}
+}, [isFocused]);
+
+레퍼런스 : https://hdhdeveloper.tistory.com/72
