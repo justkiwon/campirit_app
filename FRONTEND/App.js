@@ -34,7 +34,7 @@ import MakeKit_Etc from './screens/MakeKit/MakeKit_Etc.js';
 import MakeKit_Kitc from './screens/MakeKit/MakeKit_Kitc.js';
 import MakeKit_Setiment from './screens/MakeKit/MakeKit_Setiment.js';
 import MakeKit_Box from './screens/MakeKit/MakeKit_Box.js';
-
+import FinalKit from './screens/FinalKit.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -164,6 +164,9 @@ export default function App() {
           ({ navigation }) => <MakeKit_Setiment navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MakeKit_Box" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Box navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="FinalKit" options={{ headerShown: false }} children={
           ({ navigation }) => <MakeKit_Box navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
 
