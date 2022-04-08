@@ -170,6 +170,47 @@ Object {
   },                         
 }                            
 
+## 파이어베이스 데이터 저장 형식 (json 배열, realtime database)
+"product3": [
+            null,
+            {
+                "imageurl": "image 주소 (firestore 혹은 aws bucket 등 가능)",
+                "name": "tent3-1",
+                "option1": "쉬파파파파욜로",
+                "option2": "뛰빠빠빠빠욜로",
+                "option3": "뛰빠뛰빠뒤빠빠",
+                "detail": "피면 편안한",
+                "price": 1300
+            },
+            {
+                "imageurl": "image 주소 (firestore 혹은 aws bucket 등 가능)",
+                "name": "tent3-2",
+                "option1": "빨간거",
+                "option2": "쉬빨간거",
+                "option3": "핵빨간거",
+                "detail": "엽기적인",
+                "price": 2000
+            },
+            {
+                "imageurl": "image 주소 (firestore 혹은 aws bucket 등 가능)",
+                "name": "tent3-3",
+                "option1": "빨간거",
+                "option2": "쉬빨간거",
+                "option3": "핵빨간거",
+                "detail": "감성템 1위인",
+                "price": 3000
+            },
+            {
+                "imageurl": "image 주소 (firestore 혹은 aws bucket 등 가능)",
+                "name": "tent3-4",
+                "option1": "빨간거",
+                "option2": "쉬빨간거",
+                "option3": "핵빨간거",
+                "detail": "가성비 좋은",
+                "price": 400000
+            }
+        ],
+
 ## 설치할 라이브러리 사용법
 
 ### Piker library
@@ -218,6 +259,8 @@ useState는 상태 변수로 state값이 기본 값이고 useState를 쓰면 set
 
 ### firebase
 $ npm install --save firebase
+
+추후 내용 추가 
 
 ### 컴포넌트 조건문
 https://itstudy-mary.tistory.com/381
