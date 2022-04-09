@@ -1,14 +1,33 @@
 import React, { useState } from 'react';
-import {backgroundcolor, StyleSheet, Text, Pressable,Dimensions, View, ScrollView ,Image, ImageBackground} from 'react-native';
+import {backgroundcolor, _ScrollView, StyleSheet, Text, Pressable,Dimensions, View, ScrollView ,Image, ImageBackground,fontSize} from 'react-native';
+import { FullWindowOverlay } from 'react-native-screens';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
+const fontsize =
+  Platform.OS === 'ios' ? 1 : 1.3;
 
-export default function FinalKit  ({navigation}) {
+export default function FinalKit  ({navigation,finalhi}) {
   //usePreventScreenCapture();
 
-  const H = false;
+
+    //========================================== Product_info_detail (side)function =====================================
+    const Product_info_detail = ({ detail, name, price, imgs }) => {
+      return (
+        <View style={styles.products}>
+          <View style={{ flexDirection: 'column' }}>
+               <Image
+                style={styles.product_image}
+                source={require("../assets/images/MakeKit/rectangle.png")} />
+            <Text style={styles.content_name}>{name}</Text>
+            <Text style={styles.content_price}>{price}</Text>
+          </View>
+        </View>
+      )
+    };
+    
+    const H=false;
   return (
     <View style={styles.container}>
       {/* 배경화면 */}
@@ -39,11 +58,17 @@ export default function FinalKit  ({navigation}) {
       source={require("../assets/images/FinalKit/Button_buy.png")} 
       resizeMode="cover"/>
       </Pressable>
-      </View>
-      
 
-
+      <ScrollView style={styles.specific_item}>
+    {Object.keys(finalhi).map((key) => (
+      <View key={key}>
+        <Product_info_detail name={finalhi[key].name} price={finalhi[key].price} imgs={finalhi[key].img} />
+        </View>
+    ))}
+</ScrollView>
       </View>
+   </View>   
+
 
       
   );
@@ -56,6 +81,8 @@ const styles = StyleSheet.create({
   },
   body:{
     flexDirection:'row-reverse',
+    backgroundColor: "red",
+    width: windowWidth,
   },
   Share: {
     width: windowWidth/5,
@@ -78,5 +105,39 @@ const styles = StyleSheet.create({
     height: windowHeight/30,
     resizeMode: 'contain',
     borderRadius: 13,
-  }
+  },
+//------------------------------------ product_detail ----------------------------
+  product_image: {
+    resizeMode: 'stretch',
+    alignSelf: 'flex-start',
+    width: windowWidth / 3.5,
+    height: windowWidth / 3.5,
+    marginLeft: windowWidth / 50,
+  },
+  products: {
+    marginLeft: windowWidth / 20,
+    flexDirection: 'row',
+    width: windowWidth / 3.5,
+    //backgroundColor: "grey",
+  },
+  content_name: {
+    marginLeft: windowWidth / 50,
+    marginTop: windowHeight / 500,
+    fontSize: 20 / fontsize,
+    color: '#213063',
+    fontWeight: 'bold',
+  },
+  content_price: {
+    marginLeft: windowWidth / 50,
+    fontSize: 16 / fontsize,
+  },
+  specific_item: {
+    width:windowWidth/600,
+    flexDirection: 'row',
+    backgroundColor:"green",
+    marginLeft: windowWidth/90,
+  },
+//-------------------------------------------------------------------------------
+
+
 });

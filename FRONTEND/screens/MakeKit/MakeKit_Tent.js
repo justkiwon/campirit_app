@@ -42,7 +42,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
   };
 
   const product1 = {
-    1: {
+    "tent1": {
       name: "tent1",
       price: 1000,
       option1: "쉬파파파파욜로",
@@ -52,7 +52,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    2: {
+    "tent2": {
       name: "tent2",
       price: 2000,
       option1: "빨간거",
@@ -62,7 +62,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    3: {
+    "tent3": {
       name: "tent3",
       price: 3000,
       option1: "빨간거",
@@ -72,7 +72,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    4: {
+    "tent4": {
       name: "tent4",
       price: 400000,
       option1: "빨간거",
@@ -85,7 +85,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
   };
 
   const product2 = {
-    21: {
+    "tent2-1": {
       name: "tent2-1",
       price: 1000,
       option1: "쉬파파파파욜로",
@@ -95,7 +95,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    22: {
+    "tent2-2": {
       name: "tent2-2",
       price: 2000,
       option1: "빨간거",
@@ -105,7 +105,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    23: {
+    "tent2-3": {
       name: "tent2-3",
       price: 3000,
       option1: "빨간거",
@@ -115,7 +115,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    24: {
+    "tent2-4": {
       name: "tent2-4",
       price: 400000,
       option1: "빨간거",
@@ -128,7 +128,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
   };
 
   const product3 = {
-    31: {
+    "tent3-1": {
       name: "tent3-1",
       price: 1000,
       option1: "쉬파파파파욜로",
@@ -138,7 +138,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    32: {
+    "tent3-2": {
       name: "tent3-2",
       price: 2000,
       option1: "빨간거",
@@ -148,7 +148,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    33: {
+    "tent3-3": {
       name: "tent3-3",
       price: 3000,
       option1: "빨갱이",
@@ -158,7 +158,7 @@ export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    34: {
+    "tent3-4": {
       name: "tent3-4",
       price: 400000,
       option1: "빨간거",

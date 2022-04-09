@@ -41,8 +41,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
   };
 
   const product1 = {
-    1: {
-      name: "tent1",
+    "table1-1": {
+      name: "table1-1",
       price: 1000,
       option1: "쉬파파파파욜로",
       option2: "뛰빠빠빠빠욜로",
@@ -51,8 +51,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    2: {
-      name: "tent2",
+    "table1-2": {
+      name: "table1-2",
       price: 2000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -61,8 +61,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    3: {
-      name: "tent3",
+    "table1-3": {
+      name: "table1-3",
       price: 3000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -71,8 +71,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    4: {
-      name: "tent4",
+    "table1-4": {
+      name: "table1-4",
       price: 400000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -84,8 +84,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
   };
 
   const product2 = {
-    21: {
-      name: "tent2-1",
+    "table2-1": {
+      name: "table2-1",
       price: 1000,
       option1: "쉬파파파파욜로",
       option2: "뛰빠빠빠빠욜로",
@@ -94,8 +94,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    22: {
-      name: "tent2-2",
+    "table2-2": {
+      name: "table2-2",
       price: 2000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -104,8 +104,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    23: {
-      name: "tent2-3",
+    "table2-3": {
+      name: "table2-3",
       price: 3000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -114,8 +114,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    24: {
-      name: "tent2-4",
+    "table2-4": {
+      name: "table2-4",
       price: 400000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -127,8 +127,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
   };
 
   const product3 = {
-    31: {
-      name: "tent3-1",
+    "table3-1": {
+      name: "table3-1",
       price: 1000,
       option1: "쉬파파파파욜로",
       option2: "뛰빠빠빠빠욜로",
@@ -137,8 +137,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    32: {
-      name: "tent3-2",
+    "table3-2": {
+      name: "table3-2",
       price: 2000,
       option1: "빨간거",
       option2: "하하ㅏ하",
@@ -147,8 +147,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    33: {
-      name: "tent3-3",
+    "table3-3": {
+      name: "table3-3",
       price: 3000,
       option1: "빨갱이",
       option2: "쉬빨간거",
@@ -157,8 +157,8 @@ export default function MakeKit_Table({ navigation, finalhi,setFinalhi, final_se
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    34: {
-      name: "tent3-4",
+    "table3-4": {
+      name: "table3-4",
       price: 400000,
       option1: "빨간거",
       option2: "쉬빨간거",

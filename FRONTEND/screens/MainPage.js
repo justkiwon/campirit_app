@@ -54,6 +54,7 @@ useEffect(()=>{
 
 //========================================= Selete box function ========================================
 const Selete_box = ({ tent_name, keyy, money, option1, option2, option3 }) => {
+    saveToDos(finalhi);
     return (
     <View>
     <View style={styles.select_box}>

@@ -68,7 +68,7 @@ export default function App() {
     [false,"MakeKit_Kitc","주방용품",{img:require("./assets/images/MainPage/Main_kitchen.png")}],
     [false,"MakeKit_Setiment","감성용품",{img:require("./assets/images/MainPage/Main_mood.png")}],
     [false,"MakeKit_Box","폴딩박스",{img:require("./assets/images/MainPage/Main_box.png")}],
-    "-1"
+    -1
     ]);
 
   const [finalhi, setFinalhi] = useState({});  
@@ -118,7 +118,7 @@ export default function App() {
           ({ navigation }) => <Loading1 navigation={navigation} ansList={ansList}  Navi={Navi} setNavi={setNavi} />
         } />
           <Stack.Screen name="Loading2" options={{ headerShown: false }} children={
-          ({ navigation }) => <Loading1 navigation={navigation} ansList={ansList}  Navi={Navi} setNavi={setNavi} />
+          ({ navigation }) => <Loading2 navigation={navigation} ansList={ansList}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="MainPage" options={{ headerShown: false }} children={
           ({ navigation }) => <MainPage navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} Navi={Navi} setNavi={setNavi}/>
@@ -167,7 +167,7 @@ export default function App() {
           ({ navigation }) => <MakeKit_Box navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
         <Stack.Screen name="FinalKit" options={{ headerShown: false }} children={
-          ({ navigation }) => <MakeKit_Box navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+          ({ navigation }) => <FinalKit navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
         } />
 
       </Stack.Navigator>

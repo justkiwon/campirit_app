@@ -41,8 +41,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
   };
 
   const product1 = {
-    1: {
-      name: "tent1",
+    "Box 1-1": {
+      name: "Box 1-1",
       price: 1000,
       option1: "쉬파파파파욜로",
       option2: "뛰빠빠빠빠욜로",
@@ -51,8 +51,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    2: {
-      name: "tent2",
+    "Box 1-2": {
+      name: "Box 1-2",
       price: 2000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -61,8 +61,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    3: {
-      name: "tent3",
+    "Box 1-3": {
+      name: "Box 1-3",
       price: 3000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -71,8 +71,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    4: {
-      name: "tent4",
+    "Box 1-4": {
+      name: "Box 1-4",
       price: 400000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -84,8 +84,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
   };
 
   const product2 = {
-    21: {
-      name: "tent2-1",
+    "Box 2-1": {
+      name: "Box 2-1",
       price: 1000,
       option1: "쉬파파파파욜로",
       option2: "뛰빠빠빠빠욜로",
@@ -94,8 +94,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    22: {
-      name: "tent2-2",
+    "Box 2-2": {
+      name: "Box 2-2",
       price: 2000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -104,8 +104,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    23: {
-      name: "tent2-3",
+    "Box 2-3": {
+      name: "Box 2-3",
       price: 3000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -114,8 +114,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    24: {
-      name: "tent2-4",
+    "Box 2-4": {
+      name: "Box 2-4",
       price: 400000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -127,8 +127,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
   };
 
   const product3 = {
-    31: {
-      name: "tent3-1",
+    "Box 3-1": {
+      name: "Box 3-1",
       price: 1000,
       option1: "쉬파파파파욜로",
       option2: "뛰빠빠빠빠욜로",
@@ -137,8 +137,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    32: {
-      name: "tent3-2",
+    "Box 3-2": {
+      name: "Box 3-2",
       price: 2000,
       option1: "빨간거",
       option2: "하하ㅏ하",
@@ -147,8 +147,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    33: {
-      name: "tent3-3",
+    "Box 3-3": {
+      name: "Box 3-3",
       price: 3000,
       option1: "빨갱이",
       option2: "쉬빨간거",
@@ -157,8 +157,8 @@ export default function MakeKit_Box({ navigation, finalhi,setFinalhi, final_sele
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    34: {
-      name: "tent3-4",
+    "Box 3-4": {
+      name: "Box 3-4",
       price: 400000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -306,7 +306,7 @@ loadToDos();
   for(var f=0;f<Navi.length;f++){
       if(Navi[f][1] == "MakeKit_Box"){
           Navi[f][0]=true;
-          navigation.navigate("Loadng2");
+          navigation.navigate("Loading2");
           break;
       }
   }

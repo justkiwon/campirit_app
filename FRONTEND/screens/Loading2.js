@@ -17,7 +17,7 @@ const windowHeight = Dimensions.get('window').height;
   
 
 
-export default function Loading2() {
+export default function Loading2({navigation}) {
     
 
     const Fadein1 = new Animated.Value(0);
@@ -53,7 +53,7 @@ export default function Loading2() {
        useEffect( ()=>{  
         let timer = setTimeout(() => {
           navigation.navigate('FinalKit');
-        }, 3000);
+        }, 5500);
         return ()=> clearTimeout(timer)
       },[]) 
 

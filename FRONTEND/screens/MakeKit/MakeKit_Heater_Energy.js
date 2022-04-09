@@ -41,8 +41,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
   };
 
   const product1 = {
-    1: {
-      name: "tent1",
+    "Heater 1-1": {
+      name: "Heater 1-1",
       price: 1000,
       option1: "쉬파파파파욜로",
       option2: "뛰빠빠빠빠욜로",
@@ -51,8 +51,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    2: {
-      name: "tent2",
+    "Heater 1-2": {
+      name: "Heater 1-2",
       price: 2000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -61,8 +61,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    3: {
-      name: "tent3",
+    "Heater 1-3": {
+      name: "Heater 1-3",
       price: 3000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -71,8 +71,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    4: {
-      name: "tent4",
+    "Heater 1-4": {
+      name: "Heater 1-4",
       price: 400000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -84,8 +84,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
   };
 
   const product2 = {
-    21: {
-      name: "tent2-1",
+    "Heater 2-1": {
+      name: "Heater 2-1",
       price: 1000,
       option1: "쉬파파파파욜로",
       option2: "뛰빠빠빠빠욜로",
@@ -94,8 +94,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    22: {
-      name: "tent2-2",
+    "Heater 2-2": {
+      name: "Heater 2-2",
       price: 2000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -104,8 +104,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    23: {
-      name: "tent2-3",
+    "Heater 2-3": {
+      name: "Heater 2-3",
       price: 3000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -114,8 +114,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    24: {
-      name: "tent2-4",
+    "Heater 2-4": {
+      name: "Heater 2-4",
       price: 400000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -127,8 +127,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
   };
 
   const product3 = {
-    31: {
-      name: "tent3-1",
+    "Heater 3-1": {
+      name: "Heater 3-1",
       price: 1000,
       option1: "쉬파파파파욜로",
       option2: "뛰빠빠빠빠욜로",
@@ -137,8 +137,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    32: {
-      name: "tent3-2",
+    "Heater 3-2": {
+      name: "Heater 3-2",
       price: 2000,
       option1: "빨간거",
       option2: "하하ㅏ하",
@@ -147,8 +147,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    33: {
-      name: "tent3-3",
+    "Heater 3-3": {
+      name: "Heater 3-3",
       price: 3000,
       option1: "빨갱이",
       option2: "쉬빨간거",
@@ -157,8 +157,8 @@ export default function MakeKit_Heater_Energy({ navigation, finalhi,setFinalhi, 
       jpg: "",
       img:require("../../assets/images/Product/T_MAX-01.png"),
     },
-    34: {
-      name: "tent3-4",
+    "Heater 3-4": {
+      name: "Heater 3-4",
       price: 400000,
       option1: "빨간거",
       option2: "쉬빨간거",
@@ -316,7 +316,8 @@ loadToDos();
 
 
 
- // console.log(finalhi);
+ console.log("finalhi: ",finalhi);
+ console.log("hi",hi);
  // console.log(morden_select);
  // console.log("MMakeKit_Tent_Navi: ",Navi)
   {/*_______________________________________________________________REAL MAIN_______________________________________________________________________________________- */ }
