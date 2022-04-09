@@ -12,7 +12,7 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AsyncStorageLib from '@react-native-async-storage/async-storage';
 
-const STORAGE_KEY="@toDos"
+const STORAGE_KEY="@toDos_tent"
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -25,7 +25,7 @@ const StatusBarHeight =
 const fontsize =
   Platform.OS === 'ios' ? 1 : 1.3;
 
-export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_select, Setfinal_select,Navi,setNavi }) {
+export default function MakeKit_Tent({ navigation, finalhi,setFinalhi,Navi}) {
   const tent = {
     1: {
       name: "돔텐트",
@@ -242,12 +242,10 @@ useEffect(()=>{
     const newProduct = { ...hi }; // toDos 객체를 ...으로 불러와서 다시 만들어 새 객체를 만듬
     delete newProduct[key]; //이 오브젝트에서 key를 삭제함
     setHi(newProduct);
-
+    saveToDos(newProduct);
     const hihi = {...finalhi};
     delete hihi[key];
     setFinalhi(hihi);
-
-
 
   };
 

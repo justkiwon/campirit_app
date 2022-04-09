@@ -50,9 +50,9 @@ export default function Loading1({navigation, ansList, Navi}) {
     useEffect( ()=>{  
       let timer = setTimeout(() => {
         navigation.navigate('MakeKit_Tent');
-      }, 3000);
+      }, 5000);
       return ()=> clearTimeout(timer)
-    },[]) 
+    },[])
 
 
 const Navi_hi = () => {

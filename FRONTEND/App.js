@@ -68,7 +68,7 @@ export default function App() {
     [false,"MakeKit_Kitc","주방용품",{img:require("./assets/images/MainPage/Main_kitchen.png")}],
     [false,"MakeKit_Setiment","감성용품",{img:require("./assets/images/MainPage/Main_mood.png")}],
     [false,"MakeKit_Box","폴딩박스",{img:require("./assets/images/MainPage/Main_box.png")}],
-    -1
+    "-1"
     ]);
 
   const [finalhi, setFinalhi] = useState({});  

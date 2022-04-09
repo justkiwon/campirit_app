@@ -15,9 +15,9 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AsyncStorageLib from '@react-native-async-storage/async-storage';
 
-import { useIsFocused } from '@react-navigation/native'; // 실시간 리로딩
+import { useIsFocused } from '@react-navigation/native';
 
-const STORAGE_KEY="@toDos"   
+const STORAGE_KEY="@toDos11111"   
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -29,7 +29,7 @@ const StatusBarHeight =
 const fontsize =
 Platform.OS === 'ios' ? 1 : 1.3;
 
-export default function App({ navigation, finalhi, setFinalhi, final_select, Setfinal_select,Navi }) {
+export default function App({ navigation, finalhi, setFinalhi, final_select, Setfinal_select, Navi }) {
 const isFocused = useIsFocused();
 
 // -----------------------------------/ store local storage /--------------------------
@@ -49,12 +49,11 @@ const saveToDos = async(toSave) => {
 
 useEffect(()=>{
   loadToDos();
-}, [isFocused]); //data 가져올때마다 
+}, [isFocused]);
 //  ------------------------------------------------------------------------------------
 
 //========================================= Selete box function ========================================
 const Selete_box = ({ tent_name, keyy, money, option1, option2, option3 }) => {
-    saveToDos(finalhi);
     return (
     <View>
     <View style={styles.select_box}>

@@ -12,7 +12,7 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AsyncStorageLib from '@react-native-async-storage/async-storage';
 
-const STORAGE_KEY="@toDos"
+const STORAGE_KEY="@toDos_Chair"
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -208,6 +208,7 @@ loadToDos();
       },
     };
     setHi(newPicker);
+    saveToDos(newPicker);
     const newPicker2 = {
       ...finalhi,
       [key]: {
@@ -241,7 +242,7 @@ loadToDos();
     const newProduct = { ...hi }; // toDos 객체를 ...으로 불러와서 다시 만들어 새 객체를 만듬
     delete newProduct[key]; //이 오브젝트에서 key를 삭제함
     setHi(newProduct);
-
+    saveToDos(newProduct);
     const hihi = {...finalhi};
     delete hihi[key];
     setFinalhi(hihi);
