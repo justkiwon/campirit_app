@@ -17,7 +17,7 @@ import AsyncStorageLib from '@react-native-async-storage/async-storage';
 
 import { useIsFocused } from '@react-navigation/native';
 
-const STORAGE_KEY="@toDos"
+const STORAGE_KEY="@toDos"   
 
 const windowWidth = Dimensions.get('window').width;
 

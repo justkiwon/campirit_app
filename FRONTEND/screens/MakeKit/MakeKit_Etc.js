@@ -24,7 +24,7 @@ const StatusBarHeight =
 const fontsize =
   Platform.OS === 'ios' ? 1 : 1.3;
 
-export default function MakeKit_Tent({ navigation, finalhi,setFinalhi, final_select, Setfinal_select,Navi,setNavi }) {
+export default function MakeKit_Etc({ navigation, finalhi,setFinalhi, final_select, Setfinal_select,Navi,setNavi }) {
   const tent = {
     1: {
       name: "돔텐트",
