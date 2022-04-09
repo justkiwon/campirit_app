@@ -15,7 +15,7 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AsyncStorageLib from '@react-native-async-storage/async-storage';
 
-import { useIsFocused } from '@react-navigation/native';
+import { useIsFocused } from '@react-navigation/native'; // 실시간 리로딩
 
 const STORAGE_KEY="@toDos"   
 
@@ -49,7 +49,7 @@ const saveToDos = async(toSave) => {
 
 useEffect(()=>{
   loadToDos();
-}, [isFocused]);
+}, [isFocused]); //data 가져올때마다 
 //  ------------------------------------------------------------------------------------
 
 //========================================= Selete box function ========================================
