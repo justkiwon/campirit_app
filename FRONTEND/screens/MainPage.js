@@ -14,27 +14,27 @@ import {
 
 
 const hi = {
-    11: {
+    "11": {
         "name": "tent1",
         "price": 1000,
         "select_option": "쉬파파파파욜로",
         "visible": false,
         jpg: "",
     },
-    12: {
+    "12": {
         "name": "tent2",
         "price": 2000, "select_option": "핵빨간거",
         "visible": true,
         jpg: "",
     },
-    19: {
+    "19": {
         "name": "tent3",
         "price": 3000,
         "select_option": "빨간거",
         "visible": true,
         jpg: "",
     },
-    430: {
+    "430": {
         "name": "tent4",
         "price": 4000,
         "select_option": "쉬파파파파욜로",
@@ -42,7 +42,7 @@ const hi = {
         jpg: "",
     },
 
-}
+};
 
 
 
@@ -51,7 +51,6 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default function App({ navigation }) {
-    var i = 0;
     const Check = ({ }) => {
         var count;
         count = Object.keys(hi).length;
@@ -299,14 +298,10 @@ export default function App({ navigation }) {
             </View>
         </View >
     )
-}
-
-
-
+};
 
 
 const styles = StyleSheet.create({
-
 
     container:
     {
