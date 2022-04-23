@@ -1,397 +1,206 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
-import {TouchableOpacity,ScrollView,Text,Image, View, StyleSheet, SafeAreaView, Button, Dimensions,Alert} from 'react-native';
-import {tent, product1, product2, product3} from "./Datasheet";
+import React, { useState, } from 'react';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+//add firebase backend
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
-
 import {getDatabase, ref, child, get} from 'firebase/database';
+import {getStorage, getDownloadURL, ref as sRef } from "firebase/storage";
+
+import MainPage from './screens/MainPage.js';
+import StartPage from './screens/StartPage.js';
+import QuizStart from './screens/QuizPages/QuizStart.js';
+import QuizSituation from './screens/QuizPages/QuizSituation.js';
+import Quiz1 from './screens/QuizPages/Quiz1.js';
+import Quiz2 from './screens/QuizPages/Quiz2.js';
+import Quiz3 from './screens/QuizPages/Quiz3.js';
+import Quiz4 from './screens/QuizPages/Quiz4.js';
+import Quiz5 from './screens/QuizPages/Quiz5.js';
+import Quiz6 from './screens/QuizPages/Quiz6.js';
+import Quiz7 from './screens/QuizPages/Quiz7.js';
+import Quiz8 from './screens/QuizPages/Quiz8.js';
+import Quiz9 from './screens/QuizPages/Quiz9.js';
+import Quizf from './screens/QuizPages/Quizf.js';
+import Loading1 from './screens/Loading1.js';
+import Loading2 from './screens/Loading2.js';
+import MakeKit_Tent from './screens/MakeKit/MakeKit_Tent.js';
+import MakeKit_Tarp from './screens/MakeKit/MakeKit_Tarp.js';
+import MakeKit_Tarp_NoCar from './screens/MakeKit/MakeKit_Tarp_NoCar.js';
+import MakeKit_Mat from './screens/MakeKit/MakeKit_Mat.js';
+import MakeKit_Table from './screens/MakeKit/MakeKit_Table.js';
+import MakeKit_Chair from './screens/MakeKit/MakeKit_Chair.js';
+import MakeKit_Heater_Energy from './screens/MakeKit/MakeKit_Heater_Energy.js';
+import MakeKit_Heater_NoEnergy from './screens/MakeKit/MakeKit_Heater_NoEnergy.js';
+import MakeKit_Cooler_Energy from './screens/MakeKit/MakeKit_Cooler_Energy.js';
+import MakeKit_Cooler_NoEnergy from './screens/MakeKit/MakeKit_Cooler_NoEnergy';
+import MakeKit_Etc from './screens/MakeKit/MakeKit_Etc.js';
+import MakeKit_Kitc from './screens/MakeKit/MakeKit_Kitc.js';
+import MakeKit_Setiment from './screens/MakeKit/MakeKit_Setiment.js';
+import MakeKit_Box from './screens/MakeKit/MakeKit_Box.js';
+import FinalKit from './screens/FinalKit.js';
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyA23XtOfjofKkp-dpCtgPtmDUJyYsfuznA",
   authDomain: "campirit-47893.firebaseapp.com",
   projectId: "campirit-47893",
+  storageBucket: "campirit-47893.appspot.com",
 });
 
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+/*
+const firebaseApp = initializeApp({
+  apiKey: "AIzaSyCz2qodN0isO9bHDW0v7N_sXbT6SPilN6M",
+  authDomain: "campirit-fa3aa.firebaseapp.com",
+  projectId: "campirit-fa3aa",
+  storageBucket: "campirit-fa3aa.appspot.com",
+});*/
 
-export default function StartPage({ navigation }) {
-  const [tent, setTent] = useState({1:{},2:{},3:{}});
-  const [product1, setProduct1] = useState({})
-  const [product2, setProduct2] = useState({})
-  const [product3, setProduct3] = useState({})
+const Stack = createNativeStackNavigator();
 
-  function getTentInfo(){
-    const dbRef = ref(getDatabase());
-    get(child(dbRef, "tent")).then((snapshot) => {
-      var dbdata = snapshot.val();
-      setTent(dbdata);
+export default function App() {
+  const [ansList, setansList] = useState(
+    {
+      A1: "",
+      A2: "",
+      A3: "",
+      A4: 0,
+      A5: 0,
+      A6: 0,
+      A7: 0,
+      A8: 0,
+      A9: 0,
+      Af: 0,
     });
-  }
 
-  function getProductInfo(){
-    const dbRef = ref(getDatabase());
-    get(child(dbRef, "product1")).then((snapshot) => {
-      var dbdata = snapshot.val();
-      setProduct1(dbdata);
-    });
-    get(child(dbRef, "product2")).then((snapshot) => {
-      var dbdata = snapshot.val();
-      setProduct2(dbdata);
-    });
-    get(child(dbRef, "product3")).then((snapshot) => {
-      var dbdata = snapshot.val();
-      setProduct3(dbdata);
-    });
-  }
+    const [Navi,setNavi]=useState([
+    [false,"MakeKit_Tent","텐트",{img:require("./assets/images/MainPage/Main_tent.png")}],
+    [false,"MakeKit_Tarp","타프",{img:require("./assets/images/MainPage/Main_Tarp.png")}],
+    [false,"MakeKit_Tarp_NoCar","타프",{img:require("./assets/images/MainPage/Main_Tarp.png")}],
+    [false,"MakeKit_Mat","매트",{img:require("./assets/images/MainPage/Main_mat.png")}],
+    [false,"MakeKit_Table","테이블",{img:require("./assets/images/MainPage/Main_Table.png")}],
+    [false,"MakeKit_Chair","의자",{img:require("./assets/images/MainPage/Main_chair.png")}],
+    [false,"MakeKit_Heater_Energy","난로",{img:require("./assets/images/MainPage/Main_hitter.png")}],
+    [false,"MakeKit_Heater_NoEnergy","난로",{img:require("./assets/images/MainPage/Main_hitter.png")}],
+    [false,"MakeKit_Cooler_Energy","에어컨",{img:require("./assets/images/MainPage/Main_cooler.png")}],
+    [false,"MakeKit_Cooler_NoEnergy","에어컨",{img:require("./assets/images/MainPage/Main_cooler.png")}],
+    [false,"MakeKit_Etc","기타용품",{img:require("./assets/images/MainPage/Main_etc.png")}],
+    [false,"MakeKit_Kitc","주방용품",{img:require("./assets/images/MainPage/Main_kitchen.png")}],
+    [false,"MakeKit_Setiment","감성용품",{img:require("./assets/images/MainPage/Main_mood.png")}],
+    [false,"MakeKit_Box","폴딩박스",{img:require("./assets/images/MainPage/Main_box.png")}],
+    -1
+    ]);
 
-  getTentInfo();
-  getProductInfo();
+  const [finalhi, setFinalhi] = useState({});  
 
-  const [hi, setHi] = useState({});
+  const [final_select, Setfinal_select] = useState({});
 
-//_________________________하단 selete객체 추가__________________
-const PickerAdd =(key,name,price,select_option) =>{
-  const newPicker = {
-    ...hi,
-  [key]:{ "name":name,
-          "price":price,
-          "select_option":select_option,
-          "visible":false,
-        },
-};
-setHi(newPicker);
-};
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="StartPage">
+        <Stack.Screen name="StartPage" component={StartPage} options={{ headerShown: false }} />
 
-const Add = (key,name, price,option1 ,option2, option3) =>{
-  const newAdd = {
-    ...hi,
-  [key]:{"name":name,
-         "price":price,
-         "option1":option1,
-         "option2":option2,
-         "option3":option3,
-         "visible":true,
-        },
-};
-setHi(newAdd);
-};
+        <Stack.Screen name="QuizStart" component={QuizStart} options={{ headerShown: false }} />
+        <Stack.Screen name="QuizSituation" options={{ headerShown: false }} children={
+          ({ navigation }) => <QuizSituation navigation={navigation} ansList={ansList} />
+        } />
+        <Stack.Screen name="Quiz1" options={{ headerShown: false }} children={
+          ({ navigation }) => <Quiz1 navigation={navigation} ansList={ansList} setansList={setansList} />
+        } />
+        <Stack.Screen name="Quiz2" options={{ headerShown: false }} children={
+          ({ navigation }) => <Quiz2 navigation={navigation} ansList={ansList} setansList={setansList} />
+        } />
+        <Stack.Screen name="Quiz3" options={{ headerShown: false }} children={
+          ({ navigation }) => <Quiz3 navigation={navigation} ansList={ansList} setansList={setansList} />
+        } />
+        <Stack.Screen name="Quiz4" options={{ headerShown: false }} children={
+          ({ navigation }) => <Quiz4 navigation={navigation} ansList={ansList} setansList={setansList} />
+        } />
+        <Stack.Screen name="Quiz5" options={{ headerShown: false }} children={
+          ({ navigation }) => <Quiz5 navigation={navigation} ansList={ansList} setansList={setansList} />
+        } />
+        <Stack.Screen name="Quiz6" options={{ headerShown: false }} children={
+          ({ navigation }) => <Quiz6 navigation={navigation} ansList={ansList} setansList={setansList} />
+        } />
+        <Stack.Screen name="Quiz7" options={{ headerShown: false }} children={
+          ({ navigation }) => <Quiz7 navigation={navigation} ansList={ansList} setansList={setansList} />
+        } />
+        <Stack.Screen name="Quiz8" options={{ headerShown: false }} children={
+          ({ navigation }) => <Quiz8 navigation={navigation} ansList={ansList} setansList={setansList} />
+        } />
+        <Stack.Screen name="Quiz9" options={{ headerShown: false }} children={
+          ({ navigation }) => <Quiz9 navigation={navigation} ansList={ansList} setansList={setansList} />
+        } />
+        <Stack.Screen name="Quizf" options={{ headerShown: false }} children={
+          ({ navigation }) => <Quizf navigation={navigation} ansList={ansList} setansList={setansList} Navi={Navi}/>
+        } />
+        <Stack.Screen name="Loading1" options={{ headerShown: false }} children={
+          ({ navigation }) => <Loading1 navigation={navigation} ansList={ansList}  Navi={Navi} setNavi={setNavi} />
+        } />
+          <Stack.Screen name="Loading2" options={{ headerShown: false }} children={
+          ({ navigation }) => <Loading2 navigation={navigation} ansList={ansList}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MainPage" options={{ headerShown: false }} children={
+          ({ navigation }) => <MainPage navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi} Navi={Navi} setNavi={setNavi}/>
+        } />
 
-//________________________하단 selete 객체 삭제___________________-
+        <Stack.Screen name="MakeKit_Tent" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Tent navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Tarp" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Tarp navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Tarp_NoCar" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Tarp_NoCar navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Mat" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Mat navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Table" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Table navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Chair" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Chair navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Heater_Energy" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Heater_Energy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Heater_NoEnergy" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Heater_NoEnergy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Cooler_Energy" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Cooler_Energy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Cooler_NoEnergy" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Cooler_NoEnergy navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Etc" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Etc navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Kitc" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Kitc navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Setiment" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Setiment navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="MakeKit_Box" options={{ headerShown: false }} children={
+          ({ navigation }) => <MakeKit_Box navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
+        <Stack.Screen name="FinalKit" options={{ headerShown: false }} children={
+          ({ navigation }) => <FinalKit navigation={navigation} ansList={ansList} final_select={final_select} Setfinal_select={Setfinal_select} finalhi={finalhi} setFinalhi={setFinalhi}  Navi={Navi} setNavi={setNavi} />
+        } />
 
-const Delete_product = (key) => {
-  const newProduct ={...hi}; // toDos 객체를 ...으로 불러와서 다시 만들어 새 객체를 만듬
-  delete newProduct[key]; //이 오브젝트에서 key를 삭제함
-  setHi(newProduct);
-};
-
-
-//========================================== Product_info_detail (side)function =====================================
-const Product_info_detail =({name,price}) => {
-  return(
-    <View style={styles.products}>
-             <View style={{flexDirection: 'column'}}>
-             <Image source={require("./assets/images/MakeKit/retangle.png")}/> 
-              <Text>{name}</Text>  
-              <Text>{price}</Text> 
-            </View>         
-            </View>
-  )};
-
-  //========================================= Selete box function ========================================
-  const Selete_box = ({tent_name,keyy,money,option1,option2,option3}) =>{
-    return(
-      <View>
-    <View style={styles.select_box}>
-        <Image source={require("./assets/images/MakeKit/retangle.png")} style={styles.footer_selate_img}/>
-          <View style={{left:windowWidth/35, width:windowWidth/2.3}}>
-            <Text style={{fontSize:11.5}}>{tent_name}</Text>
-            <Text style={{fontSize:11.5,marginTop:windowHeight/46}}>선택한 옵션: {hi[keyy].select_option}</Text>  
-          </View>
-            <Text style={{marginTop:windowHeight/200,left:-windowWidth/8}}>{money}원</Text>
-      </View>
-      <View style={{flexDirection:"row", position:"absolute", left:windowWidth/3.8, marginTop:windowHeight/11, width:windowWidth/2.2,height:windowHeight/21}}>
-
-          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option1)}}><Text>{option1}</Text></TouchableOpacity>
-          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option2);}}><Text>{option2}</Text></TouchableOpacity>
-          <TouchableOpacity style={{...styles.Picker_Button, height: hi[keyy].visible ? windowHeight/22.5 : 0 }} onPress={()=>{PickerAdd(keyy,tent_name,money,option3);}}><Text>{option3}</Text></TouchableOpacity>
-            </View>
-          <TouchableOpacity style={styles.Delete_Button} onPress={() => Delete_product(keyy)}>
-            <Image source={require("./assets/images/MakeKit/canel_button.png")}/>
-          </TouchableOpacity>
-        </View>
-    )};
-
-//console.log(hi);
-//console.log(product2);
-
-{/*_______________________________________________________________REAL MAIN_______________________________________________________________________________________- */}
-
-
-
-
-
-return (
-  <SafeAreaView>
-{/*====================================== header ---------------------------------------------------- */}
-    <View style={styles.header}>
-      <Image source={require("./assets/images/MakeKit/tent.png")} style={{marginTop:windowHeight/64}}/>
-        <Text style={styles.header_title}>텐트</Text>
-      
-    </View>
-  <Image source={require("./assets/images/MakeKit/Top_line.png")}/>
-
-{/*---------------------------------------메인 내용1 -------------------------------------------------- */}
-  <ScrollView style={styles.Content_list} horizontal = {true}>  
-      <View style={styles.Content_explain}>
-          <Text style={styles.Content_title}>{tent[1].name}</Text>
-            <Text style={styles.Content}>{tent[1].info}</Text>
-      </View>    
-        <View style={{flexDirection: 'row'}} >
-        <Image source={require("./assets/images/MakeKit/slid_button2.png")} style={styles.slid_button}/>
-          <View style={styles.specific_item}>
-                {Object.keys(product1).map((key) =>(
-                <View key={key}>
-            <Product_info_detail name={product1[key].name} price={product1[key].price}/>
-            <TouchableOpacity style={styles.check_button} onPress={()=>{ Add(key, product1[key].name, product1[key].price, product1[key].option1, product1[key].option2, product1[key].option3); setVisible(true)}}>
-                <Text>BUY</Text>
-              </TouchableOpacity>
-                </View>
-              ))}
-                  </View>
-                </View>
-  </ScrollView>  
-{/*---------------------------------------메인 내용2 -------------------------------------------------- */}
-<ScrollView style={styles.Content_list} horizontal = {true}>  
-      <View style={styles.Content_explain}>
-          <Text style={styles.Content_title}>{tent[2].name}</Text>
-            <Text style={styles.Content}>{tent[2].info}</Text>
-      </View>    
-        <View style={{flexDirection: 'row'}} >
-        <Image source={require("./assets/images/MakeKit/slid_button2.png")} style={styles.slid_button}/>
-          <View style={styles.specific_item}>
-                {Object.keys(product2).map((key) =>(
-                <View key={key}>
-            <Product_info_detail name={product2[key].name} price={product2[key].price}/>
-              <TouchableOpacity style={styles.check_button} onPress={()=>{ Add(key, product2[key].name, product2[key].price,product2[key].option1,product2[key].option2,product2[key].option3)}}>
-                <Text>BUY</Text>
-              </TouchableOpacity>
-                </View>
-              ))}
-                  </View>
-                </View>
-  </ScrollView>
-{/*---------------------------------------메인 내용3 -------------------------------------------------- */}
-<ScrollView style={styles.Content_list} horizontal = {true}>  
-      <View style={styles.Content_explain}>
-          <Text style={styles.Content_title}>{tent[3].name}</Text>
-            <Text style={styles.Content}>{tent[3].info}</Text>
-      </View>    
-        <View style={{flexDirection: 'row'}} >
-        <Image source={require("./assets/images/MakeKit/slid_button2.png")} style={styles.slid_button}/>
-          <View style={styles.specific_item}>
-                {Object.keys(product3).map((key) =>(
-                <View key={key}>
-            <Product_info_detail name={product3[key].name} price={product3[key].price}/>
-            <TouchableOpacity style={styles.check_button} onPress={()=>{ Add(key, product3[key].name, product3[key].price,product3[key].option1,product3[key].option2,product3[key].option3)}}>
-                <Text>BUY</Text>
-              </TouchableOpacity>
-                </View>
-              ))}
-                  </View>
-                </View>
-  </ScrollView>
-{/*--------------------------------------- 하단에 셀렉트 창 -------------------------------------------------- */}
-  <View style={styles.footer_selate}>
-    <Text style={{left:windowWidth/15,zIndex:-1, position:'absolute'}}>내가 선택한 물품</Text>
-      <ScrollView horizontal = {true} style={{marginTop:windowHeight/80}}> 
-      {Object.keys(hi).map((key) =>(
-         <View key={key}>
-            <Selete_box keyy={key} tent_name={hi[key].name} money={hi[key].price} option1={hi[key].option1} option2={hi[key].option2} option3={hi[key].option3}/>
-         </View>
-       ))}
-        </ScrollView> 
-  </View>
-
-
-{/*--------------------------------------- footer 캠핑카 ----------------------------------------------------- */}
-<TouchableOpacity  onPress = {() => navigation.navigate("StartPage")}>
-  <Image source={require("./assets/images/MakeKit/next_move_button.png")} style={{left:windowWidth/1.2}}/>
-  </TouchableOpacity>
-  <Image source={require("./assets/images/MakeKit/camping_car.png")} style={{position:'absolute',bottom: -windowHeight/44}}/>
-  <Image source={require("./assets/images/MakeKit/footer.png")} style={{justifyContent: 'flex-end',bottom:-windowHeight/39}}/>
-
-   
-    <StatusBar/>
-  </SafeAreaView>
-)
+      </Stack.Navigator>
+      <StatusBar></StatusBar>
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({
-  header: {
-    marginTop: windowHeight/45,
-    flexDirection: 'row',
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'gray'
   },
-  Content_list: {
-    marginRight : windowWidth/50,
-    marginTop: windowHeight/95,
-    left: windowWidth/23,
-    flexDirection: 'row',
-  },
-  header_title: {
-    marginTop: windowHeight/14.5,
-    fontSize: 30,
-    textAlign: 'center'
-  },
-  header_content1: {
-    fontSize: 20,
-    textAlign: 'center'
-  },
-  header_content2: {
-    fontSize: 15,
-    textAlign: 'center'
-  },
-  check_button:{
-    alignItems:"center", 
-    justifyContent:"center",
-    backgroundColor:"#ff8c00",
-    position:"absolute",
-    marginTop:windowHeight/8,
-    borderRadius:50,
-    left:windowWidth/4.8,
-    width:windowWidth/9,
-    height:windowHeight/32,
-  },
-  //Content_image: {
-    //marginTop: 20,
-   // borderRadius:50,
-   // backgroundColor: 'tomato',
-  //},
-  Content_explain: {
-    alignItems:'flex-start',
-    height:windowHeight/6,
-    width:windowHeight/3.5,
- //   backgroundColor:'yellow',    
-  },
-  Content_title: {
-    fontSize:20,
-  },
-  slid_button:{
-    position:'absolute',
-    marginTop:windowHeight/7.2,
-    left:-windowWidth/11.5, 
-    height:windowHeight/50
-  },
-  specific_item :{
-    left: windowWidth/100,
-    marginTop: windowHeight/80, 
-    flexDirection: 'row',
-    // backgroundColor:'tomato',
-  },
-  Content: {
-    fontSize:13,
-  },
-  footer_selate: {
-    height:windowHeight/6,
-    //backgroundColor: 'green',
-  },
-  select_box: {
-    zIndex:0,
-    marginRight:windowWidth/30,
-    marginTop:windowHeight/50,
-    left:windowWidth/70,
-    height: windowHeight/8.2,
-    width:windowWidth/1.4,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    borderWidth: 2,
-    borderStyle: 'dashed',
-  },
-  footer_selate_img: {
-    marginTop:windowHeight/130,
-    left: windowWidth/88,
-    height:windowHeight/9.55,
-    width:windowWidth/4.4
-  },
-  picker_value:{
-    borderRadius: 70,
-  },
-  products:{
-    marginLeft: windowWidth/15,
-    flexDirection: 'row',
-    width:windowWidth/3.5,
-    //backgroundColor:"grey",
-  },
-  Picker_Button:{
-  backgroundColor: "#f0ffff",
-  width:"33%",
-  height:windowHeight/22.5, 
-  alignItems:"center", 
-  justifyContent:"center"
-  },
-  Delete_Button:{ 
-    alignItems:"center", 
-    justifyContent:"center", 
-    height:windowHeight/25,  
-    width:windowWidth/15,  
-    marginTop:windowHeight/350.2,   
-    left: windowWidth/1.45,
-    position:'absolute',}
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//============================================ Product_info1 =========================================================
-const Product_info1 = ({name,info,h}) =>{
-  return(
-<ScrollView style={styles.Content_list} horizontal = {true}>  
-  <View style={styles.Content_explain}>
-      <Text style={styles.Content_title}>{name}</Text>
-        <Text style={styles.Content}>{info}</Text>
-  </View>    
-    <View style={{flexDirection: 'row'}} >
-     <Image source={require("./assets/images/MakeKit/slid_button2.png")} style={styles.slid_button}/>
-      <View style={styles.specific_item}>
-            {Object.keys(product1).map((key) =>(
-            <View key={key}>
-        <Product_info_detail name={product1[key].name} price={product1[key].price}/>
-        <View style={styles.check_button}>
-          <Button  color="grey" title="BUY" onPress={()=>{ Add(key, product1[key].name, product1[key].price)}} />
-        </View>
-            </View>
-          ))}
-              </View>
-            </View>
-</ScrollView>
-)};
