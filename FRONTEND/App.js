@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-//add firebase backend
+//add firebase backend ---테스트
 import { initializeApp } from "firebase/app";
 import {getDatabase, ref, child, get} from 'firebase/database';
 import {getStorage, getDownloadURL, ref as sRef } from "firebase/storage";
