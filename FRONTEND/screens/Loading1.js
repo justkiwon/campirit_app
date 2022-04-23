@@ -33,16 +33,16 @@ export default function Loading1({navigation, ansList, Navi}) {
           }),
           Animated.timing(
             where,{
-              toValue: -200,
+              toValue: -1120,
               duration: 2000,
               useNativeDriver: true
           })
         ]),
-      Animated.timing(Fadein2, {
-        toValue: 100,
-        duration: 30000,
-        useNativeDriver: true,
-      })
+        Animated.timing(Fadein2, {
+          toValue: 100,
+          duration: 20000,
+          useNativeDriver: true,
+        })
       ]).start();
     },[where,Fadein1,Fadein2]);
 
@@ -50,9 +50,9 @@ export default function Loading1({navigation, ansList, Navi}) {
     useEffect( ()=>{  
       let timer = setTimeout(() => {
         navigation.navigate('MakeKit_Tent');
-      }, 5000);
+      }, 4000);
       return ()=> clearTimeout(timer)
-    },[])
+    },[]) 
 
 
 const Navi_hi = () => {
@@ -181,7 +181,7 @@ console.log("Navi:", Navi);
 
           </View>
           <Animated.Image
-                  style={styles.backgroundimage, {
+                  style={styles.backgroundimage,{
                     transform: [{translateX: where}]
                   }} 
                   source={require ("../assets/images/loading/background3.png")}>

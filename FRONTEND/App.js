@@ -4,6 +4,11 @@ import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+//add firebase backend
+import { initializeApp } from "firebase/app";
+import {getDatabase, ref, child, get} from 'firebase/database';
+import {getStorage, getDownloadURL, ref as sRef } from "firebase/storage";
+
 import MainPage from './screens/MainPage.js';
 import StartPage from './screens/StartPage.js';
 import QuizStart from './screens/QuizPages/QuizStart.js';
@@ -35,6 +40,21 @@ import MakeKit_Kitc from './screens/MakeKit/MakeKit_Kitc.js';
 import MakeKit_Setiment from './screens/MakeKit/MakeKit_Setiment.js';
 import MakeKit_Box from './screens/MakeKit/MakeKit_Box.js';
 import FinalKit from './screens/FinalKit.js';
+
+const firebaseApp = initializeApp({
+  apiKey: "AIzaSyA23XtOfjofKkp-dpCtgPtmDUJyYsfuznA",
+  authDomain: "campirit-47893.firebaseapp.com",
+  projectId: "campirit-47893",
+  storageBucket: "campirit-47893.appspot.com",
+});
+
+/*
+const firebaseApp = initializeApp({
+  apiKey: "AIzaSyCz2qodN0isO9bHDW0v7N_sXbT6SPilN6M",
+  authDomain: "campirit-fa3aa.firebaseapp.com",
+  projectId: "campirit-fa3aa",
+  storageBucket: "campirit-fa3aa.appspot.com",
+});*/
 
 const Stack = createNativeStackNavigator();
 

@@ -17,7 +17,7 @@ import AsyncStorageLib from '@react-native-async-storage/async-storage';
 
 import { useIsFocused } from '@react-navigation/native';
 
-const STORAGE_KEY="@toDos11111"   
+const STORAGE_KEY="@toDos_main"
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -29,7 +29,7 @@ const StatusBarHeight =
 const fontsize =
 Platform.OS === 'ios' ? 1 : 1.3;
 
-export default function App({ navigation, finalhi, setFinalhi, final_select, Setfinal_select, Navi }) {
+export default function App({ navigation, finalhi, setFinalhi, final_select, Setfinal_select,Navi }) {
 const isFocused = useIsFocused();
 
 // -----------------------------------/ store local storage /--------------------------
@@ -53,13 +53,14 @@ useEffect(()=>{
 //  ------------------------------------------------------------------------------------
 
 //========================================= Selete box function ========================================
-const Selete_box = ({ tent_name, keyy, money, option1, option2, option3 }) => {
-    saveToDos(finalhi);
+const Selete_box = ({ tent_name, keyy, money, url }) => {
+
     return (
+        
     <View>
     <View style={styles.select_box}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Image source={require("../assets/images/MakeKit/rectangle.png")} style={styles.footer_selate_img} />
+        <Image source={{uri : url}} style={styles.footer_selate_img} />
 
         <View style={{ flexDirection: 'column' }}>
             <View style={{ width: windowWidth / 1.5, flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -101,7 +102,6 @@ const NEXT = () => {
 
 
 //========================================= MAIN ===============================================
-//console.log(finalhi);
     return (
         
         < View style={styles.container} >
@@ -189,7 +189,7 @@ const NEXT = () => {
                 <ScrollView horizontal={false} style={{ marginTop: windowHeight / 200 }}>
             {Object.keys(finalhi).map((key) => (
               <View key={key}>
-                <Selete_box keyy={key} tent_name={finalhi[key].name} money={finalhi[key].price} option1={finalhi[key].select_option}/>
+                <Selete_box keyy={key} tent_name={finalhi[key].name} money={finalhi[key].price} url={finalhi[key].url}/>
               </View>
             ))}
           </ScrollView>
@@ -226,7 +226,6 @@ const NEXT = () => {
 
 
 const styles = StyleSheet.create({
-
 
     container:
     {
@@ -473,6 +472,13 @@ const styles = StyleSheet.create({
         height: windowHeight / 20,
 
     },
+    footer_selate_img: {
+        marginLeft: windowWidth / 50,
+        marginRight: windowWidth / 70,
+        height: windowHeight / 9.55,
+        width: windowWidth / 4.4
+      },
+
 //------------------------- select_Box ------------------------------
     select_box: {
         zIndex: 0,
@@ -491,6 +497,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         width: windowWidth / 20,
       },
+
 
 
 

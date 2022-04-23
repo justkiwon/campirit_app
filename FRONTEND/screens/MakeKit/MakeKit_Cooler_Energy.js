@@ -12,7 +12,10 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AsyncStorageLib from '@react-native-async-storage/async-storage';
 
-const STORAGE_KEY="@toDos_Cooler"
+//add firebase - realtimestorage
+import {getDatabase, ref, child, get} from 'firebase/database';
+
+const STORAGE_KEY="@toDos_cooler_energy"
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -25,171 +28,60 @@ const fontsize =
   Platform.OS === 'ios' ? 1 : 1.3;
 
 export default function MakeKit_Cooler_Energy({ navigation, finalhi,setFinalhi, final_select, Setfinal_select,Navi,setNavi }) {
-  const tent = {
-    1: {
-      name: "돔텐트",
-      info: "텐트와 관련된 설명 간단하게 근데 이해하기는 쉽게 그러면 이거는 언제 어케 쓰냐 진심 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네미쳐돌아 돌아 내가 미챠 버려 홀라라랄",
-    },
-    2: {
-      name: "티피텐트",
-      info: "텐트와 관련된 설명 간단하게 근데 이해하기는 쉽게 그러면 이거는 언제 어케 쓰냐 진심 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네미쳐돌아 돌아 내가 미챠 버려 홀라라랄",
-    },
-    3: {
-      name: "헥사텐트",
-      info: "텐트와 관련된 설명 간단하게 근데 이해하기는 쉽게 그러면 이거는 언제 어케 쓰냐 진심 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네 미치겠네미쳐돌아 돌아 내가 미챠 버려 홀라라랄",
-    },
-  };
+  const [tent, setTent] = useState({1:{},2:{},3:{}});
+  const [product1, setProduct1] = useState({})
+  const [product2, setProduct2] = useState({})
+  const [product3, setProduct3] = useState({})
 
-  const product1 = {
-    "Cooler 1-1": {
-      name: "Cooler 1-1",
-      price: 1000,
-      option1: "쉬파파파파욜로",
-      option2: "뛰빠빠빠빠욜로",
-      option3: "뛰빠뛰빠뒤빠빠",
-      detail: "세상에서 가장 큰",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    },
-    "Cooler 1-2": {
-      name: "Cooler 1-2",
-      price: 2000,
-      option1: "빨간거",
-      option2: "쉬빨간거",
-      option3: "핵빨간거",
-      detail: "제일 이상한",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    },
-    "Cooler 1-3": {
-      name: "Cooler 1-3",
-      price: 3000,
-      option1: "빨간거",
-      option2: "쉬빨간거",
-      option3: "핵빨간거",
-      detail: "거대한",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    },
-    "Cooler 1-4": {
-      name: "Cooler 1-4",
-      price: 400000,
-      option1: "빨간거",
-      option2: "쉬빨간거",
-      option3: "핵빨간거",
-      detail: "완전 아싸",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    }
-  };
+  function getTentInfo(){
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, "cooler_energy/cooler_energy")).then((snapshot) => {
+      var dbdata = snapshot.val();
+      setTent(dbdata);
+    });
+  }
 
-  const product2 = {
-    "Cooler 2-1": {
-      name: "Cooler 2-1",
-      price: 1000,
-      option1: "쉬파파파파욜로",
-      option2: "뛰빠빠빠빠욜로",
-      option3: "뛰빠뛰빠뒤빠빠",
-      detail: "국내에서 제일 잘 팔리는",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    },
-    "Cooler 2-2": {
-      name: "Cooler 2-2",
-      price: 2000,
-      option1: "빨간거",
-      option2: "쉬빨간거",
-      option3: "핵빨간거",
-      detail: "완전 인싸템",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    },
-    "Cooler 2-3": {
-      name: "Cooler 2-3",
-      price: 3000,
-      option1: "빨간거",
-      option2: "쉬빨간거",
-      option3: "핵빨간거",
-      detail: "정말 커다란",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    },
-    "Cooler 2-4": {
-      name: "Cooler 2-4",
-      price: 400000,
-      option1: "빨간거",
-      option2: "쉬빨간거",
-      option3: "핵빨간거",
-      detail: "획기적인",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    }
-  };
+  function getProductInfo(){
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, "cooler_energy/product1")).then((snapshot) => {
+      var dbdata = snapshot.val();
+      setProduct1(dbdata);
+    });
+    get(child(dbRef, "cooler_energy/product2")).then((snapshot) => {
+      var dbdata = snapshot.val();
+      setProduct2(dbdata);
+    });
+    get(child(dbRef, "cooler_energy/product3")).then((snapshot) => {
+      var dbdata = snapshot.val();
+      setProduct3(dbdata);
+    });
+  }
 
-  const product3 = {
-    "Cooler 3-1": {
-      name: "Cooler 3-1",
-      price: 1000,
-      option1: "쉬파파파파욜로",
-      option2: "뛰빠빠빠빠욜로",
-      option3: "뛰빠뛰빠뒤빠빠",
-      detail: "피면 편안한",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    },
-    "Cooler 3-2": {
-      name: "Cooler 3-2",
-      price: 2000,
-      option1: "빨간거",
-      option2: "하하ㅏ하",
-      option3: "안녕하쇼",
-      detail: "엽기적인",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    },
-    "Cooler 3-3": {
-      name: "Cooler 3-3",
-      price: 3000,
-      option1: "빨갱이",
-      option2: "쉬빨간거",
-      option3: "핵빨간거",
-      detail: "감성템 1위인",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    },
-    "Cooler 3-4": {
-      name: "Cooler 3-4",
-      price: 400000,
-      option1: "빨간거",
-      option2: "쉬빨간거",
-      option3: "핵빨간거",
-      detail: "가성비 좋은",
-      jpg: "",
-      img:require("../../assets/images/Product/T_MAX-01.png"),
-    }
-  };
+  useEffect(()=>{
+    getTentInfo();
+    getProductInfo();
+  }, []);
 
+const [hi,setHi] = useState({});
+//_________________________하단 selete객체 추가__________________
 
-  const [hi,setHi] = useState({});
-  //_________________________하단 selete객체 추가__________________
+const [modalVisible, setModalVisible] = useState(false);
 
-  const [modalVisible, setModalVisible] = useState(false);
-
-  const [morden_select, setMorden_select] = useState(["detail", "name", "price",{}]);
+const [morden_select, setMorden_select] = useState(["detail", "name", "price",{}]);
 
 // -----------------------------------/ store local storage /--------------------------
 const saveToDos = async(toSave) => {
-  await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
 };
 const loadToDos = async() => {
- if (hi != null){
-   try{
-  const s = await AsyncStorage.getItem(STORAGE_KEY);
-  // parse는 string을 javascript object로 만들어 주는 것
-  if(s) setHi(JSON.parse(s));     
-   }
-   catch(err) {alert(err)}}
- 
+if (hi != null){
+ try{
+const s = await AsyncStorage.getItem(STORAGE_KEY);
+// parse는 string을 javascript object로 만들어 주는 것
+if(s) setHi(JSON.parse(s));     
+ }
+ catch(err) {alert(err)}}
+
 };
 
 useEffect(()=>{
@@ -197,109 +89,112 @@ loadToDos();
 }, []);
 //  ------------------------------------------------------------------------------------
 
-  const PickerAdd = (key, name, price, select_option) => {
-    const newPicker = {
-      ...hi,
-      [key]: {
-        "name": name,
-        "price": price,
-        "select_option": select_option,
-        "visible": false,
-      },
-    };
-    setHi(newPicker);
-    saveToDos(newPicker);
-    const newPicker2 = {
-      ...finalhi,
-      [key]: {
-        "name": name,
-        "price": price,
-        "select_option": select_option,
-        "visible": false,
-      },
-    };
-    setFinalhi(newPicker2);
+const PickerAdd = async (key, name, price, select_option, url) => {
+const newPicker = {
+    ...hi,
+    [key]: {
+      "name": name,
+      "price": price,
+      "select_option": select_option,
+      "url": url,
+      "visible": false,
+    },
   };
-
-  const Add = (key, name, price, option1, option2, option3) => {
-    const newAdd = {
-      ...hi,
-      [key]: {
-        "name": name,
-        "price": price,
-        "option1": option1,
-        "option2": option2,
-        "option3": option3,
-        "visible": true,
-      },
-    };
-    setHi(newAdd);
+  setHi(newPicker);
+  saveToDos(newPicker);
+  const newPicker2 = {
+    ...finalhi,
+    [key]: {
+      "name": name,
+      "price": price,
+      "select_option": select_option,
+      "url": url,
+      "visible": false,
+    },
   };
+  setFinalhi(newPicker2);
+};
 
-  //________________________하단 selete 객체 삭제___________________-
-
-  const Delete_product = (key) => {
-    const newProduct = { ...hi }; // toDos 객체를 ...으로 불러와서 다시 만들어 새 객체를 만듬
-    delete newProduct[key]; //이 오브젝트에서 key를 삭제함
-    setHi(newProduct);
-    saveToDos(newProduct);
-    const hihi = {...finalhi};
-    delete hihi[key];
-    setFinalhi(hihi);
+const Add = (key, name, price, option1, option2, option3, url) => {
+  const newAdd = {
+    ...hi,
+    [key]: {
+      "name": name,
+      "price": price,
+      "option1": option1,
+      "option2": option2,
+      "option3": option3,
+      "visible": true,
+      "url": url,
+    },
   };
+  setHi(newAdd);
+};
+
+//________________________하단 selete 객체 삭제___________________-
+
+const Delete_product = (key) => {
+  const newProduct = { ...hi }; // toDos 객체를 ...으로 불러와서 다시 만들어 새 객체를 만듬
+  delete newProduct[key]; //이 오브젝트에서 key를 삭제함
+  setHi(newProduct);
+  saveToDos(newProduct);
+  const hihi = {...finalhi};
+  delete hihi[key];
+  setFinalhi(hihi);
+};
 
 
-  //========================================== Product_info_detail (side)function =====================================
-  const Product_info_detail = ({ detail, name, price, imgs }) => {
-    return (
-      <View style={styles.products}>
-        <View style={{ flexDirection: 'column' }}>
-          <Pressable onPress={() => { setModalVisible(true), setMorden_select([detail, name, price,{img: imgs}]) }}>
-            <Image
-              style={styles.product_image}
-              source={require("../../assets/images/MakeKit/rectangle.png")} />
-          </Pressable>
-          <Text style={styles.content_name}>{name}</Text>
-          <Text style={styles.content_price}>{price}</Text>
-        </View>
+//========================================== Product_info_detail (side)function =====================================
+const Product_info_detail = ({ detail, name, price, url }) => {
+  return (
+    <View style={styles.products}>
+      <View style={{ flexDirection: 'column' }}>
+        <Pressable onPress={() => { setModalVisible(true), setMorden_select([detail, name, price,{uri : url}]) }}>
+          <Image
+            style={styles.product_image}
+            source={{uri : url}} />
+        </Pressable>
+        <Text style={styles.content_name}>{name}</Text>
+        <Text style={styles.content_price}>{price}</Text>
       </View>
-    )
-  };
+    </View>
+  )
+};
 
-  //========================================= Selete box function ========================================
-  const Selete_box = ({ tent_name, keyy, money, option1, option2, option3 }) => {
-    return (
-      <View>
-        <View style={styles.select_box}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            
-            <Image source={require("../../assets/images/MakeKit/rectangle.png")} style={styles.footer_selate_img} />
+//========================================= Selete box function ========================================
+const Selete_box = ({ tent_name, keyy, money, option1, option2, option3, url }) => {
+  return (
+    <View>
+      <View style={styles.select_box}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          
+          <Image source={{uri : url}} style={styles.footer_selate_img} />
 
-            <View style={{ flexDirection: 'column' }}>
-              <View style={{ width: windowWidth / 1.5, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <Text style={{ fontSize: 18 / fontsize, fontWeight: 'bold', color: '#213063', marginTop: windowWidth / 80, }}>{tent_name}</Text>
-                <Text style={{ fontSize: 16 / fontsize, marginTop: windowWidth / 80 }}>{money} 원</Text>
-                <TouchableOpacity onPress={() => Delete_product(keyy)}>
-                  <Image source={require("../../assets/images/MakeKit/canel_button.png")} style={styles.Delete_Button} />
-                </TouchableOpacity>
-              </View>
-
-              <Text style={{ fontSize: 14 / fontsize, marginTop: windowHeight / 500, fontWeight: 'bold' }}>선택한 옵션: {hi[keyy].select_option}</Text>
-
-              <View style={{ flexDirection: "row", width: windowWidth / 1.7, height: windowHeight / 21, marginTop: windowHeight / 100 }}>
-                <TouchableOpacity style={{ ...styles.Picker_Button, height: hi[keyy].visible ? windowHeight / 22.5 : 0 }} onPress={() => { PickerAdd(keyy, tent_name, money, option1) }}><Text style={styles.picker_content}>{option1}</Text></TouchableOpacity>
-                <TouchableOpacity style={{ ...styles.Picker_Button, height: hi[keyy].visible ? windowHeight / 22.5 : 0 }} onPress={() => { PickerAdd(keyy, tent_name, money, option2); }}><Text style={styles.picker_content} >{option2}</Text></TouchableOpacity>
-                <TouchableOpacity style={{ ...styles.Picker_Button, height: hi[keyy].visible ? windowHeight / 22.5 : 0 }} onPress={() => { PickerAdd(keyy, tent_name, money, option3); }}><Text style={styles.picker_content} >{option3}</Text></TouchableOpacity>
-              </View >
+          <View style={{ flexDirection: 'column' }}>
+            <View style={{ width: windowWidth / 1.5, flexDirection: 'row', justifyContent: 'space-between' }}>
+              <Text style={{ fontSize: 18 / fontsize, fontWeight: 'bold', color: '#213063', marginTop: windowWidth / 80, }}>{tent_name}</Text>
+              <Text style={{ fontSize: 16 / fontsize, marginTop: windowWidth / 80 }}>{money} 원</Text>
+              <TouchableOpacity onPress={() => Delete_product(keyy)}>
+                <Image source={require("../../assets/images/MakeKit/canel_button.png")} style={styles.Delete_Button} />
+              </TouchableOpacity>
             </View>
 
+            <Text style={{ fontSize: 14 / fontsize, marginTop: windowHeight / 500, fontWeight: 'bold' }}>선택한 옵션: {hi[keyy].select_option}</Text>
+
+            <View style={{ flexDirection: "row", width: windowWidth / 1.7, height: windowHeight / 21, marginTop: windowHeight / 100 }}>
+              <TouchableOpacity style={{ ...styles.Picker_Button, height: hi[keyy].visible ? windowHeight / 22.5 : 0 }} onPress={() => { PickerAdd(keyy, tent_name, money, option1, url) }}><Text style={styles.picker_content}>{option1}</Text></TouchableOpacity>
+              <TouchableOpacity style={{ ...styles.Picker_Button, height: hi[keyy].visible ? windowHeight / 22.5 : 0 }} onPress={() => { PickerAdd(keyy, tent_name, money, option2, url); }}><Text style={styles.picker_content} >{option2}</Text></TouchableOpacity>
+              <TouchableOpacity style={{ ...styles.Picker_Button, height: hi[keyy].visible ? windowHeight / 22.5 : 0 }} onPress={() => { PickerAdd(keyy, tent_name, money, option3, url); }}><Text style={styles.picker_content} >{option3}</Text></TouchableOpacity>
+            </View >
           </View>
 
-        </View >
+        </View>
 
       </View >
-    )
-  };
+
+    </View >
+  )
+};
 
  //============================================= Navigation=====================================
 
@@ -319,6 +214,8 @@ loadToDos();
  // console.log(finalhi);
  // console.log(morden_select);
  // console.log("MMakeKit_Tent_Navi: ",Navi)
+ console.log("Cooler_Energy")
+
   {/*_______________________________________________________________REAL MAIN_______________________________________________________________________________________- */ }
 
   return (
@@ -350,7 +247,7 @@ loadToDos();
                 <ScrollView horizontal={false}>
                   <Text style={styles.modalText}>Hello World!</Text>
                   <View style={{ width: 300, height: 5000, backgroundColor: "yellow" }}>
-                  <Image source={morden_select[3].img} />
+                  <Image source={morden_select[3].url} />
                   </View>
                 </ScrollView>
               </View>
@@ -386,8 +283,8 @@ loadToDos();
               <View style={styles.specific_item}>
                 {Object.keys(product1).map((key) => (
                   <View key={key} >
-                    <Product_info_detail detail={product1[key].detail} name={product1[key].name} price={product1[key].price} imgs={product1[key].img} />
-                    <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product1[key].name, product1[key].price, product1[key].option1, product1[key].option2, product1[key].option3) }}>
+                    <Product_info_detail detail={product1[key].detail} name={product1[key].name} price={product1[key].price} url={product1[key].imageurl} />
+                    <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product1[key].name, product1[key].price, product1[key].option1, product1[key].option2, product1[key].option3, product1[key].imageurl) }}>
                       <Text style={styles.buy_button}>BUY</Text>
                     </TouchableOpacity>
                   </View>
@@ -405,8 +302,8 @@ loadToDos();
               <View style={styles.specific_item}>
                 {Object.keys(product2).map((key) => (
                   <View key={key}>
-                    <Product_info_detail detail={product2[key].detail} name={product2[key].name} price={product2[key].price} imgs={product2[key].img} />
-                    <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product2[key].name, product2[key].price, product2[key].option1, product2[key].option2, product2[key].option3) }}>
+                    <Product_info_detail detail={product2[key].detail} name={product2[key].name} price={product2[key].price} url={product2[key].imageurl} />
+                    <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product2[key].name, product2[key].price, product2[key].option1, product2[key].option2, product2[key].option3, product2[key].imageurl) }}>
                       <Text style={styles.buy_button}>BUY</Text>
                     </TouchableOpacity>
                   </View>
@@ -424,8 +321,8 @@ loadToDos();
               <View style={styles.specific_item}>
                 {Object.keys(product3).map((key) => (
                   <View key={key}>
-                    <Product_info_detail detail={product3[key].detail} name={product3[key].name} price={product3[key].price} imgs={product3[key].img} />
-                    <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product3[key].name, product3[key].price, product3[key].option1, product3[key].option2, product3[key].option3) }}>
+                    <Product_info_detail detail={product3[key].detail} name={product3[key].name} price={product3[key].price} url={product3[key].imageurl} />
+                    <TouchableOpacity style={styles.check_button} onPress={() => { Add(key, product3[key].name, product3[key].price, product3[key].option1, product3[key].option2, product3[key].option3, product3[key].imageurl) }}>
                       <Text style={styles.buy_button}>BUY</Text>
                     </TouchableOpacity>
                   </View>
@@ -441,7 +338,7 @@ loadToDos();
           <ScrollView horizontal={true} style={{ marginTop: windowHeight / 200 }}>
             {Object.keys(hi).map((key) => (
               <View key={key}>
-                <Selete_box keyy={key} tent_name={hi[key].name} money={hi[key].price} option1={hi[key].option1} option2={hi[key].option2} option3={hi[key].option3} />
+                <Selete_box keyy={key} tent_name={hi[key].name} money={hi[key].price} option1={hi[key].option1} option2={hi[key].option2} option3={hi[key].option3} url={hi[key].url}/>
               </View>
             ))}
           </ScrollView>
