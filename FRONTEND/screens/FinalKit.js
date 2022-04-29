@@ -43,7 +43,6 @@ export default function FinalKit  ({navigation,finalhi}) {
       <Image 
       style={{...styles.Share,height:H ? windowHeight/30:0}}     
       source={require("../assets/images/FinalKit/ShareBtn.png")}></Image>
-    
       </View>
 
       {/* 마지막 구성 */}
@@ -51,23 +50,30 @@ export default function FinalKit  ({navigation,finalhi}) {
             나만의 스타터 키트 구성품
       </Text>
 
-      <View style={styles.body}>
-      <Pressable onPress={() => navigation.navigate("MainPage")}>
-      <Image
-      style={styles.Final}      
-      source={require("../assets/images/FinalKit/Button_buy.png")} 
-      resizeMode="cover"/>
-      </Pressable>
-
-      <ScrollView style={styles.specific_item}>
-    {Object.keys(finalhi).map((key) => (
-      <View key={key}>
+    <ScrollView style={styles.specific_item} horizontal bounces='false'>
+      {Object.keys(finalhi).map((key) => (
+      <View key={key}  style={{marginRight:windowWidth/150}}>
         <Product_info_detail name={finalhi[key].name} price={finalhi[key].price} imgs={finalhi[key].img} />
         </View>
-    ))}
-</ScrollView>
+      ))}
+    </ScrollView>
+   
+    <View flexDirection='row' backgroundColor='blue'>
+        <Pressable onPress={() => navigation.navigate("MainPage")}>
+        <Image
+          style={styles.Final}      
+          source={require("../assets/images/FinalKit/Button_buy.png")} 
+          />
+        </Pressable>
+
       </View>
-   </View>   
+         
+   </View>
+
+
+
+
+   
 
 
       
@@ -80,10 +86,12 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   },
   body:{
-    flexDirection:'row-reverse',
+    flexDirection:'column',
     backgroundColor: "red",
     width: windowWidth,
   },
+
+
   Share: {
     width: windowWidth/5,
     marginRight: windowWidth/50,
@@ -94,17 +102,20 @@ const styles = StyleSheet.create({
     color: "black",
     fontWeight: "400",
     fontSize: 20,
+    alignSelf: 'flex-start',
     fontFamily: 'YiSunShin_B',
 
-    marginBottom: windowHeight * 9 / 32 / 3,
+    marginBottom: windowHeight / 200,
     marginLeft: windowWidth / 40,
   },
   Final: {
-    width: windowWidth/2,
-    marginRight: windowWidth/50,
-    height: windowHeight/30,
-    resizeMode: 'contain',
-    borderRadius: 13,
+    //width: windowWidth/2,
+    //marginRight: windowWidth/50,
+    //height: windowHeight/30,
+    //resizeMode: 'contain',
+    //borderRadius: 13,
+    //resizeMode="cover"
+    backgroundColor:'red'
   },
 //------------------------------------ product_detail ----------------------------
   product_image: {
@@ -115,7 +126,7 @@ const styles = StyleSheet.create({
     marginLeft: windowWidth / 50,
   },
   products: {
-    marginLeft: windowWidth / 20,
+    marginLeft: windowWidth / 50,
     flexDirection: 'row',
     width: windowWidth / 3.5,
     //backgroundColor: "grey",
@@ -127,15 +138,18 @@ const styles = StyleSheet.create({
     color: '#213063',
     fontWeight: 'bold',
   },
+
   content_price: {
+    
     marginLeft: windowWidth / 50,
     fontSize: 16 / fontsize,
   },
+
   specific_item: {
-    width:windowWidth/600,
     flexDirection: 'row',
-    backgroundColor:"green",
-    marginLeft: windowWidth/90,
+    //marginLeft: windowWidth/200,
+    marginBottom: windowHeight/2,
+    marginRight:windowWidth/50
   },
 //-------------------------------------------------------------------------------
 
