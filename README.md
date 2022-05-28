@@ -28,6 +28,10 @@
 ## 캠피릿 썸네일 이미지
 300 x 300 pixel 크기로 찍어주세요
 
+## Campirit PreView
+![KakaoTalk_20220528_202454055](https://user-images.githubusercontent.com/72431775/170829390-14585dce-cf35-4c97-b435-ae4d96115bd9.jpg)
+
+
 ## 파일을 수정할 때 마다, 표시 확실하게 하기
 - issue에도 올리기
 
