@@ -12,17 +12,18 @@ import {
   ImageBackground,
   Easing,
   requireNativeComponent} from 'react-native';
+import { InputAccessoryView } from 'react-native-web';
 
 const windowWidth = Dimensions.get('window').width; 
 const windowHeight = Dimensions.get('window').height;
-export default function Loading1({navigation, ansList}) {
+export default function Loading1({navigation, ansList, Navi}) {
 
 
     const Fadein1 = new Animated.Value(0);
     const Fadein2 = new Animated.Value(0);
     const where = useRef(new Animated.Value(0)).current;
 
-    useEffect(() => {
+    useEffect (() => {
       Animated.sequence([
         Animated.parallel([
           Animated.timing(Fadein1, {
@@ -32,38 +33,110 @@ export default function Loading1({navigation, ansList}) {
           }),
           Animated.timing(
             where,{
-              toValue: -200,
+              toValue: -1120,
               duration: 2000,
               useNativeDriver: true
           })
         ]),
-      Animated.timing(Fadein2, {
-        toValue: 100,
-        duration: 30000,
-        useNativeDriver: true,
-      })
+        Animated.timing(Fadein2, {
+          toValue: 100,
+          duration: 20000,
+          useNativeDriver: true,
+        })
       ]).start();
     },[where,Fadein1,Fadein2]);
 
 
-    setTimeout(() => {
-      navigation.navigate('MakeKit_Tent');
-    }, 3000);
+    useEffect( ()=>{  
+      let timer = setTimeout(() => {
+        navigation.navigate('MakeKit_Tent');
+      }, 4000);
+      return ()=> clearTimeout(timer)
+    },[]) 
 
-  const Navi =() => {
-    if(ansList.A4==1){
 
-    }else if (a==2){
-
+const Navi_hi = () => {
+  for(var i=0 ;i<Navi.length;i++){
+    if(ansList.A8 = 0 ){ // 캠핑 안가는 계절=  여름 && 전기 사용X
+        if(Navi[i][1]== "MakeKit_Cooler_NoEnergy"){
+        Navi.splice(i,1);
+      //  console.log("Navi_Ans8:",Navi)
+      }
+      if(Navi[i][1]== "MakeKit_Heater_NoEnergy"){
+        Navi.splice(i,1);
+      //  console.log("Navi_2:",Navi)
+      }  
     }
+    if(ansList.A8 == 4 ){ // 캠핑 안가는 계절 -- 겨울 && 전기 사용 X
+      if(Navi[i].name=="MakeKit_Heater_Energy"){
+          Navi.splice(i,1);
+      //  console.log("Navi_3:",Navi)
+      }
+      if(Navi[i][1] == "MakeKit_Cooler_NoEnergy"){
+          Navi.splice(i,1);
+      //  console.log("Navi_4:",Navi)
+      }
+    }
+    if(ansList.A9 ==2){  // 전기 사용 안한다면
+      if(Navi[i][1] == "MakeKit_Cooler_Energy"){
+        Navi.splice(i,1);
+      //  console.log("Navi_Ans9:",Navi)
+      }
+      if(Navi[i][1]== "MakeKit_Heater_Energy"){
+        Navi.splice(i,1);
+      //  console.log("Navi_Ans9-1:",Navi)
+      }  
+    }
+    if(ansList.A9 == 1){
+      if(Navi[i][1] == "MakeKit_Cooler_NoEnergy"){
+        Navi.splice(i,1);
+      //  console.log("Navi_Ans9:",Navi)
+      }
+      if(Navi[i][1]== "MakeKit_Heater_NoEnergy"){
+        Navi.splice(i,1);
+      //  console.log("Navi_Ans9-1:",Navi)
+      }
+    }
+    if(ansList.A5 == 2){ //감성 여부
+      if(Navi[i][1]== "MakeKit_Sentiment"){
+        Navi.push(Navi[i]);
+        Navi.splice(i,1);
+      //  console.log("Navi_Ans5:",Navi)
+      }
+    }
+    if(ansList.A6 == 2){ //차박을 안한다면
+      if(Navi[i][1] == "MakeKit_Tarp_NoCar"){
+        Navi.splice(i,1);
+      //  console.log("Navi_Tarp:",Navi)
+      }
+    }
+    if(ansList.A8 == 4 ){ // 캠핑 안가는 계절 -- 겨울 && 전기 사용 X
+      if(Navi[i][1]=="MakeKit_Heater_Energy"){
+        Navi.splice(i,1);
+      //  console.log("Navi_Ans8-1:",Navi)
+      }
+    }
+    if(ansList.Af == 2){
+      if(Navi[i][1]=="MakeKit_Tarp"){
+        Navi.splice(i,1);
+      //  console.log("Navi_Ansf:",Navi)
+      }
+      if(Navi[i][1]=="MakeKit_Tarp_NoCar"){
+        Navi.splice(i,1);
+      //  console.log("Navi_Ansf-1:",Navi)
+      }
+    }
+  }
+  Navi[0][0] = true;
 
-  };
+  return null;
+};
 
-
-
+console.log("Navi:", Navi);
+//console.log("Navi2:", Navi2);
   return (   
-   
     <View style = {styles.container}>
+        <Navi_hi/>
         <View>
           <View style = {styles.for_test} >
             <Animated.Text 

@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import {
     View,
     Text,
@@ -7,274 +7,193 @@ import {
     Dimensions,
     ScrollView,
     TouchableOpacity,
-    Image
+    Image,
 } from 'react-native';
 
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorageLib from '@react-native-async-storage/async-storage';
 
+import { useIsFocused } from '@react-navigation/native';
 
-const hi = {
-    "11": {
-        "name": "tent1",
-        "price": 1000,
-        "select_option": "쉬파파파파욜로",
-        "visible": false,
-        jpg: "",
-    },
-    "12": {
-        "name": "tent2",
-        "price": 2000, "select_option": "핵빨간거",
-        "visible": true,
-        jpg: "",
-    },
-    "19": {
-        "name": "tent3",
-        "price": 3000,
-        "select_option": "빨간거",
-        "visible": true,
-        jpg: "",
-    },
-    "430": {
-        "name": "tent4",
-        "price": 4000,
-        "select_option": "쉬파파파파욜로",
-        "visible": false,
-        jpg: "",
-    },
-
-};
-
-
-
+const STORAGE_KEY="@toDos_main"
 
 const windowWidth = Dimensions.get('window').width;
+
 const windowHeight = Dimensions.get('window').height;
+const StatusBarHeight =
+    Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
-export default function App({ navigation }) {
-    const Check = ({ }) => {
-        var count;
-        count = Object.keys(hi).length;
-        const keys = Object.keys(hi)
-        for (var i = 0;i < count;i++) {
-            if (keys[i] % 10 == 1) {
-                return (
-                    <View>
-                        <Image style={styles.tent}
-                            source={require("../assets/images/MainPage/tent.png")}
-                        />
-                        <Check i={i} />
-                        <Text>
-                            {keys[0]}
-                        </Text>
-                    </View>
+    
+const fontsize =
+Platform.OS === 'ios' ? 1 : 1.3;
 
-                )
-            }
-            else if (keys[i] % 10 == 2) {
-                return (
-                    <View>
-                        < Image
-                            style={styles.tarp}
-                            source={require("../assets/images/MainPage/tarp.png")}
-                        />
-                        <Image
-                            style={styles.tarp}
-                            source={require("../assets/images/MainPage/tarp2.png")}
-                        />
-                        <Text>
-                            {keys[i]}
-                        </Text>
-                    </View>
-                )
-            }
-            else if (keys[i] % 10 == 2) {
-                return (
-                    <View>
-                        <Image
-                            style={styles.tarp}
-                            source={require("../assets/images/MainPage/tarp2.png")}
-                        />
-                        <Text>
-                            {keys[i]}
-                        </Text>
-                    </View>)
-            }
-            else if (keys[i] % 10 == 3) {
-                return (
+export default function App({ navigation, finalhi, setFinalhi, final_select, Setfinal_select,Navi }) {
+const isFocused = useIsFocused();
+
+// -----------------------------------/ store local storage /--------------------------
+const saveToDos = async(toSave) => {
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+ };
+ const loadToDos = async() => {
+   if (finalhi != null){
+     try{
+    const s = await AsyncStorage.getItem(STORAGE_KEY);
+    // parse는 string을 javascript object로 만들어 주는 것
+    if(s) setFinalhi(JSON.parse(s));     
+     }
+     catch(err) {alert(err)}}
+   
+};
+
+useEffect(()=>{
+  loadToDos();
+}, [isFocused]);
+//  ------------------------------------------------------------------------------------
+
+//========================================= Selete box function ========================================
+const Selete_box = ({ tent_name, keyy, money, url }) => {
+
+    return (
+        
+    <View>
+    <View style={styles.select_box}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Image source={{uri : url}} style={styles.footer_selate_img} />
+
+        <View style={{ flexDirection: 'column' }}>
+            <View style={{ width: windowWidth / 1.5, flexDirection: 'row', justifyContent: 'space-between' }}>
+            <Text style={{ fontSize: 18 / fontsize, fontWeight: 'bold', color: '#213063', marginTop: windowWidth / 80, }}>{tent_name}</Text>
+            <Text style={{ fontSize: 16 / fontsize, marginTop: windowWidth / 80 }}>{money} 원</Text>
+            
+            </View>
+
+            <Text style={{ fontSize: 14 / fontsize, marginTop: windowHeight / 500, fontWeight: 'bold' }}>선택한 옵션: {finalhi[keyy].select_option}</Text>
+
+            
+        </View>
+
+        </View>
+
+    </View >
+
+    </View >
+   )
+};
+
+//======================================== Next Navigation =========================================
+
+const NEXT = () => {
+    for(var fff=0;fff<Navi.length;fff++){
+        if(Navi[fff][0] == false){
+            Navi[fff][0]= true;
+            navigation.navigate(Navi[fff][1]);
+            console.log("Navi_num:",Navi[fff][0])
+            break;
+        }
+        if(Navi[fff] == -1){
+            navigation.navigate("Loading2");
+            break;
+        }
+    }
+   console.log("next");
+  };
+
+
+//========================================= MAIN ===============================================
+    return (
+        
+        < View style={styles.container} >
+            <ScrollView bounces='false' >
+                <ScrollView horizontal bounces='false' pagingEnabled='false' style={styles.menu_bar}>
+                    
+    {Navi.map((key) => (
+        <View key={key}>
+        <TouchableOpacity style={styles.menu_content} onPress={ key[0] ? (() => navigation.navigate(key[1])): null}>
+                <Image
+                    style={styles.menu_image}
+                    source={ key[0] ?
+                        key[3].img : 
+                        require("../assets/images/MainPage/Main_.png")} />
+                <Text style={styles.menu_text}> {key[2]} </Text>
+        </TouchableOpacity>
+    </View>
+    ))}
+
+                </ScrollView>
+
+                <View style={styles.background}>
+                    <Image source={require("../assets/images/MainPage/Mainbackground.png")}
+                        style={styles.background} />
+
+                    <Image
+                        style={styles.tent}
+                        source={require("../assets/images/MainPage/tent.png")}
+                    />
+                    <Image
+                        style={styles.tarp}
+                        source={require("../assets/images/MainPage/tarp.png")}
+                    />
+                    <Image
+                        style={styles.tarp2}
+                        source={require("../assets/images/MainPage/tarp2.png")}
+                    />
                     <Image
                         style={styles.mat}
                         source={require("../assets/images/MainPage/mat.png")}
-                    />)
-
-            }
-            else if (keys[i] % 10 == 4) {
-                return (
+                    />
                     <Image
                         style={styles.table}
                         source={require("../assets/images/MainPage/Main_Table.png")}
-                    />)
-            }
-            else if (keys[i] % 10 == 5) {
-                return (
+                    />
                     <Image
                         style={styles.chair}
                         source={require("../assets/images/MainPage/chair.png")}
-                    />)
-            }
-            else if (keys[i] % 10 == 6) {
-                return (
+                    />
                     <Image
                         style={styles.hitter}
                         source={require("../assets/images/MainPage/hitter.png")}
-                    />)
-            }
-            else if (keys[i] % 10 == 7) {
-                return (
+                    />
                     <Image
                         style={styles.hitter2}
                         source={require("../assets/images/MainPage/hitter2.png")}
-                    />)
-            }
-            else if (keys[i] % 10 == 8) {
-                return (
+                    />
                     <Image
                         style={styles.cooler}
                         source={require("../assets/images/MainPage/Main_cooler.png")}
-                    />)
-            }
-            else if (keys[i] % 10 == 9) {
-                return (
+                    />
                     <Image
                         style={styles.etc}
                         source={require("../assets/images/MainPage/etc.png")}
-                    />)
-            }
-            else if (keys[i] % 10 == 10) {
-                return (
+                    />
                     <Image
                         style={styles.kitchen}
                         source={require("../assets/images/MainPage/kitchen.png")}
-                    />)
-            }
-            else if (keys[i] % 10 == 11) {
-                return (
+                    />
                     <Image
                         style={styles.mood}
                         source={require("../assets/images/MainPage/Main_mood.png")}
-                    />)
-            }
-            else if (keys[i] % 10 == 12) {
-                return (
+                    />
                     <Image
                         style={styles.box}
                         source={require("../assets/images/MainPage/Main_box.png")}
-                    />)
-            }
-            else {
-                return (
-                    <Text style={styles.menu_text}>
-                        {keys[i]}
-                    </Text>
-                )
-            }
-        }
-    }
+                    />
 
-
-    return (
-        < View style={styles.container} >
-            <ScrollView bounces='false' >
-                {/*_______________________________________________________________MENU BAR_______________________________________________________________________________________- */}
-
-                <ScrollView horizontal bounces='false' pagingEnabled='false' style={styles.menu_bar}>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_tent.png")} />
-                        <Text style={styles.menu_text}> 텐트 </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_Tarp.png")} />
-                        <Text style={styles.menu_text}> 타프 </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_mat.png")} />
-                        <Text style={styles.menu_text}> 매트 </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_Table.png")} />
-                        <Text style={styles.menu_text}> 테이블 </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_chair.png")} />
-                        <Text style={styles.menu_text}> 체어 </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_hitter.png")} />
-                        <Text style={styles.menu_text}> 난로 </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_cooler.png")} />
-                        <Text style={styles.menu_text}> 에어컨 </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_etc.png")} />
-                        <Text style={styles.menu_text}> 기타용품 </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_kitchen.png")} />
-                        <Text style={styles.menu_text}> 주방용품 </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_mood.png")} />
-                        <Text style={styles.menu_text}> 감성용품 </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_box.png")} />
-                        <Text style={styles.menu_text}> 폴딩박스 </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.menu_content}>
-                        <Image
-                            style={styles.menu_image}
-                            source={require("../assets/images/MainPage/Main_.png")} />
-                        <Text style={styles.menu_text}> 미개봉 </Text>
-                    </TouchableOpacity>
-                </ScrollView>
-
-                {/*_______________________________________________________________물건 바_______________________________________________________________________________________- */}
-
-                <View style={styles.background}>
-
-                    <Image source={require("../assets/images/MainPage/Mainbackground.png")}
-                        style={styles.background} />
-                    <Check />
                 </View>
+
 
                 <Text style={styles.head}>나만의 스타터 키트 구성품</Text>
-                <View>
-                    <Text style={styles.test1}>* 키트의구성품을 지우기 위해서는, 해당 메뉴로 이동해주세요. /Text>
-                </View>
 
+                <View>
+                <ScrollView horizontal={false} style={{ marginTop: windowHeight / 200 }}>
+            {Object.keys(finalhi).map((key) => (
+              <View key={key}>
+                <Selete_box keyy={key} tent_name={finalhi[key].name} money={finalhi[key].price} url={finalhi[key].url}/>
+              </View>
+            ))}
+          </ScrollView>
+                </View>
 
             </ScrollView>
 
@@ -285,7 +204,7 @@ export default function App({ navigation }) {
                     <Image
                         style={styles.car}
                         source={require("../assets/images/MainPage/camping_car.png")} />
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={NEXT}>
                         <Image
                             style={styles.nextbutton}
                             source={require("../assets/images/MainPage/NEXT.png")} />
@@ -296,9 +215,14 @@ export default function App({ navigation }) {
                     style={styles.bar}
                     source={require("../assets/images/MainPage/Bar.png")} />
             </View>
+
+
         </View >
-    )
+    );
 };
+
+
+
 
 
 const styles = StyleSheet.create({
@@ -315,6 +239,17 @@ const styles = StyleSheet.create({
         zIndex: 0,
 
 
+    },
+
+    tent: {
+        position: 'absolute',
+        zIndex: 2,
+        opacity: 1,
+        alignSelf: 'center',
+        resizeMode: 'contain',
+        width: windowWidth / 1.8,
+        height: windowWidth / 1.5,
+        marginTop: windowWidth / 2.8
     },
 
     tent: {
@@ -512,6 +447,10 @@ const styles = StyleSheet.create({
 
     },
 
+    footer:
+    {
+
+    },
 
     nextbutton: {
         resizeMode: 'contain',
@@ -533,8 +472,33 @@ const styles = StyleSheet.create({
         height: windowHeight / 20,
 
     },
+    footer_selate_img: {
+        marginLeft: windowWidth / 50,
+        marginRight: windowWidth / 70,
+        height: windowHeight / 9.55,
+        width: windowWidth / 4.4
+      },
+
+//------------------------- select_Box ------------------------------
+    select_box: {
+        zIndex: 0,
+        marginRight: windowWidth / 30,
+        marginTop: windowHeight / 200,
+        left: windowWidth / 70,
+        height: windowHeight / 8,
+        width: windowWidth / 1.1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderWidth: 1,
+        borderStyle: 'dashed',
+      },
+      Delete_Button: {
+        resizeMode: 'contain',
+        justifyContent: "center",
+        width: windowWidth / 20,
+      },
 
 
 
-})
 
+    })

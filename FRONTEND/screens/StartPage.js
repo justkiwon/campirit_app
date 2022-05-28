@@ -27,12 +27,6 @@ export default function StartPage({ navigation }) {
         <TouchableOpacity style={styles.BButton} onPress={() => navigation.navigate('QuizStart')}>
           <Image source={require("../assets/images/startPage/Button.png")} />
         </TouchableOpacity>
-
-
-        <TouchableOpacity style={styles.BButton} onPress={() => navigation.navigate('MainPage')}>
-          <Image source={require("../assets/images/startPage/Button.png")} />
-        </TouchableOpacity>
-
         <Image style={styles.tent} source={require("../assets/images/startPage/Tent.png")} />
 
       </ImageBackground>
