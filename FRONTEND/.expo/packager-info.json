@@ -6,5 +6,5 @@
   "packagerNgrokUrl": null,
   "ngrokPid": null,
   "packagerPid": null,
-  "webpackServerPort": null
+  "webpackServerPort": 19006
 }

@@ -105,7 +105,7 @@ export default function App() {
           ({ navigation }) => <QuizSituation navigation={navigation} ansList={ansList} />
         } />
         <Stack.Screen name="Quiz1" options={{ headerShown: false }} children={
-          ({ navigation }) => <Quiz1 navigation={navigation} ansList={ansList} setansList={setansList} />
+          ({ navigation  }) => <Quiz1 navigation={navigation} ansList={ansList} setansList={setansList} />
         } />
         <Stack.Screen name="Quiz2" options={{ headerShown: false }} children={
           ({ navigation }) => <Quiz2 navigation={navigation} ansList={ansList} setansList={setansList} />
