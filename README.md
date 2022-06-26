@@ -33,7 +33,7 @@
   * [Download from app store](https://apps.apple.com/app/apple-store/id982107779)
   * [Download from Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)
 2. Scan Code 
-![image](https://user-images.githubusercontent.com/74506112/175809944-6eb63ce2-d3ba-4486-badc-0888402ea7ee.png)
+/ ![image](https://user-images.githubusercontent.com/74506112/175809944-6eb63ce2-d3ba-4486-badc-0888402ea7ee.png)
 3. Run.
 
 ### Method 2: Download APK file
