@@ -1,4 +1,23 @@
 # campirit_app
+개발언어: FRONTEND: REACT-NATIVE(java script)
+          BACKEND: fire-base
+## CAMPRIT-APP이란          
+CAMPIRIT-APP은 초보 캠퍼들이 무엇을 사야 할지 몰라 막막할 때 무엇을 사야 하는지 순차적으로 알려주는 솔루션 플랫폼입니다. 
+       
+## 팀원 소개
+
+### 김서윤 ( 기획, DESIGNER, FRONTEND )
+  - 디자인, 퍼블리싱 
+  - FRONTEND (MAIN PAGE, LOADING PAGE1,2)
+### 김기원 (기획,FRONTEND)
+  - FRONTEND(START_PAGE,MAKEKIT 페이지들)
+### 정재윤 (기획, BACKEND)
+  - BACKEND
+### 최혜림 (기획, FRONTNED)
+  - FRONTNEND(FINALKIT)
+### 박지후 (기획, FRONTEND)
+  - FRONTEND(QUIZ_START,QUIZ_SITUATION)
+
 
 ## 캠피릿 백엔드 데이터 설정방법
 
