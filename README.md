@@ -42,5 +42,5 @@
 4. Run.
 
 ### Method 2: Download APK file
-1. Download APK file at Github 
+1. [Download APK file at Github](https://github.com/justkiwon/campirit_app/releases/tag/v1.0.0)
 2. Install and run.
