@@ -1,6 +1,3 @@
-.
-
-
 # CAMPIRIT_APP
 ## Language
 * FRONTEND: REACT-NATIVE(java script)
