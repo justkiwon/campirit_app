@@ -27,7 +27,6 @@
 ### CAMPIRIT MASCOT & LOGO
 ![image](https://user-images.githubusercontent.com/74506112/175810120-d18cd2d3-60db-43dc-ae84-626b1d44a0bc.png)    ![KakaoTalk_20220626_193602759](https://user-images.githubusercontent.com/74506112/175810375-d6f14b8e-7d11-4abe-9006-3ef9137790b6.png)
 
-
 ### CAMPIRIT PREVIEW
 ![KakaoTalk_20220528_202454055](https://user-images.githubusercontent.com/72431775/170829522-0d6c67f2-d2e1-4d95-80dc-9886d2d48c4e.jpg)
 
