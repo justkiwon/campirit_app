@@ -1,8 +1,8 @@
 # campirit_app
-개발언어: FRONTEND: REACT-NATIVE(java script)
+개발언어: FRONTEND: REACT-NATIVE(java script)\
           BACKEND: fire-base
 ## CAMPRIT-APP이란          
-CAMPIRIT-APP은 초보 캠퍼들이 무엇을 사야 할지 몰라 막막할 때 무엇을 사야 하는지 순차적으로 알려주는 솔루션 플랫폼입니다. 
+CAMPIRIT-APP은 초보 캠퍼들이 무엇을 사야 할지 몰라 막막할 때\ 무엇을 사야 하는지 가이드를 해주는 솔루션 플랫폼입니다. 
        
 ## 팀원 소개
 
